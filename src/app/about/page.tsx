@@ -7,6 +7,7 @@ import StaggerContainer from '@/components/animations/StaggerContainer';
 import StaggerItem from '@/components/animations/StaggerItem';
 import ParallaxFloat from '@/components/animations/ParallaxFloat';
 import SpotlightCard from '@/components/animations/SpotlightCard';
+import TiltCard from '@/components/animations/TiltCard';
 import InteractiveParticles from '@/components/animations/InteractiveParticles';
 
 export const metadata: Metadata = {
@@ -265,41 +266,133 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ============ WHY MAGTAN ============ */}
+      {/* ============ WHY MAGTAN (REDESIGNED) ============ */}
       <section className="bg-navy section-padding relative overflow-hidden">
+        {/* Deep ambient atmospheric effects */}
         <InteractiveParticles density="low" maxDistance={120} mouseRadius={150} />
         <div className="absolute inset-0 pointer-events-none pattern-dots-light" />
         <ParallaxFloat className="top-10 -right-20 w-80 h-80 border border-white/[0.04] rounded-full" speed={0.15} />
         <ParallaxFloat className="-bottom-20 -left-20 w-96 h-96 border border-white/[0.03] rounded-full" speed={0.1} direction="down" />
-        <ParallaxFloat className="top-1/2 left-1/3 w-24 h-24 bg-gold/[0.04] rounded-full blur-2xl" speed={0.25} />
+        <ParallaxFloat className="top-1/2 left-1/3 w-28 h-28 bg-gold/[0.04] rounded-full blur-2xl" speed={0.25} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-white/[0.02] rounded-full pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading label="Why Magtan" title="What Sets Us Apart" align="center" light />
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+          <SectionHeading
+            label="Why Magtan"
+            title="What Sets Us Apart"
+            description="Our competitive advantage lies in combining U.S. institutional governance with high-caliber global delivery teams."
+            align="center"
+            light
+          />
+
+          <StaggerContainer className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-14 max-w-6xl mx-auto">
             {[
               {
+                number: '01',
+                category: 'Corporate Governance',
                 title: 'U.S. Business Presence',
-                desc: 'As a Delaware-registered corporation, we provide our clients with a reliable U.S. business entity for contracting and invoicing.',
+                desc: 'As a Delaware-registered corporation, we provide our clients with a recognized, compliant U.S. corporate entity for contracting, invoicing, and institutional security.',
+                highlights: [
+                  'Delaware Registered (File #10631049)',
+                  'Direct U.S. Client Contracting & Invoicing',
+                  'Institutional Stripe Verification Standards',
+                ],
+                icon: (
+                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.5M4.5 21V10.5m15 0H4.5M21 21H3" />
+                  </svg>
+                ),
               },
               {
+                number: '02',
+                category: 'Global Reach',
                 title: 'International Coordination',
-                desc: 'We bridge the gap between international client needs and skilled delivery teams, ensuring clear communication and smooth project execution.',
+                desc: 'We bridge the gap between international client objectives and vetted offshore delivery teams, ensuring clear communication, aligned workflows, and smooth execution.',
+                highlights: [
+                  'U.S. & International Enterprise Clients',
+                  'Experienced India-Based Delivery Teams',
+                  'Seamless Cross-Border Communication',
+                ],
+                icon: (
+                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+                  </svg>
+                ),
               },
               {
+                number: '03',
+                category: 'Delivery Discipline',
                 title: 'Professional Management',
-                desc: 'Every engagement is managed with discipline — from requirements analysis through delivery monitoring and customer support.',
+                desc: 'Every engagement is governed with rigorous discipline — from technical scope definition and milestone governance through delivery verification and ongoing support.',
+                highlights: [
+                  'Comprehensive Requirements Analysis',
+                  'Structured Milestone & SLA Monitoring',
+                  'End-to-End Post-Delivery Support',
+                ],
+                icon: (
+                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                  </svg>
+                ),
               },
             ].map((item) => (
               <StaggerItem key={item.title}>
-                <SpotlightCard
-                  spotlightColor="rgba(201, 164, 76, 0.15)"
-                  borderColor="rgba(201, 164, 76, 0.5)"
-                  className="border border-white/10 rounded-lg p-7 hover:border-gold/30 transition-colors duration-300 h-full"
-                >
-                  <span className="accent-line mb-5" />
-                  <h3 className="text-white text-lg font-semibold mb-3">{item.title}</h3>
-                  <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
-                </SpotlightCard>
+                <TiltCard tiltMaxAngle={5} className="h-full">
+                  <SpotlightCard
+                    spotlightColor="rgba(201, 164, 76, 0.2)"
+                    borderColor="rgba(201, 164, 76, 0.55)"
+                    className="group bg-gradient-to-b from-white/[0.07] to-white/[0.02] border border-white/15 backdrop-blur-xl rounded-2xl p-8 sm:p-9 hover:border-gold/60 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(201,164,76,0.12)] transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full"
+                  >
+                    <div>
+                      {/* Top Bar: Icon Badge & Number */}
+                      <div className="flex items-start justify-between gap-4 mb-6">
+                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-gold/20 via-gold/10 to-white/5 border border-gold/40 flex items-center justify-center text-gold group-hover:scale-105 group-hover:bg-gold/25 group-hover:border-gold transition-all duration-300 shadow-md">
+                          {item.icon}
+                        </div>
+                        <span className="font-mono text-xs font-bold text-gold tracking-widest px-3 py-1 rounded-full bg-gold/15 border border-gold/30 shadow-xs">
+                          {item.number}
+                        </span>
+                      </div>
+
+                      {/* Category Sub-badge */}
+                      <p className="text-gold text-xs font-semibold tracking-wider uppercase mb-1.5">
+                        {item.category}
+                      </p>
+
+                      {/* Card Title */}
+                      <h3 className="text-white text-2xl font-bold mb-3 tracking-tight group-hover:text-gold-light transition-colors">
+                        {item.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-white/75 text-sm leading-relaxed mb-6 font-normal">
+                        {item.desc}
+                      </p>
+
+                      {/* Highlights / Institutional Checklist */}
+                      <div className="space-y-2.5 pt-4 border-t border-white/10 mb-6">
+                        {item.highlights.map((h) => (
+                          <div key={h} className="flex items-center gap-2.5 text-xs text-white/85">
+                            <span className="w-4 h-4 rounded-full bg-gold/20 border border-gold/40 flex items-center justify-center shrink-0 text-gold">
+                              <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                              </svg>
+                            </span>
+                            <span className="font-medium">{h}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Interactive Footer */}
+                    <div className="pt-5 border-t border-white/10 flex items-center justify-between mt-auto">
+                      <span className="text-[11px] font-semibold text-white/50 uppercase tracking-wider group-hover:text-gold transition-colors">
+                        Strategic Advantage
+                      </span>
+                      <span className="w-8 h-0.5 bg-gold/40 rounded-full group-hover:w-16 group-hover:bg-gold transition-all duration-300" />
+                    </div>
+                  </SpotlightCard>
+                </TiltCard>
               </StaggerItem>
             ))}
           </StaggerContainer>

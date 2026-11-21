@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import HomeHero from '@/components/HomeHero';
+import HomeServices from '@/components/HomeServices';
 import SectionHeading from '@/components/SectionHeading';
 import FadeIn from '@/components/animations/FadeIn';
 import StaggerContainer from '@/components/animations/StaggerContainer';
@@ -14,45 +15,6 @@ export const metadata: Metadata = {
   description:
     'MAGTAN INTERNATIONAL HOLDINGS INC is a Delaware-registered U.S. corporation focused on international business development, IT consulting, software development and digital solutions.',
 };
-
-const services = [
-  {
-    icon: (
-      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
-      </svg>
-    ),
-    title: 'IT Consulting',
-    desc: 'Strategic technology consulting and IT project planning for business transformation.',
-  },
-  {
-    icon: (
-      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
-      </svg>
-    ),
-    title: 'Software Development',
-    desc: 'Custom software, web applications and enterprise solutions built for your business needs.',
-  },
-  {
-    icon: (
-      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
-      </svg>
-    ),
-    title: 'Digital & Data Solutions',
-    desc: 'Data conversion, digital content processing and document management solutions.',
-  },
-  {
-    icon: (
-      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-      </svg>
-    ),
-    title: 'International Project Management',
-    desc: 'End-to-end project coordination bridging international clients with delivery teams.',
-  },
-];
 
 const missionItems = [
   'Build strong international customer relationships.',
@@ -69,8 +31,8 @@ export default function HomePage() {
       <HomeHero />
 
       {/* ============ INTRODUCTION ============ */}
-      <section className="section-padding relative overflow-hidden cursor-crosshair">
-        <InteractiveParticles theme="light" density="medium" maxDistance={130} mouseRadius={160} />
+      <section className="section-padding relative overflow-hidden">
+        <InteractiveParticles theme="light" density="low" showLines={false} mouseRadius={150} />
         <ParallaxFloat className="-top-20 -right-20 w-80 h-80 bg-gold/[0.03] rounded-full blur-3xl" speed={0.25} />
         <ParallaxFloat className="bottom-10 -left-20 w-96 h-96 bg-navy/[0.02] rounded-full blur-3xl" speed={0.15} direction="down" />
         <ParallaxFloat className="top-1/2 right-1/4 w-40 h-40 border border-gold/[0.04] rounded-full" speed={0.1} />
@@ -130,49 +92,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ SERVICES OVERVIEW ============ */}
-      <section className="section-padding bg-bg-light relative overflow-hidden">
-        <InteractiveParticles theme="light" density="low" maxDistance={120} mouseRadius={150} />
-        <div className="absolute inset-0 pointer-events-none pattern-dots" />
-        <ParallaxFloat className="top-10 -left-16 w-72 h-72 border border-navy/[0.04] rounded-full" speed={0.15} />
-        <ParallaxFloat className="-bottom-12 -right-12 w-56 h-56 border border-gold/[0.06] rounded-full" speed={0.2} direction="down" />
-        <ParallaxFloat className="top-1/3 right-10 w-20 h-20 bg-gold/[0.04] rounded-full blur-2xl" speed={0.3} />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            label="Our Services"
-            title="Comprehensive Technology & Business Solutions"
-            description="We deliver a range of technology and business services, coordinating skilled teams to meet international client requirements."
-            align="center"
-          />
-
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
-            {services.map((service) => (
-              <StaggerItem key={service.title}>
-                <SpotlightCard className="bg-white border border-border p-7 rounded-lg hover:border-gold/40 transition-all duration-300 group card-interactive h-full">
-                  <div className="w-12 h-12 rounded bg-navy/5 flex items-center justify-center text-navy group-hover:bg-gold/10 group-hover:text-gold transition-colors duration-300 mb-5">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-lg font-semibold text-text-dark mb-2">{service.title}</h3>
-                  <p className="text-sm text-text-body leading-relaxed">{service.desc}</p>
-                </SpotlightCard>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-
-          <FadeIn delay={0.3}>
-            <div className="text-center mt-10">
-              <Link href="/services" className="btn-outline-navy">
-                View All Services
-              </Link>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      {/* ============ SERVICES OVERVIEW (REDESIGNED) ============ */}
+      <HomeServices />
 
       {/* ============ MISSION ============ */}
       <section className="section-padding relative overflow-hidden">
-        <InteractiveParticles theme="light" density="low" maxDistance={120} mouseRadius={150} />
+        <InteractiveParticles theme="light" density="low" showLines={false} mouseRadius={150} />
         <div className="absolute inset-0 pointer-events-none pattern-diagonal" />
         <ParallaxFloat className="top-20 -right-16 w-72 h-72 bg-navy/[0.02] rounded-full blur-3xl" speed={0.2} />
         <ParallaxFloat className="-bottom-10 left-10 w-48 h-48 border border-gold/[0.05] rounded-full" speed={0.15} direction="down" />

@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About Us' },
-  { href: '/services', label: 'Services' },
+  { href: '/services', label: 'Products & Services' },
   { href: '/how-we-work', label: 'How We Work' },
   { href: '/contact', label: 'Contact Us' },
 ];
@@ -87,7 +87,7 @@ export default function Header() {
                 >
                   <Link
                     href={link.href}
-                    className={`px-4 py-2 text-sm font-medium transition-colors duration-200 relative ${
+                    className={`px-3 xl:px-4 py-2 text-sm font-medium transition-colors duration-200 relative whitespace-nowrap ${
                       isActive
                         ? 'text-navy'
                         : 'text-text-body hover:text-navy'
@@ -97,7 +97,7 @@ export default function Header() {
                     {isActive && (
                       <motion.span
                         layoutId="activeNavIndicator"
-                        className="absolute bottom-0 left-4 right-4 h-0.5 bg-gold rounded-full"
+                        className="absolute bottom-0 left-3 right-3 xl:left-4 xl:right-4 h-0.5 bg-gold rounded-full"
                         transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                       />
                     )}
