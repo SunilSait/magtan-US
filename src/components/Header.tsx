@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -30,7 +31,10 @@ export default function Header() {
   }, [pathname]);
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
       className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${
         scrolled ? 'shadow-md' : 'border-b border-border'
       }`}
@@ -52,37 +56,53 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => {
+            {navLinks.map((link, i) => {
               const isActive = pathname === link.href;
               const isContact = link.href === '/contact';
 
               if (isContact) {
                 return (
-                  <Link
+                  <motion.div
                     key={link.href}
-                    href={link.href}
-                    className="ml-4 btn-primary text-sm py-2.5 px-6"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.08 * i + 0.2 }}
                   >
-                    Contact Us
-                  </Link>
+                    <Link
+                      href={link.href}
+                      className="ml-4 btn-primary text-sm py-2.5 px-6"
+                    >
+                      Contact Us
+                    </Link>
+                  </motion.div>
                 );
               }
 
               return (
-                <Link
+                <motion.div
                   key={link.href}
-                  href={link.href}
-                  className={`px-4 py-2 text-sm font-medium transition-colors duration-200 relative ${
-                    isActive
-                      ? 'text-navy'
-                      : 'text-text-body hover:text-navy'
-                  }`}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.08 * i + 0.2 }}
                 >
-                  {link.label}
-                  {isActive && (
-                    <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-gold rounded-full" />
-                  )}
-                </Link>
+                  <Link
+                    href={link.href}
+                    className={`px-4 py-2 text-sm font-medium transition-colors duration-200 relative ${
+                      isActive
+                        ? 'text-navy'
+                        : 'text-text-body hover:text-navy'
+                    }`}
+                  >
+                    {link.label}
+                    {isActive && (
+                      <motion.span
+                        layoutId="activeNavIndicator"
+                        className="absolute bottom-0 left-4 right-4 h-0.5 bg-gold rounded-full"
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </Link>
+                </motion.div>
               );
             })}
           </nav>
@@ -111,31 +131,43 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <div
-        className={`lg:hidden overflow-hidden transition-all duration-300 ${
-          mobileMenuOpen ? 'max-h-96 border-t border-border' : 'max-h-0'
-        }`}
-      >
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-1">
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`block px-4 py-3 rounded text-sm font-medium transition-colors ${
-                  isActive
-                    ? 'bg-bg-light text-navy'
-                    : 'text-text-body hover:bg-bg-light hover:text-navy'
-                }`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-        </nav>
-      </div>
-    </header>
+      {/* Mobile Menu — AnimatePresence */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="lg:hidden overflow-hidden border-t border-border"
+          >
+            <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-1">
+              {navLinks.map((link, i) => {
+                const isActive = pathname === link.href;
+                return (
+                  <motion.div
+                    key={link.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: 0.05 * i }}
+                  >
+                    <Link
+                      href={link.href}
+                      className={`block px-4 py-3 rounded text-sm font-medium transition-colors ${
+                        isActive
+                          ? 'bg-bg-light text-navy'
+                          : 'text-text-body hover:bg-bg-light hover:text-navy'
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 }

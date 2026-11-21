@@ -1,6 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import HomeHero from '@/components/HomeHero';
 import SectionHeading from '@/components/SectionHeading';
+import FadeIn from '@/components/animations/FadeIn';
+import StaggerContainer from '@/components/animations/StaggerContainer';
+import StaggerItem from '@/components/animations/StaggerItem';
+import ParallaxFloat from '@/components/animations/ParallaxFloat';
+import SpotlightCard from '@/components/animations/SpotlightCard';
+import InteractiveParticles from '@/components/animations/InteractiveParticles';
 
 export const metadata: Metadata = {
   title: 'MAGTAN INTERNATIONAL HOLDINGS INC | One Vision. A Global Future.',
@@ -59,47 +66,18 @@ export default function HomePage() {
   return (
     <>
       {/* ============ HERO ============ */}
-      <section className="relative bg-navy overflow-hidden">
-        {/* Background elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] border border-white/5 rounded-full -translate-y-1/3 translate-x-1/4" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] border border-white/5 rounded-full translate-y-1/3 -translate-x-1/4" />
-          <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px] border border-white/[0.02] rounded-full -translate-x-1/2 -translate-y-1/2" />
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 lg:py-36">
-          <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
-            <p className="text-gold text-sm font-semibold tracking-widest uppercase mb-6">
-              MAGTAN INTERNATIONAL HOLDINGS INC
-            </p>
-            <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.15] tracking-tight max-w-3xl">
-              One Vision.{' '}
-              <span className="text-gold">A Global Future.</span>
-            </h1>
-            <p className="mt-6 text-white/70 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-              A Delaware-registered U.S. corporation focused on international business development
-              and technology services.
-            </p>
-            <div className="mt-10 flex flex-wrap justify-center items-center gap-4">
-              <Link href="/services" className="btn-primary">
-                Our Services
-              </Link>
-              <Link href="/contact" className="btn-secondary">
-                Get in Touch
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom gold line */}
-        <div className="h-1 bg-gradient-to-r from-gold via-gold/60 to-transparent" />
-      </section>
+      <HomeHero />
 
       {/* ============ INTRODUCTION ============ */}
-      <section className="section-padding">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding relative overflow-hidden cursor-crosshair">
+        <InteractiveParticles theme="light" density="medium" maxDistance={130} mouseRadius={160} />
+        <ParallaxFloat className="-top-20 -right-20 w-80 h-80 bg-gold/[0.03] rounded-full blur-3xl" speed={0.25} />
+        <ParallaxFloat className="bottom-10 -left-20 w-96 h-96 bg-navy/[0.02] rounded-full blur-3xl" speed={0.15} direction="down" />
+        <ParallaxFloat className="top-1/2 right-1/4 w-40 h-40 border border-gold/[0.04] rounded-full" speed={0.1} />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start">
-            <div className="lg:col-span-3">
+            <FadeIn direction="left" className="lg:col-span-3">
               <SectionHeading
                 label="Who We Are"
                 title="International Business Development & Technology Services"
@@ -119,52 +97,48 @@ export default function HomePage() {
                   management and skilled technology delivery teams.
                 </p>
               </div>
-              <Link href="/about" className="btn-outline-navy mt-8 inline-flex">
+              <Link href="/about" className="btn-outline-navy mt-8 inline-flex cursor-pointer">
                 Learn More About Us
               </Link>
-            </div>
-            <div className="lg:col-span-2">
-              <div className="bg-bg-light rounded-lg p-8 border border-border">
+            </FadeIn>
+
+            <FadeIn direction="right" delay={0.2} className="lg:col-span-2">
+              <SpotlightCard className="bg-bg-light rounded-lg p-8 border border-border card-interactive hover:shadow-xl transition-all duration-300">
                 <h3 className="text-lg font-semibold text-text-dark mb-2">Delaware Corporation</h3>
                 <p className="text-sm text-text-body mb-4">
                   Established with an international business vision to connect global opportunities
                   with capable delivery resources.
                 </p>
                 <div className="space-y-3 text-sm">
-                  <div className="flex items-start gap-3">
-                    <span className="mt-0.5 w-5 h-5 rounded-full bg-navy/10 flex items-center justify-center shrink-0">
-                      <span className="w-1.5 h-1.5 rounded-full bg-navy" />
-                    </span>
-                    <span className="text-text-body">U.S.-registered corporation</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="mt-0.5 w-5 h-5 rounded-full bg-navy/10 flex items-center justify-center shrink-0">
-                      <span className="w-1.5 h-1.5 rounded-full bg-navy" />
-                    </span>
-                    <span className="text-text-body">International client relationships</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="mt-0.5 w-5 h-5 rounded-full bg-navy/10 flex items-center justify-center shrink-0">
-                      <span className="w-1.5 h-1.5 rounded-full bg-navy" />
-                    </span>
-                    <span className="text-text-body">India-based delivery teams</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="mt-0.5 w-5 h-5 rounded-full bg-navy/10 flex items-center justify-center shrink-0">
-                      <span className="w-1.5 h-1.5 rounded-full bg-navy" />
-                    </span>
-                    <span className="text-text-body">Professional project management</span>
-                  </div>
+                  {[
+                    'U.S.-registered corporation',
+                    'International client relationships',
+                    'India-based delivery teams',
+                    'Professional project management',
+                  ].map((item) => (
+                    <div key={item} className="flex items-start gap-3 group/item transition-transform duration-200 hover:translate-x-1">
+                      <span className="mt-0.5 w-5 h-5 rounded-full bg-navy/10 flex items-center justify-center shrink-0 group-hover/item:bg-gold/20 transition-colors duration-200">
+                        <span className="w-1.5 h-1.5 rounded-full bg-navy group-hover/item:bg-gold transition-colors duration-200" />
+                      </span>
+                      <span className="text-text-body group-hover/item:text-text-dark transition-colors duration-200">{item}</span>
+                    </div>
+                  ))}
                 </div>
-              </div>
-            </div>
+              </SpotlightCard>
+            </FadeIn>
           </div>
         </div>
       </section>
 
       {/* ============ SERVICES OVERVIEW ============ */}
-      <section className="section-padding bg-bg-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding bg-bg-light relative overflow-hidden">
+        <InteractiveParticles theme="light" density="low" maxDistance={120} mouseRadius={150} />
+        <div className="absolute inset-0 pointer-events-none pattern-dots" />
+        <ParallaxFloat className="top-10 -left-16 w-72 h-72 border border-navy/[0.04] rounded-full" speed={0.15} />
+        <ParallaxFloat className="-bottom-12 -right-12 w-56 h-56 border border-gold/[0.06] rounded-full" speed={0.2} direction="down" />
+        <ParallaxFloat className="top-1/3 right-10 w-20 h-20 bg-gold/[0.04] rounded-full blur-2xl" speed={0.3} />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             label="Our Services"
             title="Comprehensive Technology & Business Solutions"
@@ -172,87 +146,105 @@ export default function HomePage() {
             align="center"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
             {services.map((service) => (
-              <div
-                key={service.title}
-                className="bg-white border border-border p-7 rounded-lg hover:border-gold/40 transition-all duration-300 group"
-              >
-                <div className="w-12 h-12 rounded bg-navy/5 flex items-center justify-center text-navy group-hover:bg-gold/10 group-hover:text-gold transition-colors duration-300 mb-5">
-                  {service.icon}
-                </div>
-                <h3 className="text-lg font-semibold text-text-dark mb-2">{service.title}</h3>
-                <p className="text-sm text-text-body leading-relaxed">{service.desc}</p>
-              </div>
+              <StaggerItem key={service.title}>
+                <SpotlightCard className="bg-white border border-border p-7 rounded-lg hover:border-gold/40 transition-all duration-300 group card-interactive h-full">
+                  <div className="w-12 h-12 rounded bg-navy/5 flex items-center justify-center text-navy group-hover:bg-gold/10 group-hover:text-gold transition-colors duration-300 mb-5">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold text-text-dark mb-2">{service.title}</h3>
+                  <p className="text-sm text-text-body leading-relaxed">{service.desc}</p>
+                </SpotlightCard>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
 
-          <div className="text-center mt-10">
-            <Link href="/services" className="btn-outline-navy">
-              View All Services
-            </Link>
-          </div>
+          <FadeIn delay={0.3}>
+            <div className="text-center mt-10">
+              <Link href="/services" className="btn-outline-navy">
+                View All Services
+              </Link>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* ============ MISSION ============ */}
-      <section className="section-padding">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="section-padding relative overflow-hidden">
+        <InteractiveParticles theme="light" density="low" maxDistance={120} mouseRadius={150} />
+        <div className="absolute inset-0 pointer-events-none pattern-diagonal" />
+        <ParallaxFloat className="top-20 -right-16 w-72 h-72 bg-navy/[0.02] rounded-full blur-3xl" speed={0.2} />
+        <ParallaxFloat className="-bottom-10 left-10 w-48 h-48 border border-gold/[0.05] rounded-full" speed={0.15} direction="down" />
+        <div className="absolute bottom-0 left-1/4 w-px h-24 bg-gradient-to-t from-gold/10 to-transparent pointer-events-none" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <SectionHeading
                 label="Our Mission"
                 title="Building a Sustainable Global Business"
               />
-              <ul className="space-y-4">
+              <StaggerContainer className="space-y-4">
                 {missionItems.map((item, i) => (
-                  <li key={i} className="flex items-start gap-4">
-                    <span className="mt-1 shrink-0 w-6 h-6 rounded-full border-2 border-gold flex items-center justify-center">
-                      <svg className="w-3 h-3 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span className="text-text-body">{item}</span>
-                  </li>
+                  <StaggerItem key={i}>
+                    <div className="flex items-start gap-4">
+                      <span className="mt-1 shrink-0 w-6 h-6 rounded-full border-2 border-gold flex items-center justify-center">
+                        <svg className="w-3 h-3 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </span>
+                      <span className="text-text-body">{item}</span>
+                    </div>
+                  </StaggerItem>
                 ))}
-              </ul>
+              </StaggerContainer>
             </div>
 
-            {/* Visual element */}
-            <div className="relative">
-              <div className="bg-navy rounded-lg p-10 md:p-14">
-                <p className="text-gold text-sm font-semibold tracking-wider uppercase mb-4">Our Approach</p>
-                <h3 className="text-white text-2xl font-semibold mb-4">Client-Centric Delivery</h3>
-                <p className="text-white/70 leading-relaxed mb-6">
-                  We combine international client relationships with professional project management
-                  and skilled technology delivery teams to create measurable business value.
-                </p>
-                <Link href="/how-we-work" className="btn-secondary text-sm">
-                  How We Work
-                </Link>
+            <FadeIn direction="right" delay={0.3}>
+              <div className="relative">
+                <SpotlightCard
+                  spotlightColor="rgba(201, 164, 76, 0.18)"
+                  className="bg-navy rounded-lg p-10 md:p-14"
+                >
+                  <p className="text-gold text-sm font-semibold tracking-wider uppercase mb-4">Our Approach</p>
+                  <h3 className="text-white text-2xl font-semibold mb-4">Client-Centric Delivery</h3>
+                  <p className="text-white/70 leading-relaxed mb-6">
+                    We combine international client relationships with professional project management
+                    and skilled technology delivery teams to create measurable business value.
+                  </p>
+                  <Link href="/how-we-work" className="btn-secondary text-sm">
+                    How We Work
+                  </Link>
+                </SpotlightCard>
+                <div className="absolute -bottom-3 -right-3 w-full h-full border-2 border-gold/20 rounded-lg -z-10" />
               </div>
-              <div className="absolute -bottom-3 -right-3 w-full h-full border-2 border-gold/20 rounded-lg -z-10" />
-            </div>
+            </FadeIn>
           </div>
         </div>
       </section>
 
       {/* ============ CTA ============ */}
       <section className="bg-navy relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 left-1/2 w-[500px] h-[500px] border border-white rounded-full -translate-x-1/2 -translate-y-1/2" />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-          <h2 className="text-white text-3xl md:text-4xl font-semibold mb-4">
-            Ready to Discuss Your Project?
-          </h2>
-          <p className="text-white/70 text-lg max-w-xl mx-auto mb-8">
-            Get in touch with us to explore how our technology services and project management
-            capabilities can support your business objectives.
-          </p>
-          <Link href="/contact" className="btn-primary text-base px-8 py-4">
-            Contact Us Today
-          </Link>
+        <InteractiveParticles density="low" maxDistance={120} mouseRadius={150} />
+        <div className="absolute inset-0 pointer-events-none pattern-dots-light" />
+        <ParallaxFloat className="top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-white/5 rounded-full" speed={0.1} />
+        <ParallaxFloat className="-bottom-20 -right-20 w-80 h-80 border border-white/[0.03] rounded-full" speed={0.15} direction="down" />
+        <ParallaxFloat className="top-10 left-10 w-32 h-32 bg-gold/[0.03] rounded-full blur-2xl" speed={0.2} />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+          <FadeIn>
+            <h2 className="text-white text-3xl md:text-4xl font-semibold mb-4">
+              Ready to Discuss Your Project?
+            </h2>
+            <p className="text-white/70 text-lg max-w-xl mx-auto mb-8">
+              Get in touch with us to explore how our technology services and project management
+              capabilities can support your business objectives.
+            </p>
+            <Link href="/contact" className="btn-primary text-base px-8 py-4">
+              Contact Us Today
+            </Link>
+          </FadeIn>
         </div>
       </section>
     </>

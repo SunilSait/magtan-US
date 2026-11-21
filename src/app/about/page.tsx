@@ -1,6 +1,12 @@
 import type { Metadata } from 'next';
 import PageHero from '@/components/PageHero';
 import SectionHeading from '@/components/SectionHeading';
+import FadeIn from '@/components/animations/FadeIn';
+import StaggerContainer from '@/components/animations/StaggerContainer';
+import StaggerItem from '@/components/animations/StaggerItem';
+import ParallaxFloat from '@/components/animations/ParallaxFloat';
+import SpotlightCard from '@/components/animations/SpotlightCard';
+import InteractiveParticles from '@/components/animations/InteractiveParticles';
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -66,13 +72,14 @@ export default function AboutPage() {
       />
 
       {/* ============ COMPANY BACKGROUND ============ */}
-      <section className="section-padding">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl">
-            <SectionHeading
-              label="Our Story"
-              title="Building Bridges Between Global Markets"
-            />
+      <section className="section-padding relative overflow-hidden">
+        <InteractiveParticles theme="light" density="low" maxDistance={120} mouseRadius={150} />
+        <ParallaxFloat className="-top-16 -right-16 w-80 h-80 bg-gold/[0.03] rounded-full blur-3xl" speed={0.2} />
+        <ParallaxFloat className="bottom-10 left-10 w-48 h-48 border border-navy/[0.04] rounded-full" speed={0.15} direction="down" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FadeIn className="max-w-4xl">
+            <SectionHeading label="Our Story" title="Building Bridges Between Global Markets" />
             <div className="space-y-5 text-text-body leading-relaxed text-base">
               <p>
                 MAGTAN INTERNATIONAL HOLDINGS INC is a Delaware corporation established with an
@@ -91,77 +98,100 @@ export default function AboutPage() {
                 professionals.
               </p>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* ============ VISION ============ */}
-      <section className="bg-bg-light section-padding">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-bg-light section-padding relative overflow-hidden">
+        <InteractiveParticles theme="light" density="low" maxDistance={120} mouseRadius={150} />
+        <div className="absolute inset-0 pointer-events-none pattern-dots" />
+        <ParallaxFloat className="top-10 -left-10 w-64 h-64 border border-gold/[0.05] rounded-full" speed={0.15} />
+        <ParallaxFloat className="-bottom-10 right-20 w-72 h-72 bg-navy/[0.02] rounded-full blur-3xl" speed={0.2} direction="down" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div>
-              <SectionHeading
-                label="Our Vision"
-                title="An Internationally Connected Business Group"
-              />
+            <FadeIn direction="left">
+              <SectionHeading label="Our Vision" title="An Internationally Connected Business Group" />
               <p className="text-text-body leading-relaxed text-base">
                 To build an internationally connected business group that creates sustainable
                 business opportunities and long-term value. We envision a future where businesses
                 across borders collaborate seamlessly, supported by reliable technology services
                 and professional project management.
               </p>
-            </div>
-            <div className="bg-navy rounded-lg p-10 md:p-12 relative">
-              <span className="accent-line mb-6" />
-              <blockquote className="text-white text-xl md:text-2xl font-semibold leading-relaxed">
-                &ldquo;One Vision. A Global Future.&rdquo;
-              </blockquote>
-              <p className="text-gold text-sm font-medium mt-4 tracking-wider">
-                MAGTAN INTERNATIONAL HOLDINGS INC
-              </p>
-              <div className="absolute -bottom-2 -right-2 w-full h-full border border-gold/20 rounded-lg -z-10" />
-            </div>
+            </FadeIn>
+            <FadeIn direction="right" delay={0.2}>
+              <div className="relative">
+                <SpotlightCard
+                  spotlightColor="rgba(201, 164, 76, 0.16)"
+                  className="bg-navy rounded-lg p-10 md:p-12 relative"
+                >
+                  <span className="accent-line mb-6" />
+                  <blockquote className="text-white text-xl md:text-2xl font-semibold leading-relaxed">
+                    &ldquo;One Vision. A Global Future.&rdquo;
+                  </blockquote>
+                  <p className="text-gold text-sm font-medium mt-4 tracking-wider">
+                    MAGTAN INTERNATIONAL HOLDINGS INC
+                  </p>
+                </SpotlightCard>
+                <div className="absolute -bottom-2 -right-2 w-full h-full border border-gold/20 rounded-lg -z-10" />
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
 
       {/* ============ CORE VALUES ============ */}
-      <section className="section-padding">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            label="Core Values"
-            title="The Principles That Guide Our Business"
-            align="center"
-          />
+      <section className="section-padding relative overflow-hidden">
+        <InteractiveParticles theme="light" density="low" maxDistance={120} mouseRadius={150} />
+        <div className="absolute inset-0 pointer-events-none pattern-diagonal" />
+        <ParallaxFloat className="top-20 -right-10 w-60 h-60 bg-gold/[0.02] rounded-full blur-3xl" speed={0.2} />
+        <ParallaxFloat className="-bottom-16 -left-16 w-72 h-72 border border-navy/[0.03] rounded-full" speed={0.1} direction="down" />
+        <div className="absolute top-0 right-1/3 w-px h-20 bg-gradient-to-b from-gold/10 to-transparent pointer-events-none" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-            {values.map((value, index) => (
-              <div key={value.title} className={`${index === 4 ? 'sm:col-span-2 lg:col-span-1 sm:max-w-md sm:mx-auto lg:max-w-none' : ''}`}>
-                <div className="flex items-start gap-4">
-                  <div className="w-11 h-11 rounded bg-navy/5 flex items-center justify-center text-navy shrink-0 mt-0.5">
-                    {value.icon}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading label="Core Values" title="The Principles That Guide Our Business" align="center" />
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 mt-12">
+            {values.map((value, index) => {
+              const colClass =
+                index === 3
+                  ? 'sm:col-span-1 lg:col-span-2 lg:col-start-2'
+                  : index === 4
+                  ? 'sm:col-span-2 sm:max-w-md sm:mx-auto lg:max-w-none lg:mx-0 lg:col-span-2 lg:col-start-4'
+                  : 'sm:col-span-1 lg:col-span-2';
+
+              return (
+                <StaggerItem
+                  key={value.title}
+                  className={colClass}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-11 h-11 rounded bg-navy/5 flex items-center justify-center text-navy shrink-0 mt-0.5">
+                      {value.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-base font-semibold text-text-dark mb-1">{value.title}</h3>
+                      <p className="text-sm text-text-body leading-relaxed">{value.desc}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-base font-semibold text-text-dark mb-1">{value.title}</h3>
-                    <p className="text-sm text-text-body leading-relaxed">{value.desc}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+                </StaggerItem>
+              );
+            })}
+          </StaggerContainer>
         </div>
       </section>
 
       {/* ============ WHY MAGTAN ============ */}
-      <section className="bg-navy section-padding">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            label="Why Magtan"
-            title="What Sets Us Apart"
-            align="center"
-            light
-          />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+      <section className="bg-navy section-padding relative overflow-hidden">
+        <InteractiveParticles density="low" maxDistance={120} mouseRadius={150} />
+        <div className="absolute inset-0 pointer-events-none pattern-dots-light" />
+        <ParallaxFloat className="top-10 -right-20 w-80 h-80 border border-white/[0.04] rounded-full" speed={0.15} />
+        <ParallaxFloat className="-bottom-20 -left-20 w-96 h-96 border border-white/[0.03] rounded-full" speed={0.1} direction="down" />
+        <ParallaxFloat className="top-1/2 left-1/3 w-24 h-24 bg-gold/[0.04] rounded-full blur-2xl" speed={0.25} />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading label="Why Magtan" title="What Sets Us Apart" align="center" light />
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             {[
               {
                 title: 'U.S. Business Presence',
@@ -176,13 +206,19 @@ export default function AboutPage() {
                 desc: 'Every engagement is managed with discipline — from requirements analysis through delivery monitoring and customer support.',
               },
             ].map((item) => (
-              <div key={item.title} className="border border-white/10 rounded-lg p-7">
-                <span className="accent-line mb-5" />
-                <h3 className="text-white text-lg font-semibold mb-3">{item.title}</h3>
-                <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
-              </div>
+              <StaggerItem key={item.title}>
+                <SpotlightCard
+                  spotlightColor="rgba(201, 164, 76, 0.15)"
+                  borderColor="rgba(201, 164, 76, 0.5)"
+                  className="border border-white/10 rounded-lg p-7 hover:border-gold/30 transition-colors duration-300 h-full"
+                >
+                  <span className="accent-line mb-5" />
+                  <h3 className="text-white text-lg font-semibold mb-3">{item.title}</h3>
+                  <p className="text-white/60 text-sm leading-relaxed">{item.desc}</p>
+                </SpotlightCard>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
     </>
