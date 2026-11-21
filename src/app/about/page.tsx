@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import PageHero from '@/components/PageHero';
 import SectionHeading from '@/components/SectionHeading';
 import FadeIn from '@/components/animations/FadeIn';
@@ -16,46 +17,56 @@ export const metadata: Metadata = {
 
 const values = [
   {
+    number: '01',
     title: 'Integrity',
-    desc: 'We conduct all business relationships with transparency, honesty and ethical standards.',
+    tagline: 'Ethics & Transparency',
+    desc: 'We conduct all business relationships with transparency, honesty, and uncompromising ethical standards.',
     icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
       </svg>
     ),
   },
   {
+    number: '02',
     title: 'Innovation',
-    desc: 'We encourage creative solutions and embrace modern technology to serve our clients effectively.',
+    tagline: 'Modern Technology',
+    desc: 'We encourage creative solutions and embrace modern technology to serve our clients effectively and dynamically.',
     icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
       </svg>
     ),
   },
   {
+    number: '03',
     title: 'Collaboration',
-    desc: 'We build effective partnerships between international clients and delivery teams for optimal results.',
+    tagline: 'Global Partnerships',
+    desc: 'We build effective partnerships between international clients and delivery teams for optimal project outcomes.',
     icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
       </svg>
     ),
   },
   {
+    number: '04',
     title: 'Quality',
-    desc: 'We are committed to delivering professional work that meets client expectations and industry standards.',
+    tagline: 'Execution Excellence',
+    desc: 'We are committed to delivering professional work that meets client expectations and rigorous industry benchmarks.',
     icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
       </svg>
     ),
   },
   {
+    number: '05',
     title: 'Sustainable Growth',
-    desc: 'We focus on building long-term business relationships that create lasting value for all stakeholders.',
+    tagline: 'Long-Term Value',
+    desc: 'We focus on building durable business relationships that create lasting value for clients, delivery teams, and stakeholders.',
     icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
       </svg>
     ),
@@ -73,7 +84,7 @@ export default function AboutPage() {
 
       {/* ============ COMPANY BACKGROUND ============ */}
       <section className="section-padding relative overflow-hidden">
-        <InteractiveParticles theme="light" density="low" maxDistance={120} mouseRadius={150} />
+        <InteractiveParticles theme="light" density="low" showLines={false} mouseRadius={140} />
         <ParallaxFloat className="-top-16 -right-16 w-80 h-80 bg-gold/[0.03] rounded-full blur-3xl" speed={0.2} />
         <ParallaxFloat className="bottom-10 left-10 w-48 h-48 border border-navy/[0.04] rounded-full" speed={0.15} direction="down" />
 
@@ -104,7 +115,7 @@ export default function AboutPage() {
 
       {/* ============ VISION ============ */}
       <section className="bg-bg-light section-padding relative overflow-hidden">
-        <InteractiveParticles theme="light" density="low" maxDistance={120} mouseRadius={150} />
+        <InteractiveParticles theme="light" density="low" showLines={false} mouseRadius={140} />
         <div className="absolute inset-0 pointer-events-none pattern-dots" />
         <ParallaxFloat className="top-10 -left-10 w-64 h-64 border border-gold/[0.05] rounded-full" speed={0.15} />
         <ParallaxFloat className="-bottom-10 right-20 w-72 h-72 bg-navy/[0.02] rounded-full blur-3xl" speed={0.2} direction="down" />
@@ -141,43 +152,116 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ============ CORE VALUES ============ */}
-      <section className="section-padding relative overflow-hidden">
-        <InteractiveParticles theme="light" density="low" maxDistance={120} mouseRadius={150} />
-        <div className="absolute inset-0 pointer-events-none pattern-diagonal" />
-        <ParallaxFloat className="top-20 -right-10 w-60 h-60 bg-gold/[0.02] rounded-full blur-3xl" speed={0.2} />
-        <ParallaxFloat className="-bottom-16 -left-16 w-72 h-72 border border-navy/[0.03] rounded-full" speed={0.1} direction="down" />
-        <div className="absolute top-0 right-1/3 w-px h-20 bg-gradient-to-b from-gold/10 to-transparent pointer-events-none" />
+      {/* ============ CORE VALUES (REDESIGNED) ============ */}
+      <section className="section-padding relative overflow-hidden bg-gradient-to-b from-white via-bg-light/40 to-white">
+        {/* Ambient background effects */}
+        <InteractiveParticles theme="light" density="low" showLines={false} mouseRadius={150} />
+        <div className="absolute inset-0 pointer-events-none pattern-grid opacity-30" />
+        <ParallaxFloat className="-top-20 -right-16 w-96 h-96 bg-gold/[0.04] rounded-full blur-3xl" speed={0.2} />
+        <ParallaxFloat className="-bottom-20 -left-16 w-96 h-96 bg-navy/[0.03] rounded-full blur-3xl" speed={0.15} direction="down" />
+        <div className="absolute top-1/2 left-1/2 w-[700px] h-[700px] border border-gold/[0.05] rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading label="Core Values" title="The Principles That Guide Our Business" align="center" />
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 mt-12">
+          <SectionHeading
+            label="Core Values"
+            title="The Principles That Guide Our Business"
+            description="Our values define how we operate, govern client engagements, and deliver enduring value across international markets."
+            align="center"
+          />
+
+          {/* Balanced 6-Column Layout: Row 1 has 3 equal cards (2 cols each), Row 2 has 2 equal cards (3 cols each) */}
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8 mt-14 max-w-6xl mx-auto">
             {values.map((value, index) => {
-              const colClass =
-                index === 3
-                  ? 'sm:col-span-1 lg:col-span-2 lg:col-start-2'
-                  : index === 4
-                  ? 'sm:col-span-2 sm:max-w-md sm:mx-auto lg:max-w-none lg:mx-0 lg:col-span-2 lg:col-start-4'
-                  : 'sm:col-span-1 lg:col-span-2';
+              // 3 cards on top (lg:col-span-2 each), 2 cards on bottom (lg:col-span-3 each)
+              const spanClass =
+                index < 3
+                  ? 'lg:col-span-2'
+                  : index === 3
+                  ? 'lg:col-span-3'
+                  : 'md:col-span-2 md:max-w-md md:mx-auto lg:max-w-none lg:mx-0 lg:col-span-3';
 
               return (
-                <StaggerItem
-                  key={value.title}
-                  className={colClass}
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="w-11 h-11 rounded bg-navy/5 flex items-center justify-center text-navy shrink-0 mt-0.5">
-                      {value.icon}
-                    </div>
+                <StaggerItem key={value.title} className={spanClass}>
+                  <SpotlightCard
+                    spotlightColor="rgba(201, 164, 76, 0.16)"
+                    borderColor="rgba(201, 164, 76, 0.5)"
+                    className="group bg-white rounded-xl p-8 border border-border shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full card-interactive"
+                  >
                     <div>
-                      <h3 className="text-base font-semibold text-text-dark mb-1">{value.title}</h3>
-                      <p className="text-sm text-text-body leading-relaxed">{value.desc}</p>
+                      {/* Card Top: Icon & Number Badge */}
+                      <div className="flex items-center justify-between mb-6">
+                        <div className="w-13 h-13 rounded-xl bg-gradient-to-br from-navy/[0.05] via-gold/[0.08] to-gold/[0.18] border border-gold/30 text-navy flex items-center justify-center group-hover:scale-105 group-hover:text-gold group-hover:border-gold/60 transition-all duration-300 shadow-xs">
+                          {value.icon}
+                        </div>
+                        <span className="font-mono text-xs font-bold text-gold tracking-widest px-3 py-1 rounded-full bg-gold/10 border border-gold/25">
+                          {value.number}
+                        </span>
+                      </div>
+
+                      {/* Tagline & Title */}
+                      <p className="text-gold text-xs font-semibold tracking-wider uppercase mb-1">
+                        {value.tagline}
+                      </p>
+                      <h3 className="text-xl font-bold text-navy mb-3 group-hover:text-gold-dark transition-colors tracking-tight">
+                        {value.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-sm text-text-body leading-relaxed">
+                        {value.desc}
+                      </p>
                     </div>
-                  </div>
+
+                    {/* Card Bottom Accent */}
+                    <div className="mt-8 pt-4 border-t border-border/60 flex items-center justify-between">
+                      <span className="text-[11px] font-semibold text-text-body/60 uppercase tracking-wider group-hover:text-navy transition-colors">
+                        Core Value
+                      </span>
+                      <span className="w-8 h-0.5 bg-gold/30 rounded-full group-hover:w-16 group-hover:bg-gold transition-all duration-300" />
+                    </div>
+                  </SpotlightCard>
                 </StaggerItem>
               );
             })}
           </StaggerContainer>
+
+          {/* Corporate Commitment Callout */}
+          <FadeIn delay={0.3} className="mt-14 max-w-5xl mx-auto">
+            <div className="bg-gradient-to-r from-navy via-navy-light to-navy rounded-xl p-8 sm:p-10 text-white relative overflow-hidden shadow-xl border border-white/10">
+              <div className="absolute top-0 right-0 w-80 h-80 bg-gold/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div className="space-y-2">
+                  <div className="inline-flex items-center gap-2 text-gold text-xs font-semibold tracking-widest uppercase">
+                    <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+                    Institutional Governance
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                    Delaware Governance & Global Delivery Standards
+                  </h3>
+                  <p className="text-white/70 text-sm max-w-2xl leading-relaxed">
+                    Every client engagement conducted by MAGTAN INTERNATIONAL HOLDINGS INC is governed
+                    by our Delaware corporate structure, structured service agreements, and multi-tier
+                    quality control.
+                  </p>
+                </div>
+                <Link
+                  href="/how-we-work"
+                  className="btn-primary text-sm py-3 px-6 shrink-0 shadow-md group inline-flex items-center gap-2"
+                >
+                  <span>How We Work</span>
+                  <svg
+                    className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 

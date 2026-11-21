@@ -20,6 +20,7 @@ interface InteractiveParticlesProps {
   className?: string;
   density?: 'low' | 'medium' | 'high';
   theme?: 'dark' | 'light';
+  showLines?: boolean;
 }
 
 export default function InteractiveParticles({
@@ -28,6 +29,7 @@ export default function InteractiveParticles({
   className = '',
   density = 'medium',
   theme = 'dark',
+  showLines = true,
 }: InteractiveParticlesProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -255,26 +257,28 @@ export default function InteractiveParticles({
         ctx.restore();
 
         // Connect with nearby particles (Constellation Network)
-        for (let j = i + 1; j < particles.length; j++) {
-          const p2 = particles[j];
-          const dx = p.x - p2.x;
-          const dy = p.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+        if (showLines) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p.x - p2.x;
+            const dy = p.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < maxDistance) {
-            const lineAlpha =
-              theme === 'light'
-                ? (1 - dist / maxDistance) * 0.16
-                : (1 - dist / maxDistance) * 0.22;
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle =
-              theme === 'light'
-                ? `rgba(201, 164, 76, ${lineAlpha})`
-                : `rgba(201, 164, 76, ${lineAlpha})`;
-            ctx.lineWidth = 0.65;
-            ctx.stroke();
+            if (dist < maxDistance) {
+              const lineAlpha =
+                theme === 'light'
+                  ? (1 - dist / maxDistance) * 0.16
+                  : (1 - dist / maxDistance) * 0.22;
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle =
+                theme === 'light'
+                  ? `rgba(201, 164, 76, ${lineAlpha})`
+                  : `rgba(201, 164, 76, ${lineAlpha})`;
+              ctx.lineWidth = 0.65;
+              ctx.stroke();
+            }
           }
         }
       }
@@ -293,7 +297,7 @@ export default function InteractiveParticles({
       }
       window.removeEventListener('resize', handleResize);
     };
-  }, [density, maxDistance, mouseRadius, theme]);
+  }, [density, maxDistance, mouseRadius, showLines, theme]);
 
   return (
     <canvas
