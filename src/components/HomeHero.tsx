@@ -6,7 +6,7 @@ import StageGlobeCanvas from '@/components/animations/StageGlobeCanvas';
 
 export default function HomeHero() {
   return (
-    <section className="relative bg-[#020712] text-white overflow-hidden pt-6 sm:pt-8 lg:pt-10 pb-16 lg:pb-20">
+    <section className="relative bg-[#020712] text-white overflow-hidden pt-2 sm:pt-3 lg:pt-4 pb-14 lg:pb-16">
       {/* High-Tech Cyber Lighting Blooms & Spatial Grid */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Top-right electric cyan bloom */}
@@ -21,14 +21,14 @@ export default function HomeHero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* 2-Column Split: Crisp High-Tech Typography (Left) + 3D Holographic AI / Globe Stage (Right) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-start lg:items-center">
           
           {/* Left Column: Bold IT Typography & Clean CTAs */}
           <div className="lg:col-span-7 text-left flex flex-col items-start pr-0 lg:pr-6">
             
             {/* Delaware Status Badge — Electric Cyan Pill */}
             <motion.div
-              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-cyan-950/50 border border-cyan-400/40 backdrop-blur-md shadow-[0_0_20px_rgba(0,240,255,0.2)] mb-5"
+              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-cyan-950/50 border border-cyan-400/40 backdrop-blur-md shadow-[0_0_20px_rgba(0,240,255,0.2)] mb-4"
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
@@ -41,7 +41,7 @@ export default function HomeHero() {
 
             {/* Official Legal Entity Name */}
             <motion.p
-              className="text-cyan-200/80 text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase mb-4"
+              className="text-cyan-200/80 text-xs sm:text-sm font-semibold tracking-[0.25em] uppercase mb-3.5"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.25 }}
@@ -64,7 +64,7 @@ export default function HomeHero() {
 
             {/* Core Description — Clean Slate Body */}
             <motion.p
-              className="mt-6 text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl font-normal"
+              className="mt-5 text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl font-normal"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
@@ -75,7 +75,7 @@ export default function HomeHero() {
 
             {/* Action CTAs — Matching "VER SERVICIOS ->" Tech Buttons */}
             <motion.div
-              className="mt-9 flex flex-wrap items-center gap-4"
+              className="mt-8 flex flex-wrap items-center gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.8 }}
@@ -107,7 +107,7 @@ export default function HomeHero() {
 
           {/* Right Column: 3D Interactive Cyber Globe Stage */}
           <motion.div
-            className="lg:col-span-5 relative w-full h-[480px] sm:h-[540px] lg:h-[600px] flex flex-col items-center justify-center select-none"
+            className="lg:col-span-5 relative w-full h-[420px] sm:h-[460px] lg:h-[500px] flex flex-col items-center justify-center select-none"
             initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
@@ -115,10 +115,10 @@ export default function HomeHero() {
             {/* Radial Backlight Glow Behind Globe */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div
-                className="w-[340px] sm:w-[440px] lg:w-[500px] h-[340px] sm:h-[440px] lg:h-[500px] rounded-full bg-radial from-cyan-500/[0.22] via-blue-600/[0.10] to-transparent blur-3xl animate-pulse"
+                className="w-[320px] sm:w-[400px] lg:w-[460px] h-[320px] sm:h-[400px] lg:h-[460px] rounded-full bg-radial from-cyan-500/[0.22] via-blue-600/[0.10] to-transparent blur-3xl animate-pulse"
                 style={{ animationDuration: '6s' }}
               />
-              <div className="absolute w-[260px] sm:w-[340px] lg:w-[400px] h-[260px] sm:h-[340px] lg:h-[400px] rounded-full bg-radial from-cyan-400/[0.15] via-purple-600/[0.12] to-transparent blur-2xl" />
+              <div className="absolute w-[240px] sm:w-[300px] lg:w-[360px] h-[240px] sm:h-[300px] lg:h-[360px] rounded-full bg-radial from-cyan-400/[0.15] via-purple-600/[0.12] to-transparent blur-2xl" />
             </div>
 
             {/* 3D Interactive Globe Canvas */}
@@ -130,7 +130,7 @@ export default function HomeHero() {
 
         {/* Corporate Credentials Strip — Frosted Cyber Glass Cards */}
         <motion.div
-          className="mt-14 pt-8 border-t border-cyan-500/15 w-full grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 text-left"
+          className="mt-10 pt-6 border-t border-cyan-500/15 w-full grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 text-left"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1 }}

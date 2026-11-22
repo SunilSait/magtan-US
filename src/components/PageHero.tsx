@@ -22,7 +22,7 @@ export default function PageHero({ title, subtitle, breadcrumb }: PageHeroProps)
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(56,189,248,0.025)_1px,transparent_1px),linear-gradient(to_bottom,rgba(56,189,248,0.025)_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] opacity-60" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 text-center flex flex-col items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-14 text-center flex flex-col items-center">
         {breadcrumb && (
           <motion.p
             className="text-cyan-400 text-xs font-semibold tracking-widest uppercase mb-3 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 shadow-[0_0_12px_rgba(0,240,255,0.2)]"
