@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -41,17 +42,16 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo & Tagline */}
-          <Link href="/" className="flex flex-col shrink-0">
-            <span className="text-navy font-semibold text-base sm:text-lg leading-tight tracking-tight">
-              MAGTAN INTERNATIONAL
-            </span>
-            <span className="text-navy font-semibold text-xs sm:text-sm leading-tight tracking-tight">
-              HOLDINGS INC
-            </span>
-            <span className="text-gold text-[10px] sm:text-xs font-medium tracking-wider mt-0.5">
-              One Vision. A Global Future.
-            </span>
+          {/* Official Company Logo */}
+          <Link href="/" className="flex items-center gap-3 shrink-0 py-1 group">
+            <Image
+              src="/logo.jpg"
+              alt="MAGTAN INTERNATIONAL HOLDINGS INC"
+              width={160}
+              height={75}
+              className="h-12 sm:h-14 w-auto object-contain transition-transform duration-200 group-hover:opacity-95"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

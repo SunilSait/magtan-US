@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
@@ -65,9 +66,15 @@ export default function Footer() {
         >
           {/* Column 1: Company Profile */}
           <motion.div className="space-y-3" variants={columnVariants}>
-            <h3 className="text-gold text-xs font-semibold tracking-widest uppercase mb-4">
-              Company
-            </h3>
+            <Link href="/" className="inline-block bg-white px-3 py-1.5 rounded-lg shadow-sm mb-2 group">
+              <Image
+                src="/logo.jpg"
+                alt="MAGTAN INTERNATIONAL HOLDINGS INC"
+                width={130}
+                height={60}
+                className="h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+              />
+            </Link>
             <p className="text-white font-semibold text-base sm:text-lg leading-snug tracking-tight">
               MAGTAN INTERNATIONAL
               <br />

@@ -28,6 +28,10 @@ export const metadata: Metadata = {
     siteName: "MAGTAN INTERNATIONAL HOLDINGS INC",
     type: "website",
   },
+  icons: {
+    icon: "/logo.jpg",
+    apple: "/logo.jpg",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
