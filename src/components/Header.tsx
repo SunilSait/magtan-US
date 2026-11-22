@@ -36,8 +36,10 @@ export default function Header() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
-      className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${
-        scrolled ? 'shadow-md' : 'border-b border-border'
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-[#020712]/92 backdrop-blur-xl border-b border-cyan-500/20 shadow-[0_10px_35px_rgba(0,0,0,0.6)]'
+          : 'bg-[#020712]/80 backdrop-blur-md border-b border-cyan-500/10'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,17 +47,17 @@ export default function Header() {
           {/* Official Company Logo */}
           <Link href="/" className="flex items-center gap-3 shrink-0 py-1 group">
             <Image
-              src="/logo.jpg"
+              src="/magtan-logo.png"
               alt="MAGTAN INTERNATIONAL HOLDINGS INC"
-              width={160}
-              height={75}
-              className="h-12 sm:h-14 w-auto object-contain transition-transform duration-200 group-hover:opacity-95"
+              width={180}
+              height={84}
+              className="h-12 sm:h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-105 drop-shadow-[0_0_15px_rgba(56,189,248,0.3)]"
               priority
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
             {navLinks.map((link, i) => {
               const isActive = pathname === link.href;
               const isContact = link.href === '/contact';
@@ -70,7 +72,7 @@ export default function Header() {
                   >
                     <Link
                       href={link.href}
-                      className="ml-4 btn-primary text-sm py-2.5 px-6"
+                      className="ml-4 inline-flex items-center justify-center px-5 py-2 rounded-full border border-cyan-400/80 text-cyan-300 text-xs font-semibold tracking-wider uppercase hover:bg-cyan-500/20 hover:text-white hover:border-cyan-300 hover:shadow-[0_0_22px_rgba(0,240,255,0.5)] transition-all duration-300 backdrop-blur-sm cursor-pointer"
                     >
                       Contact Us
                     </Link>
@@ -89,15 +91,15 @@ export default function Header() {
                     href={link.href}
                     className={`px-3 xl:px-4 py-2 text-sm font-medium transition-colors duration-200 relative whitespace-nowrap ${
                       isActive
-                        ? 'text-navy'
-                        : 'text-text-body hover:text-navy'
+                        ? 'text-cyan-300 font-semibold drop-shadow-[0_0_8px_rgba(0,240,255,0.4)]'
+                        : 'text-slate-300 hover:text-white'
                     }`}
                   >
                     {link.label}
                     {isActive && (
                       <motion.span
                         layoutId="activeNavIndicator"
-                        className="absolute bottom-0 left-3 right-3 xl:left-4 xl:right-4 h-0.5 bg-gold rounded-full"
+                        className="absolute bottom-0 left-3 right-3 xl:left-4 xl:right-4 h-0.5 bg-gradient-to-r from-cyan-400 via-sky-300 to-blue-500 rounded-full shadow-[0_0_8px_#00F0FF]"
                         transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -109,7 +111,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-navy"
+            className="lg:hidden p-2 text-slate-300 hover:text-cyan-400 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
             aria-expanded={mobileMenuOpen}
@@ -139,7 +141,7 @@ export default function Header() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="lg:hidden overflow-hidden border-t border-border"
+            className="lg:hidden overflow-hidden bg-[#040D1A]/95 backdrop-blur-xl border-t border-cyan-500/20 shadow-2xl"
           >
             <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-1">
               {navLinks.map((link, i) => {
@@ -153,10 +155,10 @@ export default function Header() {
                   >
                     <Link
                       href={link.href}
-                      className={`block px-4 py-3 rounded text-sm font-medium transition-colors ${
+                      className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                         isActive
-                          ? 'bg-bg-light text-navy'
-                          : 'text-text-body hover:bg-bg-light hover:text-navy'
+                          ? 'bg-cyan-950/60 text-cyan-300 border-l-2 border-cyan-400 font-semibold'
+                          : 'text-slate-300 hover:bg-white/5 hover:text-white'
                       }`}
                     >
                       {link.label}

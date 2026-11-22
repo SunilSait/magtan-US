@@ -84,30 +84,29 @@ export default function AboutPage() {
       />
 
       {/* ============ COMPANY BACKGROUND ============ */}
-      <section className="section-padding relative overflow-hidden">
-        <InteractiveParticles theme="light" density="low" showLines={false} mouseRadius={140} />
-        <ParallaxFloat className="-top-16 -right-16 w-80 h-80 bg-gold/[0.03] rounded-full blur-3xl" speed={0.2} />
-        <ParallaxFloat className="bottom-10 left-10 w-48 h-48 border border-navy/[0.04] rounded-full" speed={0.15} direction="down" />
+      <section className="bg-[#020712] section-padding relative overflow-hidden text-white border-b border-cyan-500/10">
+        <InteractiveParticles theme="dark" density="low" showLines={false} mouseRadius={140} />
+        <ParallaxFloat className="-top-16 -right-16 w-80 h-80 bg-cyan-500/[0.06] rounded-full blur-3xl" speed={0.2} />
+        <ParallaxFloat className="bottom-10 left-10 w-48 h-48 border border-cyan-500/[0.1] rounded-full" speed={0.15} direction="down" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn className="max-w-4xl">
-            <SectionHeading label="Our Story" title="Building Bridges Between Global Markets" />
-            <div className="space-y-5 text-text-body leading-relaxed text-base">
+            <SectionHeading label="Our Story" title="Building Bridges Between Global Markets" light />
+            <div className="space-y-5 text-slate-300 leading-relaxed text-base sm:text-lg font-normal">
               <p>
-                MAGTAN INTERNATIONAL HOLDINGS INC is a Delaware corporation established with an
-                international business vision. Our focus is to develop business relationships in the
-                United States and other international markets while coordinating professional service
-                delivery through India-based operating teams and service partners.
+                <strong className="text-white">MAGTAN INTERNATIONAL HOLDINGS INC</strong> is a Delaware corporation
+                established with an international business vision. Our focus is to develop business relationships in the
+                United States and other international markets while coordinating professional service delivery through
+                India-based operating teams and specialized technology partners.
               </p>
               <p>
-                We aim to connect global business opportunities with capable delivery resources,
-                creating a bridge between international clients who need technology services and
-                skilled teams who can deliver them professionally and efficiently.
+                We aim to connect global business opportunities with capable delivery resources, creating a robust bridge
+                between international enterprise clients who need mission-critical technology services and skilled teams who
+                can deliver them professionally, securely, and efficiently.
               </p>
               <p>
-                Our business model is built on understanding client requirements deeply, managing
-                projects with discipline, and ensuring quality delivery through qualified technology
-                professionals.
+                Our business model is built on understanding client requirements deeply, managing projects with institutional
+                discipline, and ensuring quality delivery governed under U.S. Delaware corporate standards.
               </p>
             </div>
           </FadeIn>
@@ -115,65 +114,65 @@ export default function AboutPage() {
       </section>
 
       {/* ============ VISION ============ */}
-      <section className="bg-bg-light section-padding relative overflow-hidden">
-        <InteractiveParticles theme="light" density="low" showLines={false} mouseRadius={140} />
-        <div className="absolute inset-0 pointer-events-none pattern-dots" />
-        <ParallaxFloat className="top-10 -left-10 w-64 h-64 border border-gold/[0.05] rounded-full" speed={0.15} />
-        <ParallaxFloat className="-bottom-10 right-20 w-72 h-72 bg-navy/[0.02] rounded-full blur-3xl" speed={0.2} direction="down" />
+      <section className="bg-[#040D1A] section-padding relative overflow-hidden text-white border-b border-cyan-500/15">
+        <InteractiveParticles theme="dark" density="low" showLines={false} mouseRadius={140} />
+        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_top_right,rgba(0,240,255,0.06)_0,transparent_65%)]" />
+        <ParallaxFloat className="top-10 -left-10 w-64 h-64 border border-cyan-500/[0.15] rounded-full" speed={0.15} />
+        <ParallaxFloat className="-bottom-10 right-20 w-72 h-72 bg-blue-600/[0.1] rounded-full blur-3xl" speed={0.2} direction="down" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <FadeIn direction="left">
-              <SectionHeading label="Our Vision" title="An Internationally Connected Business Group" />
-              <p className="text-text-body leading-relaxed text-base">
-                To build an internationally connected business group that creates sustainable
-                business opportunities and long-term value. We envision a future where businesses
-                across borders collaborate seamlessly, supported by reliable technology services
-                and professional project management.
+              <SectionHeading label="Our Vision" title="An Internationally Connected Business Group" light />
+              <p className="text-slate-300 leading-relaxed text-base sm:text-lg">
+                To build an internationally connected enterprise group that creates sustainable business opportunities
+                and long-term value. We envision a future where businesses across borders collaborate seamlessly, supported
+                by reliable technology services, scalable cloud architectures, and professional project governance.
               </p>
             </FadeIn>
+
             <FadeIn direction="right" delay={0.2}>
               <div className="relative">
                 <SpotlightCard
-                  spotlightColor="rgba(201, 164, 76, 0.16)"
-                  className="bg-navy rounded-lg p-10 md:p-12 relative"
+                  spotlightColor="rgba(0, 240, 255, 0.2)"
+                  borderColor="rgba(0, 240, 255, 0.45)"
+                  className="bg-[#071325]/90 rounded-2xl p-10 md:p-12 relative border border-cyan-500/30 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
                 >
                   <span className="accent-line mb-6" />
-                  <blockquote className="text-white text-xl md:text-2xl font-semibold leading-relaxed">
+                  <blockquote className="text-white text-xl md:text-2xl font-bold leading-relaxed tracking-tight">
                     &ldquo;One Vision. A Global Future.&rdquo;
                   </blockquote>
-                  <p className="text-gold text-sm font-medium mt-4 tracking-wider">
+                  <p className="text-cyan-400 text-sm font-semibold mt-4 tracking-wider uppercase">
                     MAGTAN INTERNATIONAL HOLDINGS INC
                   </p>
                 </SpotlightCard>
-                <div className="absolute -bottom-2 -right-2 w-full h-full border border-gold/20 rounded-lg -z-10" />
+                <div className="absolute -bottom-2 -right-2 w-full h-full border border-cyan-500/20 rounded-2xl -z-10" />
               </div>
             </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* ============ CORE VALUES (REDESIGNED) ============ */}
-      <section className="section-padding relative overflow-hidden bg-gradient-to-b from-white via-bg-light/40 to-white">
-        {/* Ambient background effects */}
-        <InteractiveParticles theme="light" density="low" showLines={false} mouseRadius={150} />
-        <div className="absolute inset-0 pointer-events-none pattern-grid opacity-30" />
-        <ParallaxFloat className="-top-20 -right-16 w-96 h-96 bg-gold/[0.04] rounded-full blur-3xl" speed={0.2} />
-        <ParallaxFloat className="-bottom-20 -left-16 w-96 h-96 bg-navy/[0.03] rounded-full blur-3xl" speed={0.15} direction="down" />
-        <div className="absolute top-1/2 left-1/2 w-[700px] h-[700px] border border-gold/[0.05] rounded-full -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      {/* ============ CORE VALUES (DARK CYBER GLASS CARDS) ============ */}
+      <section className="bg-[#020712] section-padding relative overflow-hidden text-white border-b border-cyan-500/15">
+        {/* Ambient cyber background effects */}
+        <InteractiveParticles theme="dark" density="low" showLines={false} mouseRadius={150} />
+        <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(to_right,rgba(56,189,248,0.025)_1px,transparent_1px),linear-gradient(to_bottom,rgba(56,189,248,0.025)_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] opacity-60" />
+        <ParallaxFloat className="-top-20 -right-16 w-96 h-96 bg-cyan-500/[0.08] rounded-full blur-3xl" speed={0.2} />
+        <ParallaxFloat className="-bottom-20 -left-16 w-96 h-96 bg-blue-600/[0.1] rounded-full blur-3xl" speed={0.15} direction="down" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             label="Core Values"
             title="The Principles That Guide Our Business"
-            description="Our values define how we operate, govern client engagements, and deliver enduring value across international markets."
+            description="Our values define how we operate, govern client engagements, and deliver enduring value across international enterprise markets."
             align="center"
+            light
           />
 
           {/* Balanced 6-Column Layout: Row 1 has 3 equal cards (2 cols each), Row 2 has 2 equal cards (3 cols each) */}
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8 mt-14 max-w-6xl mx-auto">
             {values.map((value, index) => {
-              // 3 cards on top (lg:col-span-2 each), 2 cards on bottom (lg:col-span-3 each)
               const spanClass =
                 index < 3
                   ? 'lg:col-span-2'
@@ -184,41 +183,41 @@ export default function AboutPage() {
               return (
                 <StaggerItem key={value.title} className={spanClass}>
                   <SpotlightCard
-                    spotlightColor="rgba(201, 164, 76, 0.16)"
-                    borderColor="rgba(201, 164, 76, 0.5)"
-                    className="group bg-white rounded-xl p-8 border border-border shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full card-interactive"
+                    spotlightColor="rgba(0, 240, 255, 0.16)"
+                    borderColor="rgba(0, 240, 255, 0.45)"
+                    className="group bg-[#071325]/85 rounded-2xl p-8 border border-cyan-500/25 shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:border-cyan-400 hover:shadow-[0_0_35px_rgba(0,240,255,0.25)] hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full backdrop-blur-xl"
                   >
                     <div>
-                      {/* Card Top: Icon & Number Badge */}
+                      {/* Card Top: 3D Holographic Icon & Number Badge */}
                       <div className="flex items-center justify-between mb-6">
-                        <div className="w-13 h-13 rounded-xl bg-gradient-to-br from-navy/[0.05] via-gold/[0.08] to-gold/[0.18] border border-gold/30 text-navy flex items-center justify-center group-hover:scale-105 group-hover:text-gold group-hover:border-gold/60 transition-all duration-300 shadow-xs">
+                        <div className="w-13 h-13 rounded-xl bg-gradient-to-br from-cyan-500/20 via-blue-600/15 to-purple-600/15 border border-cyan-400/40 text-cyan-300 flex items-center justify-center group-hover:scale-105 group-hover:text-white group-hover:border-cyan-300 group-hover:shadow-[0_0_18px_rgba(0,240,255,0.4)] transition-all duration-300 shadow-md">
                           {value.icon}
                         </div>
-                        <span className="font-mono text-xs font-bold text-gold tracking-widest px-3 py-1 rounded-full bg-gold/10 border border-gold/25">
+                        <span className="font-mono text-xs font-bold text-cyan-300 tracking-widest px-3 py-1 rounded-full bg-cyan-950/70 border border-cyan-500/30 shadow-[0_0_8px_rgba(0,240,255,0.15)]">
                           {value.number}
                         </span>
                       </div>
 
                       {/* Tagline & Title */}
-                      <p className="text-gold text-xs font-semibold tracking-wider uppercase mb-1">
+                      <p className="text-cyan-400 text-xs font-semibold tracking-wider uppercase mb-1">
                         {value.tagline}
                       </p>
-                      <h3 className="text-xl font-bold text-navy mb-3 group-hover:text-gold-dark transition-colors tracking-tight">
+                      <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors tracking-tight">
                         {value.title}
                       </h3>
 
                       {/* Description */}
-                      <p className="text-sm text-text-body leading-relaxed">
+                      <p className="text-sm text-slate-300 leading-relaxed font-normal">
                         {value.desc}
                       </p>
                     </div>
 
                     {/* Card Bottom Accent */}
-                    <div className="mt-8 pt-4 border-t border-border/60 flex items-center justify-between">
-                      <span className="text-[11px] font-semibold text-text-body/60 uppercase tracking-wider group-hover:text-navy transition-colors">
+                    <div className="mt-8 pt-4 border-t border-cyan-500/15 flex items-center justify-between">
+                      <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider group-hover:text-cyan-300 transition-colors">
                         Core Value
                       </span>
-                      <span className="w-8 h-0.5 bg-gold/30 rounded-full group-hover:w-16 group-hover:bg-gold transition-all duration-300" />
+                      <span className="w-8 h-0.5 bg-cyan-500/30 rounded-full group-hover:w-16 group-hover:bg-cyan-400 group-hover:shadow-[0_0_8px_#00F0FF] transition-all duration-300" />
                     </div>
                   </SpotlightCard>
                 </StaggerItem>
@@ -226,20 +225,20 @@ export default function AboutPage() {
             })}
           </StaggerContainer>
 
-          {/* Corporate Commitment Callout */}
+          {/* Corporate Commitment Callout Banner */}
           <FadeIn delay={0.3} className="mt-14 max-w-5xl mx-auto">
-            <div className="bg-gradient-to-r from-navy via-navy-light to-navy rounded-xl p-8 sm:p-10 text-white relative overflow-hidden shadow-xl border border-white/10">
-              <div className="absolute top-0 right-0 w-80 h-80 bg-gold/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="bg-[#071325]/90 rounded-2xl p-8 sm:p-10 text-white relative overflow-hidden shadow-2xl border border-cyan-500/30 backdrop-blur-xl">
+              <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
               <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                 <div className="space-y-2">
-                  <div className="inline-flex items-center gap-2 text-gold text-xs font-semibold tracking-widest uppercase">
-                    <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+                  <div className="inline-flex items-center gap-2 text-cyan-400 text-xs font-semibold tracking-widest uppercase">
+                    <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_6px_#00F0FF]" />
                     Institutional Governance
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
                     Delaware Governance & Global Delivery Standards
                   </h3>
-                  <p className="text-white/70 text-sm max-w-2xl leading-relaxed">
+                  <p className="text-slate-300 text-sm max-w-2xl leading-relaxed">
                     Every client engagement conducted by MAGTAN INTERNATIONAL HOLDINGS INC is governed
                     by our Delaware corporate structure, structured service agreements, and multi-tier
                     quality control.
@@ -247,7 +246,7 @@ export default function AboutPage() {
                 </div>
                 <Link
                   href="/how-we-work"
-                  className="btn-primary text-sm py-3 px-6 shrink-0 shadow-md group inline-flex items-center gap-2"
+                  className="btn-primary text-sm py-3 px-7 shrink-0 shadow-[0_0_20px_rgba(0,240,255,0.35)] group inline-flex items-center gap-2 cursor-pointer"
                 >
                   <span>How We Work</span>
                   <svg
@@ -266,15 +265,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ============ WHY MAGTAN (REDESIGNED) ============ */}
-      <section className="bg-navy section-padding relative overflow-hidden">
+      {/* ============ WHY MAGTAN (DARK CYBER GLASS CARDS) ============ */}
+      <section className="bg-[#040D1A] section-padding relative overflow-hidden text-white">
         {/* Deep ambient atmospheric effects */}
         <InteractiveParticles density="low" maxDistance={120} mouseRadius={150} />
-        <div className="absolute inset-0 pointer-events-none pattern-dots-light" />
-        <ParallaxFloat className="top-10 -right-20 w-80 h-80 border border-white/[0.04] rounded-full" speed={0.15} />
-        <ParallaxFloat className="-bottom-20 -left-20 w-96 h-96 border border-white/[0.03] rounded-full" speed={0.1} direction="down" />
-        <ParallaxFloat className="top-1/2 left-1/3 w-28 h-28 bg-gold/[0.04] rounded-full blur-2xl" speed={0.25} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-white/[0.02] rounded-full pointer-events-none" />
+        <ParallaxFloat className="top-10 -right-20 w-80 h-80 border border-cyan-500/[0.08] rounded-full" speed={0.15} />
+        <ParallaxFloat className="-bottom-20 -left-20 w-96 h-96 border border-cyan-500/[0.06] rounded-full" speed={0.1} direction="down" />
+        <ParallaxFloat className="top-1/2 left-1/3 w-28 h-28 bg-cyan-500/[0.06] rounded-full blur-2xl" speed={0.25} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
@@ -295,7 +292,7 @@ export default function AboutPage() {
                 highlights: [
                   'Delaware Registered (File #10631049)',
                   'Direct U.S. Client Contracting & Invoicing',
-                  'Institutional Stripe Verification Standards',
+                  'Institutional Verification Standards',
                 ],
                 icon: (
                   <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
@@ -339,41 +336,41 @@ export default function AboutPage() {
               <StaggerItem key={item.title}>
                 <TiltCard tiltMaxAngle={5} className="h-full">
                   <SpotlightCard
-                    spotlightColor="rgba(201, 164, 76, 0.2)"
-                    borderColor="rgba(201, 164, 76, 0.55)"
-                    className="group bg-gradient-to-b from-white/[0.07] to-white/[0.02] border border-white/15 backdrop-blur-xl rounded-2xl p-8 sm:p-9 hover:border-gold/60 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(201,164,76,0.12)] transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full"
+                    spotlightColor="rgba(0, 240, 255, 0.18)"
+                    borderColor="rgba(0, 240, 255, 0.45)"
+                    className="group bg-[#071325]/85 border border-cyan-500/25 backdrop-blur-xl rounded-2xl p-8 sm:p-9 hover:border-cyan-400 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,240,255,0.2)] transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full"
                   >
                     <div>
                       {/* Top Bar: Icon Badge & Number */}
                       <div className="flex items-start justify-between gap-4 mb-6">
-                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-gold/20 via-gold/10 to-white/5 border border-gold/40 flex items-center justify-center text-gold group-hover:scale-105 group-hover:bg-gold/25 group-hover:border-gold transition-all duration-300 shadow-md">
+                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/20 via-blue-600/15 to-purple-600/15 border border-cyan-400/40 flex items-center justify-center text-cyan-300 group-hover:scale-105 group-hover:border-cyan-300 group-hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all duration-300 shadow-md">
                           {item.icon}
                         </div>
-                        <span className="font-mono text-xs font-bold text-gold tracking-widest px-3 py-1 rounded-full bg-gold/15 border border-gold/30 shadow-xs">
+                        <span className="font-mono text-xs font-bold text-cyan-300 tracking-widest px-3 py-1 rounded-full bg-cyan-950/70 border border-cyan-500/30 shadow-xs">
                           {item.number}
                         </span>
                       </div>
 
                       {/* Category Sub-badge */}
-                      <p className="text-gold text-xs font-semibold tracking-wider uppercase mb-1.5">
+                      <p className="text-cyan-400 text-xs font-semibold tracking-wider uppercase mb-1.5">
                         {item.category}
                       </p>
 
                       {/* Card Title */}
-                      <h3 className="text-white text-2xl font-bold mb-3 tracking-tight group-hover:text-gold-light transition-colors">
+                      <h3 className="text-white text-2xl font-bold mb-3 tracking-tight group-hover:text-cyan-300 transition-colors">
                         {item.title}
                       </h3>
 
                       {/* Description */}
-                      <p className="text-white/75 text-sm leading-relaxed mb-6 font-normal">
+                      <p className="text-slate-300 text-sm leading-relaxed mb-6 font-normal">
                         {item.desc}
                       </p>
 
                       {/* Highlights / Institutional Checklist */}
-                      <div className="space-y-2.5 pt-4 border-t border-white/10 mb-6">
+                      <div className="space-y-2.5 pt-4 border-t border-cyan-500/15 mb-6">
                         {item.highlights.map((h) => (
-                          <div key={h} className="flex items-center gap-2.5 text-xs text-white/85">
-                            <span className="w-4 h-4 rounded-full bg-gold/20 border border-gold/40 flex items-center justify-center shrink-0 text-gold">
+                          <div key={h} className="flex items-center gap-2.5 text-xs text-slate-200">
+                            <span className="w-4 h-4 rounded-full bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center shrink-0 text-cyan-300">
                               <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                               </svg>
@@ -385,11 +382,11 @@ export default function AboutPage() {
                     </div>
 
                     {/* Interactive Footer */}
-                    <div className="pt-5 border-t border-white/10 flex items-center justify-between mt-auto">
-                      <span className="text-[11px] font-semibold text-white/50 uppercase tracking-wider group-hover:text-gold transition-colors">
+                    <div className="pt-5 border-t border-cyan-500/15 flex items-center justify-between mt-auto">
+                      <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider group-hover:text-cyan-300 transition-colors">
                         Strategic Advantage
                       </span>
-                      <span className="w-8 h-0.5 bg-gold/40 rounded-full group-hover:w-16 group-hover:bg-gold transition-all duration-300" />
+                      <span className="w-8 h-0.5 bg-cyan-500/40 rounded-full group-hover:w-16 group-hover:bg-cyan-400 group-hover:shadow-[0_0_8px_#00F0FF] transition-all duration-300" />
                     </div>
                   </SpotlightCard>
                 </TiltCard>

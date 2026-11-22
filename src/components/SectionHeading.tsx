@@ -21,7 +21,7 @@ export default function SectionHeading({
     <div className={`mb-12 ${align === 'center' ? 'text-center' : ''}`}>
       {label && (
         <motion.p
-          className="text-sm font-semibold tracking-wider uppercase mb-3 text-gold"
+          className="text-xs font-semibold tracking-widest uppercase mb-3 text-cyan-400"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
@@ -31,8 +31,8 @@ export default function SectionHeading({
         </motion.p>
       )}
       <motion.h2
-        className={`text-2xl md:text-3xl font-semibold ${
-          light ? 'text-white' : 'text-text-dark'
+        className={`text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight ${
+          light ? 'text-white' : 'text-white'
         }`}
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -53,7 +53,7 @@ export default function SectionHeading({
         <motion.p
           className={`mt-5 text-base leading-relaxed max-w-2xl ${
             align === 'center' ? 'mx-auto' : ''
-          } ${light ? 'text-white/70' : 'text-text-body'}`}
+          } text-slate-300`}
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}

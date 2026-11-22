@@ -121,10 +121,10 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
     let rotX = 0.22;
     const autoRotateSpeed = 0.0032;
 
-    // Sized for grand, commanding presence in the executive column
-    let globeRadius = Math.min(width, height) * 0.44;
-    if (globeRadius > 265) globeRadius = 265;
-    if (globeRadius < 140) globeRadius = 140;
+    // Sized for grand, commanding presence with ample margin to avoid edge clipping
+    let globeRadius = Math.min(width, height) * 0.32;
+    if (globeRadius > 185) globeRadius = 185;
+    if (globeRadius < 110) globeRadius = 110;
 
     // High-Resolution Earth Continent Point Matrix (~2,400 land dots)
     const landDots: { lat: number; lon: number }[] = [];
@@ -153,12 +153,12 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
 
     // High-Energy Connectivity Trajectories (Delaware HQ to International Delivery Hubs)
     const arcs: Arc[] = [
-      { startLat: 39.7, startLon: -75.5, endLat: 12.9, endLon: 77.6, progress: 0.1, speed: 0.0075, color: '#C9A44C' },
-      { startLat: 39.7, startLon: -75.5, endLat: 19.0, endLon: 72.8, progress: 0.45, speed: 0.0065, color: '#F3E5AB' },
+      { startLat: 39.7, startLon: -75.5, endLat: 12.9, endLon: 77.6, progress: 0.1, speed: 0.0075, color: '#00F0FF' },
+      { startLat: 39.7, startLon: -75.5, endLat: 19.0, endLon: 72.8, progress: 0.45, speed: 0.0065, color: '#38BDF8' },
       { startLat: 40.7, startLon: -74.0, endLat: 51.5, endLon: -0.1, progress: 0.7, speed: 0.0085, color: '#FFFFFF' },
-      { startLat: 51.5, startLon: -0.1, endLat: 12.9, endLon: 77.6, progress: 0.3, speed: 0.007, color: '#C9A44C' },
-      { startLat: 37.7, startLon: -122.4, endLat: 39.7, endLon: -75.5, progress: 0.8, speed: 0.0095, color: '#F3E5AB' },
-      { startLat: 12.9, startLon: 77.6, endLat: 1.3, endLon: 103.8, progress: 0.2, speed: 0.008, color: '#C9A44C' },
+      { startLat: 51.5, startLon: -0.1, endLat: 12.9, endLon: 77.6, progress: 0.3, speed: 0.007, color: '#00F0FF' },
+      { startLat: 37.7, startLon: -122.4, endLat: 39.7, endLon: -75.5, progress: 0.8, speed: 0.0095, color: '#38BDF8' },
+      { startLat: 12.9, startLon: 77.6, endLat: 1.3, endLon: 103.8, progress: 0.2, speed: 0.008, color: '#60A5FA' },
       { startLat: 39.7, startLon: -75.5, endLat: 35.6, endLon: 139.7, progress: 0.55, speed: 0.006, color: '#FFFFFF' },
     ];
 
@@ -220,7 +220,7 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
         x: clickX,
         y: clickY,
         r: 8,
-        maxR: globeRadius * 1.6,
+        maxR: globeRadius * 1.35,
         alpha: 0.9,
       });
 
@@ -234,7 +234,7 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
           vy: Math.sin(angle) * speed,
           alpha: 1,
           size: Math.random() * 2.2 + 1,
-          color: i % 2 === 0 ? '#F3E5AB' : '#C9A44C',
+          color: i % 2 === 0 ? '#38BDF8' : '#00F0FF',
         });
       }
     };
@@ -252,16 +252,21 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
       canvas.width = width * dpr;
       canvas.height = height * dpr;
       ctx.scale(dpr, dpr);
-      globeRadius = Math.min(width, height) * 0.44;
-      if (globeRadius > 265) globeRadius = 265;
-      if (globeRadius < 140) globeRadius = 140;
+      globeRadius = Math.min(width, height) * 0.32;
+      if (globeRadius > 185) globeRadius = 185;
+      if (globeRadius < 110) globeRadius = 110;
     };
 
     const parent = canvas.parentElement;
+    const resizeObserver = new ResizeObserver(() => {
+      handleResize();
+    });
+
     if (parent) {
       parent.addEventListener('pointerdown', handlePointerDown);
       parent.addEventListener('click', handleClick);
       parent.addEventListener('mouseleave', handleMouseLeave);
+      resizeObserver.observe(parent);
     }
     window.addEventListener('pointermove', handlePointerMove);
     window.addEventListener('pointerup', handlePointerUp);
@@ -348,18 +353,18 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
         globeRadius * 0.2,
         centerX,
         centerY,
-        globeRadius * 1.55
+        globeRadius * 1.38
       );
-      spotGrad.addColorStop(0, 'rgba(201, 164, 76, 0.18)');
-      spotGrad.addColorStop(0.45, 'rgba(19, 45, 82, 0.14)');
-      spotGrad.addColorStop(1, 'rgba(11, 31, 58, 0)');
+      spotGrad.addColorStop(0, 'rgba(0, 240, 255, 0.16)');
+      spotGrad.addColorStop(0.45, 'rgba(37, 99, 235, 0.12)');
+      spotGrad.addColorStop(1, 'rgba(2, 7, 18, 0)');
       ctx.fillStyle = spotGrad;
       ctx.beginPath();
-      ctx.arc(centerX, centerY, globeRadius * 1.55, 0, Math.PI * 2);
+      ctx.arc(centerX, centerY, globeRadius * 1.38, 0, Math.PI * 2);
       ctx.fill();
 
       // 2. High-Impact Volumetric Sphere Atmosphere Core
-      // Midnight sapphire core transitioning to deep brand navy with rich champagne rim
+      // Midnight cyber navy core transitioning to electric cyan / royal blue rim
       const globeBody = ctx.createRadialGradient(
         centerX - globeRadius * 0.28,
         centerY - globeRadius * 0.28,
@@ -368,11 +373,11 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
         centerY,
         globeRadius
       );
-      globeBody.addColorStop(0, '#15335E');
-      globeBody.addColorStop(0.55, '#0B1F3A');
-      globeBody.addColorStop(0.85, '#071527');
-      globeBody.addColorStop(0.96, 'rgba(201, 164, 76, 0.45)');
-      globeBody.addColorStop(1, 'rgba(243, 229, 171, 0.85)');
+      globeBody.addColorStop(0, '#0D274D');
+      globeBody.addColorStop(0.55, '#06162E');
+      globeBody.addColorStop(0.85, '#020B18');
+      globeBody.addColorStop(0.96, 'rgba(37, 99, 235, 0.45)');
+      globeBody.addColorStop(1, 'rgba(0, 240, 255, 0.85)');
       ctx.fillStyle = globeBody;
       ctx.beginPath();
       ctx.arc(centerX, centerY, globeRadius, 0, Math.PI * 2);
@@ -385,15 +390,15 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
         globeRadius * 0.92,
         centerX,
         centerY,
-        globeRadius * 1.35
+        globeRadius * 1.24
       );
-      corona.addColorStop(0, 'rgba(201, 164, 76, 0.35)');
-      corona.addColorStop(0.4, 'rgba(201, 164, 76, 0.12)');
-      corona.addColorStop(0.8, 'rgba(19, 45, 82, 0.08)');
-      corona.addColorStop(1, 'rgba(11, 31, 58, 0)');
+      corona.addColorStop(0, 'rgba(0, 240, 255, 0.35)');
+      corona.addColorStop(0.4, 'rgba(56, 189, 248, 0.15)');
+      corona.addColorStop(0.8, 'rgba(37, 99, 235, 0.08)');
+      corona.addColorStop(1, 'rgba(2, 7, 18, 0)');
       ctx.fillStyle = corona;
       ctx.beginPath();
-      ctx.arc(centerX, centerY, globeRadius * 1.35, 0, Math.PI * 2);
+      ctx.arc(centerX, centerY, globeRadius * 1.24, 0, Math.PI * 2);
       ctx.fill();
 
       // 3. Click Shockwave Ripples
@@ -405,7 +410,7 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
         ctx.save();
         ctx.beginPath();
         ctx.arc(sw.x, sw.y, sw.r, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(243, 229, 171, ${sw.alpha})`;
+        ctx.strokeStyle = `rgba(0, 240, 255, ${sw.alpha})`;
         ctx.lineWidth = 2;
         ctx.stroke();
         ctx.restore();
@@ -440,18 +445,18 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
       // 5. Kinetic Concentric Orbital Celestial Rings with Traveling Beads
       const rings = [
         {
-          radius: globeRadius * 1.22,
+          radius: globeRadius * 1.18,
           rX: rotX + 0.32,
           rY: rotY * 1.15 + time * 0.008,
-          color: '#C9A44C',
+          color: '#00F0FF',
           width: 1.4,
           beadProgress: (time * 0.005) % 1,
         },
         {
-          radius: globeRadius * 1.36,
+          radius: globeRadius * 1.28,
           rX: rotX - 0.38,
           rY: -rotY * 0.85 + time * 0.006,
-          color: '#F3E5AB',
+          color: '#38BDF8',
           width: 1.2,
           beadProgress: (time * 0.004 + 0.5) % 1,
         },
@@ -498,7 +503,7 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
             beadZ = z2;
           }
         }
-        ctx.strokeStyle = 'rgba(201, 164, 76, 0.32)';
+        ctx.strokeStyle = 'rgba(0, 240, 255, 0.32)';
         ctx.lineWidth = ring.width;
         ctx.stroke();
 
@@ -527,8 +532,8 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
             const depthAlpha = Math.max(0.08, Math.min(0.38, (p.z + globeRadius) / (2 * globeRadius)));
             ctx.strokeStyle =
               latDeg === 0
-                ? `rgba(243, 229, 171, ${depthAlpha * 1.8})`
-                : `rgba(201, 164, 76, ${depthAlpha * 0.85})`;
+                ? `rgba(0, 240, 255, ${depthAlpha * 1.8})`
+                : `rgba(56, 189, 248, ${depthAlpha * 0.85})`;
             ctx.lineWidth = latDeg === 0 ? 1.5 : 0.8;
 
             if (first) {
@@ -555,7 +560,7 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
           const p = project(latDeg, lonDeg, 0, rotX, rotY, levitationY);
           if (p.visible) {
             const depthAlpha = Math.max(0.08, Math.min(0.32, (p.z + globeRadius) / (2 * globeRadius)));
-            ctx.strokeStyle = `rgba(201, 164, 76, ${depthAlpha * 0.85})`;
+            ctx.strokeStyle = `rgba(56, 189, 248, ${depthAlpha * 0.85})`;
             ctx.lineWidth = 0.8;
 
             if (first) {
@@ -590,13 +595,13 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
 
           let dotRadius = (1.6 + depthFactor * 1.0) * p.scale;
           let alpha = Math.max(0.22, depthFactor * 0.75 + rim * 0.45);
-          let color = depthFactor > 0.65 ? '#FFFFFF' : depthFactor > 0.35 ? '#F3E5AB' : '#C9A44C';
+          let color = depthFactor > 0.65 ? '#FFFFFF' : depthFactor > 0.35 ? '#38BDF8' : '#0284C7';
 
           if (isNearCursor) {
             const proximity = 1 - distToCursor / 85;
             dotRadius = (1.8 + proximity * 2.8) * p.scale;
             alpha = Math.min(1, alpha + proximity * 0.55);
-            color = '#FFFFFF';
+            color = '#00F0FF';
           }
 
           ctx.fillStyle = color;
@@ -634,7 +639,7 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
             }
           }
         }
-        ctx.strokeStyle = 'rgba(243, 229, 171, 0.55)';
+        ctx.strokeStyle = 'rgba(56, 189, 248, 0.55)';
         ctx.lineWidth = 1.35;
         ctx.setLineDash([3, 4]);
         ctx.stroke();
@@ -684,10 +689,10 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
           const haloRadius = isHovered ? (hub.size + pulse * 14) * p.scale : (hub.size + pulse * 8) * p.scale;
           ctx.arc(p.x, p.y, haloRadius, 0, Math.PI * 2);
           ctx.strokeStyle = hub.isHQ
-            ? `rgba(52, 211, 153, ${(1 - pulse) * 0.95 * depthFactor})`
+            ? `rgba(0, 240, 255, ${(1 - pulse) * 0.95 * depthFactor})`
             : isHovered
             ? `rgba(255, 255, 255, ${0.95 * depthFactor})`
-            : `rgba(243, 229, 171, ${(1 - pulse) * 0.85 * depthFactor})`;
+            : `rgba(56, 189, 248, ${(1 - pulse) * 0.85 * depthFactor})`;
           ctx.lineWidth = isHovered ? 2.2 : 1.5;
           ctx.stroke();
 
@@ -695,8 +700,8 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
           ctx.beginPath();
           const coreRadius = isHovered ? hub.size * 1.2 * p.scale : hub.size * 0.8 * p.scale;
           ctx.arc(p.x, p.y, coreRadius, 0, Math.PI * 2);
-          ctx.fillStyle = hub.isHQ ? '#34D399' : isHovered ? '#FFFFFF' : '#F3E5AB';
-          ctx.shadowColor = hub.isHQ ? '#10B981' : '#C9A44C';
+          ctx.fillStyle = hub.isHQ ? '#00F0FF' : isHovered ? '#FFFFFF' : '#38BDF8';
+          ctx.shadowColor = hub.isHQ ? '#00F0FF' : '#2563EB';
           ctx.shadowBlur = isHovered ? 18 : 12;
           ctx.fill();
           ctx.restore();
@@ -710,6 +715,7 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
 
     return () => {
       cancelAnimationFrame(animationFrameId);
+      resizeObserver.disconnect();
       if (parent) {
         parent.removeEventListener('pointerdown', handlePointerDown);
         parent.removeEventListener('click', handleClick);

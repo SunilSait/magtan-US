@@ -35,21 +35,21 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="bg-navy text-white relative overflow-hidden">
-      {/* Animated gold gradient divider */}
+    <footer className="bg-[#020712] text-white relative overflow-hidden border-t border-cyan-500/20">
+      {/* Animated Electric Cyan Gradient Divider */}
       <motion.div
-        className="h-[2px] w-full bg-gradient-to-r from-transparent via-gold to-transparent"
+        className="h-[2px] w-full bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_15px_#00F0FF]"
         initial={{ scaleX: 0, opacity: 0 }}
         whileInView={{ scaleX: 1, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1, ease: [0.25, 0.4, 0.25, 1] }}
       />
 
-      {/* Subtle background decorations */}
+      {/* Subtle atmospheric background decorations */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gold/[0.015] rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-white/[0.01] rounded-full translate-y-1/3 -translate-x-1/4 blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-white/[0.02] rounded-full" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/[0.04] rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-blue-600/[0.05] rounded-full translate-y-1/3 -translate-x-1/4 blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-cyan-500/[0.04] rounded-full" />
       </div>
 
       {/* Main Footer Content */}
@@ -66,38 +66,38 @@ export default function Footer() {
         >
           {/* Column 1: Company Profile */}
           <motion.div className="space-y-3" variants={columnVariants}>
-            <Link href="/" className="inline-block bg-white px-3 py-1.5 rounded-lg shadow-sm mb-2 group">
+            <Link href="/" className="inline-block py-1 group">
               <Image
-                src="/logo.jpg"
+                src="/magtan-logo.png"
                 alt="MAGTAN INTERNATIONAL HOLDINGS INC"
-                width={130}
-                height={60}
-                className="h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+                width={160}
+                height={75}
+                className="h-11 sm:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105 drop-shadow-[0_0_12px_rgba(56,189,248,0.25)]"
               />
             </Link>
-            <p className="text-white font-semibold text-base sm:text-lg leading-snug tracking-tight">
+            <p className="text-white font-bold text-base sm:text-lg leading-snug tracking-tight">
               MAGTAN INTERNATIONAL
               <br />
               HOLDINGS INC
             </p>
-            <p className="text-gold/80 text-xs font-semibold tracking-wider uppercase">
+            <p className="text-cyan-400 text-xs font-semibold tracking-wider uppercase">
               One Vision. A Global Future.
             </p>
-            <div className="pt-2 text-sm text-white/60 space-y-1.5">
+            <div className="pt-2 text-sm text-slate-400 space-y-1.5">
               <p>
                 A Delaware-registered U.S. corporation connecting international businesses with
-                skilled technology delivery teams.
+                high-performance technology delivery teams.
               </p>
               <p className="pt-1">
-                Delaware File No: <span className="text-white font-medium">10631049</span>
+                Delaware File No: <span className="text-cyan-300 font-mono font-semibold">10631049</span>
               </p>
-              <p className="text-white/40 text-xs">Incorporated in Delaware, USA</p>
+              <p className="text-slate-500 text-xs">Incorporated in Delaware, USA</p>
             </div>
           </motion.div>
 
           {/* Column 2: Quick Links */}
           <motion.div variants={columnVariants}>
-            <h4 className="text-gold text-xs font-semibold tracking-widest uppercase mb-4">
+            <h4 className="text-cyan-400 text-xs font-semibold tracking-widest uppercase mb-4">
               Quick Links
             </h4>
             <ul className="space-y-3">
@@ -105,7 +105,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/70 hover:text-white hover:pl-1 transition-all duration-200 inline-block"
+                    className="text-sm text-slate-300 hover:text-cyan-300 hover:pl-1 transition-all duration-200 inline-block"
                   >
                     {link.label}
                   </Link>
@@ -116,7 +116,7 @@ export default function Footer() {
 
           {/* Column 3: Legal & Policies */}
           <motion.div variants={columnVariants}>
-            <h4 className="text-gold text-xs font-semibold tracking-widest uppercase mb-4">
+            <h4 className="text-cyan-400 text-xs font-semibold tracking-widest uppercase mb-4">
               Legal & Policies
             </h4>
             <ul className="space-y-3">
@@ -124,59 +124,59 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/70 hover:text-white hover:pl-1 transition-all duration-200 inline-block"
+                    className="text-sm text-slate-300 hover:text-cyan-300 hover:pl-1 transition-all duration-200 inline-block"
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-            <p className="text-xs text-white/35 mt-4 leading-relaxed italic">
-              Delaware entity responsible for client contracting, billing and engagements.
+            <p className="text-xs text-slate-500 mt-4 leading-relaxed italic">
+              Delaware entity responsible for client contracting, billing and international engagements.
             </p>
           </motion.div>
 
           {/* Column 4: Contact Us */}
           <motion.div variants={columnVariants}>
-            <h4 className="text-gold text-xs font-semibold tracking-widest uppercase mb-4">
+            <h4 className="text-cyan-400 text-xs font-semibold tracking-widest uppercase mb-4">
               Contact Us
             </h4>
             <div className="space-y-4 text-sm">
               <div>
-                <p className="text-gold/70 text-xs font-semibold tracking-wider uppercase mb-1">
+                <p className="text-cyan-300/80 text-xs font-semibold tracking-wider uppercase mb-1">
                   Email
                 </p>
                 <a
                   href="mailto:business@magtanholdings.com"
-                  className="text-white/75 hover:text-gold transition-colors duration-200 break-all"
+                  className="text-slate-200 hover:text-cyan-300 transition-colors duration-200 break-all"
                 >
                   business@magtanholdings.com
                 </a>
               </div>
               <div>
-                <p className="text-gold/70 text-xs font-semibold tracking-wider uppercase mb-1">
+                <p className="text-cyan-300/80 text-xs font-semibold tracking-wider uppercase mb-1">
                   Telephone
                 </p>
-                <div className="space-y-1 text-white/75">
+                <div className="space-y-1 text-slate-200">
                   <a
                     href="tel:+918098566616"
-                    className="block hover:text-gold transition-colors duration-200"
+                    className="block hover:text-cyan-300 transition-colors duration-200 font-mono"
                   >
                     +91-8098566616
                   </a>
                   <a
                     href="tel:+919025796305"
-                    className="block hover:text-gold transition-colors duration-200"
+                    className="block hover:text-cyan-300 transition-colors duration-200 font-mono"
                   >
                     +91-9025796305
                   </a>
                 </div>
               </div>
               <div>
-                <p className="text-gold/70 text-xs font-semibold tracking-wider uppercase mb-1">
+                <p className="text-cyan-300/80 text-xs font-semibold tracking-wider uppercase mb-1">
                   Jurisdiction
                 </p>
-                <p className="text-white/75">Delaware, United States</p>
+                <p className="text-slate-300">Delaware, United States</p>
               </div>
             </div>
           </motion.div>
@@ -185,19 +185,19 @@ export default function Footer() {
 
       {/* Bottom Copyright Bar */}
       <motion.div
-        className="border-t border-white/10 bg-black/20"
+        className="border-t border-cyan-500/10 bg-black/40"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.5 }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
             <p>© {currentYear} MAGTAN INTERNATIONAL HOLDINGS INC. All rights reserved.</p>
             <div className="flex items-center gap-3">
               <span>Delaware, United States</span>
-              <span className="text-gold/40">•</span>
-              <span>File # 10631049</span>
+              <span className="text-cyan-400/50">•</span>
+              <span className="font-mono text-cyan-300">File # 10631049</span>
             </div>
           </div>
         </div>

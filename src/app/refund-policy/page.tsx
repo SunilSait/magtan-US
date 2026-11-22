@@ -19,16 +19,14 @@ export default function RefundPolicyPage() {
         breadcrumb="Legal"
       />
 
-      <section className="section-padding relative overflow-hidden">
-        <InteractiveParticles theme="light" density="low" maxDistance={120} mouseRadius={150} />
-        <ParallaxFloat className="-top-16 right-10 w-72 h-72 bg-gold/[0.02] rounded-full blur-3xl" speed={0.2} />
-        <ParallaxFloat className="bottom-10 -left-10 w-64 h-64 bg-navy/[0.015] rounded-full blur-3xl" speed={0.15} direction="down" />
-        <ParallaxFloat className="top-2/3 right-1/3 w-32 h-32 border border-gold/[0.04] rounded-full" speed={0.1} />
-        <div className="absolute inset-0 pointer-events-none pattern-dots" />
+      <section className="bg-[#020712] section-padding relative overflow-hidden text-white border-b border-cyan-500/10">
+        <InteractiveParticles theme="dark" density="low" maxDistance={120} mouseRadius={150} />
+        <ParallaxFloat className="-top-16 right-10 w-72 h-72 bg-cyan-500/[0.06] rounded-full blur-3xl" speed={0.2} />
+        <ParallaxFloat className="bottom-10 -left-10 w-64 h-64 bg-blue-600/[0.08] rounded-full blur-3xl" speed={0.15} direction="down" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn duration={0.7}>
-            <div className="legal-content">
+            <div className="bg-[#071325]/85 border border-cyan-500/25 rounded-2xl p-8 sm:p-12 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] legal-content text-slate-300">
               <p className="text-sm text-text-body mb-6">
                 <strong>Last Updated:</strong> [Date to be inserted upon publication]
               </p>

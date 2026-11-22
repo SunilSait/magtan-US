@@ -11,28 +11,21 @@ interface PageHeroProps {
 
 export default function PageHero({ title, subtitle, breadcrumb }: PageHeroProps) {
   return (
-    <section className="bg-navy relative overflow-hidden">
+    <section className="bg-[#020712] relative overflow-hidden text-white border-b border-cyan-500/15">
       {/* Interactive Particle Network */}
-      <InteractiveParticles density="low" maxDistance={110} mouseRadius={140} />
+      <InteractiveParticles theme="dark" density="low" maxDistance={110} mouseRadius={140} />
 
-      {/* Subtle geometric pattern — floating */}
-      <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <motion.div
-          className="absolute top-0 right-0 w-96 h-96 border border-white/20 rounded-full -translate-y-1/2 translate-x-1/3"
-          animate={{ scale: [1, 1.05, 1], rotate: [0, 5, 0] }}
-          transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute bottom-0 left-0 w-64 h-64 border border-white/20 rounded-full translate-y-1/3 -translate-x-1/4"
-          animate={{ scale: [1, 1.08, 1], rotate: [0, -5, 0] }}
-          transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
-        />
+      {/* Cyber ambient lighting blooms */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-cyan-500/[0.08] rounded-full blur-3xl -translate-y-1/2" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-600/[0.1] rounded-full blur-3xl translate-y-1/2" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(56,189,248,0.025)_1px,transparent_1px),linear-gradient(to_bottom,rgba(56,189,248,0.025)_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] opacity-60" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 text-center flex flex-col items-center">
         {breadcrumb && (
           <motion.p
-            className="text-gold text-sm font-medium tracking-wider uppercase mb-3"
+            className="text-cyan-400 text-xs font-semibold tracking-widest uppercase mb-3 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 shadow-[0_0_12px_rgba(0,240,255,0.2)]"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -41,7 +34,7 @@ export default function PageHero({ title, subtitle, breadcrumb }: PageHeroProps)
           </motion.p>
         )}
         <motion.h1
-          className="text-white text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight max-w-3xl"
+          className="text-white text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight max-w-3xl tracking-tight"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
@@ -50,7 +43,7 @@ export default function PageHero({ title, subtitle, breadcrumb }: PageHeroProps)
         </motion.h1>
         {subtitle && (
           <motion.p
-            className="mt-4 text-white/70 text-lg max-w-2xl leading-relaxed mx-auto"
+            className="mt-4 text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed mx-auto"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}

@@ -14,13 +14,13 @@ export default function GrowingLine() {
   return (
     <div
       ref={ref}
-      className="hidden lg:block absolute left-1/2 top-0 bottom-0 -translate-x-1/2"
+      className="hidden lg:block absolute left-1/2 top-0 bottom-0 -translate-x-1/2 z-0"
     >
       {/* Background track */}
-      <div className="w-px h-full bg-border" />
-      {/* Animated gold progress */}
+      <div className="w-[2px] h-full bg-cyan-950/80 border-l border-cyan-500/20" />
+      {/* Animated cyan progress line */}
       <motion.div
-        className="absolute top-0 left-0 w-px bg-gold"
+        className="absolute top-0 left-0 w-[2px] bg-gradient-to-b from-cyan-400 via-sky-300 to-blue-500 shadow-[0_0_10px_#00F0FF]"
         style={{
           scaleY: scrollYProgress,
           opacity,
