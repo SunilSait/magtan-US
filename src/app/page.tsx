@@ -72,10 +72,10 @@ export default function HomePage() {
                 </Link>
                 <Link
                   href="/services"
-                  className="text-xs sm:text-sm font-semibold text-slate-300 hover:text-cyan-300 inline-flex items-center gap-2 transition-colors"
+                  className="btn-primary text-xs sm:text-sm py-2.5 px-6 rounded-full inline-flex items-center gap-2 group shadow-[0_0_20px_rgba(0,240,255,0.35)] cursor-pointer"
                 >
                   <span>Explore Capabilities</span>
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <svg className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
                 </Link>
@@ -150,13 +150,13 @@ export default function HomePage() {
               <StaggerContainer className="space-y-4">
                 {missionItems.map((item, i) => (
                   <StaggerItem key={i}>
-                    <div className="flex items-start gap-4">
-                      <span className="mt-1 shrink-0 w-6 h-6 rounded-full border border-cyan-400 bg-cyan-500/15 flex items-center justify-center shadow-[0_0_8px_rgba(0,240,255,0.3)]">
+                    <div className="flex items-center gap-3.5 sm:gap-4">
+                      <span className="shrink-0 w-6 h-6 rounded-full border border-cyan-400/80 bg-cyan-500/15 flex items-center justify-center shadow-[0_0_8px_rgba(0,240,255,0.25)]">
                         <svg className="w-3.5 h-3.5 text-cyan-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
                       </span>
-                      <span className="text-slate-300 text-base">{item}</span>
+                      <span className="text-slate-300 text-base leading-normal">{item}</span>
                     </div>
                   </StaggerItem>
                 ))}

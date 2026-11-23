@@ -346,62 +346,7 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
       const centerX = width / 2;
       const centerY = height / 2 + levitationY;
 
-      // 1. Ambient Circular Backdrop Glow (Seamlessly blended, zero rectangular edges)
-      const spotGrad = ctx.createRadialGradient(
-        centerX,
-        centerY,
-        globeRadius * 0.2,
-        centerX,
-        centerY,
-        globeRadius * 1.38
-      );
-      spotGrad.addColorStop(0, 'rgba(0, 240, 255, 0.16)');
-      spotGrad.addColorStop(0.45, 'rgba(37, 99, 235, 0.12)');
-      spotGrad.addColorStop(1, 'rgba(2, 7, 18, 0)');
-      ctx.fillStyle = spotGrad;
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, globeRadius * 1.38, 0, Math.PI * 2);
-      ctx.fill();
-
-      // 2. High-Impact Volumetric Sphere Atmosphere Core
-      // Midnight cyber navy core transitioning to electric cyan / royal blue rim
-      const globeBody = ctx.createRadialGradient(
-        centerX - globeRadius * 0.28,
-        centerY - globeRadius * 0.28,
-        globeRadius * 0.12,
-        centerX,
-        centerY,
-        globeRadius
-      );
-      globeBody.addColorStop(0, '#0D274D');
-      globeBody.addColorStop(0.55, '#06162E');
-      globeBody.addColorStop(0.85, '#020B18');
-      globeBody.addColorStop(0.96, 'rgba(37, 99, 235, 0.45)');
-      globeBody.addColorStop(1, 'rgba(0, 240, 255, 0.85)');
-      ctx.fillStyle = globeBody;
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, globeRadius, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Outer Corona Atmospheric Rim Glow
-      const corona = ctx.createRadialGradient(
-        centerX,
-        centerY,
-        globeRadius * 0.92,
-        centerX,
-        centerY,
-        globeRadius * 1.24
-      );
-      corona.addColorStop(0, 'rgba(0, 240, 255, 0.35)');
-      corona.addColorStop(0.4, 'rgba(56, 189, 248, 0.15)');
-      corona.addColorStop(0.8, 'rgba(37, 99, 235, 0.08)');
-      corona.addColorStop(1, 'rgba(2, 7, 18, 0)');
-      ctx.fillStyle = corona;
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, globeRadius * 1.24, 0, Math.PI * 2);
-      ctx.fill();
-
-      // 3. Click Shockwave Ripples
+      // 1. Click Shockwave Ripples
       for (let i = shockwaves.length - 1; i >= 0; i--) {
         const sw = shockwaves[i];
         sw.r += 5;
@@ -449,7 +394,8 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
           rX: rotX + 0.32,
           rY: rotY * 1.15 + time * 0.008,
           color: '#00F0FF',
-          width: 1.4,
+          strokeColor: 'rgba(0, 240, 255, 0.45)',
+          width: 1.6,
           beadProgress: (time * 0.005) % 1,
         },
         {
@@ -457,7 +403,8 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
           rX: rotX - 0.38,
           rY: -rotY * 0.85 + time * 0.006,
           color: '#38BDF8',
-          width: 1.2,
+          strokeColor: 'rgba(56, 189, 248, 0.38)',
+          width: 1.4,
           beadProgress: (time * 0.004 + 0.5) % 1,
         },
       ];
@@ -503,7 +450,7 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
             beadZ = z2;
           }
         }
-        ctx.strokeStyle = 'rgba(0, 240, 255, 0.32)';
+        ctx.strokeStyle = ring.strokeColor;
         ctx.lineWidth = ring.width;
         ctx.stroke();
 
@@ -578,31 +525,26 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
       }
 
       // 8. Radiant High-Res Earth Continents Point Matrix
-      // Uses 3D lighting + Fresnel rim glow + interactive cursor flaring
+      // Strictly constrained & clipped inside the spherical boundary rim
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, globeRadius - 0.5, 0, Math.PI * 2);
+      ctx.clip();
+
       for (let i = 0; i < landDots.length; i++) {
         const dot = landDots[i];
         const p = project(dot.lat, dot.lon, 0, rotX, rotY, levitationY);
 
-        if (p.visible && p.z > -globeRadius * 0.18) {
+        // Only render front-facing surface dots that stay strictly inside the boundary
+        if (p.visible && p.z > 0) {
+          const distFromCenter = Math.hypot(p.x - centerX, p.y - centerY);
           const depthFactor = (p.z + globeRadius) / (2 * globeRadius);
-          
-          // Spherical rim lighting (Fresnel effect) - edges catch brilliant illumination
-          const rim = Math.pow(1 - Math.abs(p.normZ), 2.2);
-          
-          // Distance to interactive mouse cursor
-          const distToCursor = Math.hypot(p.x - mouse.currentX, p.y - mouse.currentY);
-          const isNearCursor = distToCursor < 85;
+          const dotRadius = (1.6 + depthFactor * 1.0) * p.scale;
 
-          let dotRadius = (1.6 + depthFactor * 1.0) * p.scale;
-          let alpha = Math.max(0.22, depthFactor * 0.75 + rim * 0.45);
-          let color = depthFactor > 0.65 ? '#FFFFFF' : depthFactor > 0.35 ? '#38BDF8' : '#0284C7';
+          if (distFromCenter + dotRadius > globeRadius) continue;
 
-          if (isNearCursor) {
-            const proximity = 1 - distToCursor / 85;
-            dotRadius = (1.8 + proximity * 2.8) * p.scale;
-            alpha = Math.min(1, alpha + proximity * 0.55);
-            color = '#00F0FF';
-          }
+          const alpha = Math.max(0.22, depthFactor * 0.75);
+          const color = depthFactor > 0.35 ? '#38BDF8' : '#0284C7';
 
           ctx.fillStyle = color;
           ctx.globalAlpha = alpha;
@@ -611,7 +553,17 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
           ctx.fill();
         }
       }
+      ctx.restore();
       ctx.globalAlpha = 1;
+
+      // Outer Planetary Boundary Rim (Refined, Balanced Cyber Border)
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, globeRadius, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(0, 240, 255, 0.55)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      ctx.restore();
 
       // 9. Curved Data Trajectories & Traveling Photons (Delaware HQ -> Global Network)
       arcs.forEach((arc) => {
@@ -676,7 +628,7 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
         hub.pulsePhase += 0.04;
         const p = project(hub.lat, hub.lon, 0, rotX, rotY, levitationY);
 
-        if (p.visible && p.z > -globeRadius * 0.1) {
+        if (p.visible && p.z > 0) {
           const depthFactor = (p.z + globeRadius) / (2 * globeRadius);
           const pulse = (Math.sin(hub.pulsePhase) + 1) * 0.5;
 

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import PageHero from '@/components/PageHero';
 import SectionHeading from '@/components/SectionHeading';
 import FadeIn from '@/components/animations/FadeIn';
@@ -90,26 +91,39 @@ export default function AboutPage() {
         <ParallaxFloat className="bottom-10 left-10 w-48 h-48 border border-cyan-500/[0.1] rounded-full" speed={0.15} direction="down" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn className="max-w-4xl">
-            <SectionHeading label="Our Story" title="Building Bridges Between Global Markets" light />
-            <div className="space-y-5 text-slate-300 leading-relaxed text-base sm:text-lg font-normal">
-              <p>
-                <strong className="text-white">MAGTAN INTERNATIONAL HOLDINGS INC</strong> is a Delaware corporation
-                established with an international business vision. Our focus is to develop business relationships in the
-                United States and other international markets while coordinating professional service delivery through
-                India-based operating teams and specialized technology partners.
-              </p>
-              <p>
-                We aim to connect global business opportunities with capable delivery resources, creating a robust bridge
-                between international enterprise clients who need mission-critical technology services and skilled teams who
-                can deliver them professionally, securely, and efficiently.
-              </p>
-              <p>
-                Our business model is built on understanding client requirements deeply, managing projects with institutional
-                discipline, and ensuring quality delivery governed under U.S. Delaware corporate standards.
-              </p>
-            </div>
-          </FadeIn>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <FadeIn direction="left" className="lg:col-span-7">
+              <SectionHeading label="Our Story" title="Building Bridges Between Global Markets" light />
+              <div className="space-y-5 text-slate-300 leading-relaxed text-base sm:text-lg font-normal">
+                <p>
+                  <strong className="text-white">MAGTAN INTERNATIONAL HOLDINGS INC</strong> is a Delaware corporation
+                  established with an international business vision. Our focus is to develop business relationships in the
+                  United States and other international markets while coordinating professional service delivery through
+                  India-based operating teams and specialized technology partners.
+                </p>
+                <p>
+                  We aim to connect global business opportunities with capable delivery resources, creating a robust bridge
+                  between international enterprise clients who need mission-critical technology services and skilled teams who
+                  can deliver them professionally, securely, and efficiently.
+                </p>
+              </div>
+            </FadeIn>
+
+            <FadeIn direction="right" delay={0.2} className="lg:col-span-5">
+              <div className="relative group rounded-2xl overflow-hidden border border-cyan-500/30 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:border-cyan-400/70 hover:shadow-[0_0_35px_rgba(0,240,255,0.3)] transition-all duration-500 aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3]">
+                <Image
+                  src="/images/about-global-bridge.jpg"
+                  alt="Building Bridges Between Global Markets - MAGTAN"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                {/* Subtle Ambient Vignette */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020712]/40 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
+                <div className="absolute inset-0 ring-1 ring-inset ring-cyan-500/20 rounded-2xl pointer-events-none" />
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </section>
 
@@ -287,7 +301,7 @@ export default function AboutPage() {
               {
                 number: '01',
                 category: 'Corporate Governance',
-                title: 'U.S. Business Presence',
+                title: 'U.S. Business Establishment',
                 desc: 'As a Delaware-registered corporation, we provide our clients with a recognized, compliant U.S. corporate entity for contracting, invoicing, and institutional security.',
                 highlights: [
                   'Delaware Registered (File #10631049)',

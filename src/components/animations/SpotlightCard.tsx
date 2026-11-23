@@ -13,7 +13,7 @@ export default function SpotlightCard({
   children,
   className = '',
   spotlightColor = 'rgba(201, 164, 76, 0.12)',
-  borderColor = 'rgba(201, 164, 76, 0.4)',
+  borderColor = '',
   ...props
 }: SpotlightCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -55,14 +55,16 @@ export default function SpotlightCard({
         }}
       />
 
-      {/* Dynamic Border Glow Layer */}
-      <div
-        className="pointer-events-none absolute -inset-px rounded-[inherit] transition-opacity duration-300 z-20"
-        style={{
-          opacity,
-          boxShadow: `inset 0 0 0 1px ${borderColor}`,
-        }}
-      />
+      {/* Dynamic Border Glow Layer (only if borderColor is explicitly provided) */}
+      {borderColor && (
+        <div
+          className="pointer-events-none absolute -inset-px rounded-[inherit] transition-opacity duration-300 z-20"
+          style={{
+            opacity,
+            boxShadow: `inset 0 0 0 1px ${borderColor}`,
+          }}
+        />
+      )}
 
       {/* Card Content */}
       <div className="relative z-0 h-full">{children}</div>

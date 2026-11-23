@@ -112,15 +112,6 @@ export default function HomeHero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
           >
-            {/* Radial Backlight Glow Behind Globe */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div
-                className="w-[320px] sm:w-[400px] lg:w-[460px] h-[320px] sm:h-[400px] lg:h-[460px] rounded-full bg-radial from-cyan-500/[0.22] via-blue-600/[0.10] to-transparent blur-3xl animate-pulse"
-                style={{ animationDuration: '6s' }}
-              />
-              <div className="absolute w-[240px] sm:w-[300px] lg:w-[360px] h-[240px] sm:h-[300px] lg:h-[360px] rounded-full bg-radial from-cyan-400/[0.15] via-purple-600/[0.12] to-transparent blur-2xl" />
-            </div>
-
             {/* 3D Interactive Globe Canvas */}
             <div className="relative w-full h-full flex items-center justify-center cursor-grab active:cursor-grabbing">
               <StageGlobeCanvas />

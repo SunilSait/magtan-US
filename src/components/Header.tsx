@@ -7,7 +7,8 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
-  { href: '/', label: 'Home' },
+  { href: '/', label: 'Home 1' },
+  { href: '/home-2', label: 'Home 2' },
   { href: '/about', label: 'About Us' },
   { href: '/services', label: 'Products & Services' },
   { href: '/how-we-work', label: 'How We Work' },
@@ -17,7 +18,13 @@ const navLinks = [
 export default function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [prevPathname, setPrevPathname] = useState(pathname);
   const [scrolled, setScrolled] = useState(false);
+
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    setMobileMenuOpen(false);
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,13 +34,9 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [pathname]);
-
   return (
     <motion.header
-      initial={{ y: -80, opacity: 0 }}
+      initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.25, 0.4, 0.25, 1] }}
       className={`sticky top-0 z-50 transition-all duration-300 ${
@@ -43,15 +46,15 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-20 sm:h-24 transition-all duration-300">
           {/* Official Company Logo */}
-          <Link href="/" className="flex items-center gap-3 shrink-0 py-1 group">
+          <Link href="/" className="flex items-center shrink-0 group">
             <Image
               src="/magtan-logo.png"
               alt="MAGTAN INTERNATIONAL HOLDINGS INC"
-              width={180}
-              height={84}
-              className="h-12 sm:h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-105 drop-shadow-[0_0_15px_rgba(56,189,248,0.3)]"
+              width={280}
+              height={130}
+              className="h-14 sm:h-16 md:h-20 w-auto object-contain transition-transform duration-200 group-hover:scale-105 drop-shadow-[0_0_18px_rgba(56,189,248,0.35)]"
               priority
             />
           </Link>
@@ -59,7 +62,9 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
             {navLinks.map((link, i) => {
-              const isActive = pathname === link.href;
+              const isHome1Active = (link.href === '/' || link.href === '/home-1') && (pathname === '/' || pathname === '/home-1' || pathname === '/home1');
+              const isHome2Active = (link.href === '/home-2') && (pathname === '/home-2' || pathname === '/home2');
+              const isActive = isHome1Active || isHome2Active || (link.href !== '/' && link.href !== '/home-2' && pathname === link.href);
               const isContact = link.href === '/contact';
 
               if (isContact) {
@@ -145,7 +150,9 @@ export default function Header() {
           >
             <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-1">
               {navLinks.map((link, i) => {
-                const isActive = pathname === link.href;
+                const isHome1Active = (link.href === '/' || link.href === '/home-1') && (pathname === '/' || pathname === '/home-1' || pathname === '/home1');
+                const isHome2Active = (link.href === '/home-2') && (pathname === '/home-2' || pathname === '/home2');
+                const isActive = isHome1Active || isHome2Active || (link.href !== '/' && link.href !== '/home-2' && pathname === link.href);
                 return (
                   <motion.div
                     key={link.href}

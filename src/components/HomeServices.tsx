@@ -53,7 +53,7 @@ const services = [
     number: '04',
     category: 'Cross-Border Delivery',
     title: 'International Project Governance',
-    desc: 'Disciplined project coordination bridging U.S. Delaware corporate contracting with high-performing specialized technical delivery teams.',
+    desc: 'Disciplined project coordination bridging U.S. Delaware corporate contracting with high-performing specialized technical teams.',
     tags: ['U.S. Corporate Governance', 'Milestone Monitoring', 'Resource Orchestration', 'Quality Assurance'],
     icon: (
       <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>

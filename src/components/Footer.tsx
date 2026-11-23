@@ -2,11 +2,11 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const quickLinks = [
-  { href: '/', label: 'Home' },
+  { href: '/', label: 'Home 1' },
+  { href: '/home-2', label: 'Home 2' },
   { href: '/about', label: 'About Us' },
   { href: '/services', label: 'Products & Services' },
   { href: '/how-we-work', label: 'How We Work' },
@@ -28,12 +28,9 @@ const columnVariants = {
   },
 };
 
-export default function Footer() {
-  const [currentYear, setCurrentYear] = useState(2026);
-  useEffect(() => {
-    setCurrentYear(new Date().getFullYear());
-  }, []);
+const currentYear = 2026;
 
+export default function Footer() {
   return (
     <footer className="bg-[#020712] text-white relative overflow-hidden border-t border-cyan-500/20">
       {/* Animated Electric Cyan Gradient Divider */}
@@ -70,9 +67,9 @@ export default function Footer() {
               <Image
                 src="/magtan-logo.png"
                 alt="MAGTAN INTERNATIONAL HOLDINGS INC"
-                width={160}
-                height={75}
-                className="h-11 sm:h-12 w-auto object-contain transition-transform duration-200 group-hover:scale-105 drop-shadow-[0_0_12px_rgba(56,189,248,0.25)]"
+                width={220}
+                height={103}
+                className="h-14 sm:h-16 w-auto object-contain transition-transform duration-200 group-hover:scale-105 drop-shadow-[0_0_15px_rgba(56,189,248,0.3)]"
               />
             </Link>
             <p className="text-white font-bold text-base sm:text-lg leading-snug tracking-tight">
@@ -88,10 +85,6 @@ export default function Footer() {
                 A Delaware-registered U.S. corporation connecting international businesses with
                 high-performance technology delivery teams.
               </p>
-              <p className="pt-1">
-                Delaware File No: <span className="text-cyan-300 font-mono font-semibold">10631049</span>
-              </p>
-              <p className="text-slate-500 text-xs">Incorporated in Delaware, USA</p>
             </div>
           </motion.div>
 

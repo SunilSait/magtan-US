@@ -4,10 +4,9 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const connectedWorldMetrics = [
-  { value: '10631049', label: 'Delaware Reg File' },
-  { value: '15+', label: 'Years Experience' },
-  { value: '100%', label: 'U.S. SLA Compliance' },
-  { value: '500+', label: 'Engagements Delivered' },
+  { value: '15+', line1: 'Years of', line2: 'Experience' },
+  { value: '100%', line1: 'U.S. SLA', line2: 'Compliance' },
+  { value: '500+', line1: 'Engagements', line2: 'Delivered' },
 ];
 
 export default function ConnectedWorldSection() {
@@ -73,13 +72,14 @@ export default function ConnectedWorldSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.35 }}
-              className="mt-10 p-5 sm:p-6 rounded-2xl bg-[#071325]/90 border border-cyan-500/30 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-cyan-500/20"
+              className="mt-10 p-5 sm:p-6 rounded-2xl bg-[#071325]/90 border border-cyan-500/30 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] grid grid-cols-3 gap-3 sm:gap-6 divide-x divide-cyan-500/20"
             >
               {connectedWorldMetrics.map((metric, i) => (
-                <div key={metric.label} className={`${i > 0 ? 'pt-3 sm:pt-0 sm:pl-4' : ''} text-left sm:text-center`}>
-                  <p className="text-xs text-slate-400 font-medium tracking-wide mb-1">
-                    {metric.label}
-                  </p>
+                <div key={metric.value} className={`${i > 0 ? 'pl-3 sm:pl-6' : ''} text-center flex flex-col justify-between`}>
+                  <div className="text-xs text-slate-400 font-medium tracking-wide mb-2 leading-snug">
+                    <p>{metric.line1}</p>
+                    <p>{metric.line2}</p>
+                  </div>
                   <p className="text-xl sm:text-2xl font-extrabold text-white font-mono tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-300 to-white">
                     {metric.value}
                   </p>
@@ -88,30 +88,33 @@ export default function ConnectedWorldSection() {
             </motion.div>
           </div>
 
-          {/* Right Column: 3D Glowing Cyber Globe Hologram over Digital Grid Platform */}
+          {/* Right Column: Real Connected World Technology Image */}
           <div className="lg:col-span-6 relative flex items-center justify-center">
             <motion.div
-              initial={{ opacity: 0, scale: 0.92 }}
+              initial={{ opacity: 0, scale: 0.94 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-[560px] flex items-center justify-center"
+              className="relative w-full max-w-[560px]"
             >
               {/* Radial ambient cyber backlight */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div className="w-[320px] sm:w-[420px] h-[320px] sm:h-[420px] rounded-full bg-radial from-cyan-500/[0.22] via-blue-600/[0.12] to-transparent blur-3xl animate-pulse" />
               </div>
 
-              {/* Cyber Globe Visual Image with Soft Feathered Mask */}
-              <div className="relative w-full h-[360px] sm:h-[460px] lg:h-[500px] rounded-3xl overflow-hidden [mask-image:radial-gradient(circle_at_center,black_60%,transparent_96%)] flex items-center justify-center">
+              {/* Real Connected World Image Card */}
+              <div className="relative group w-full h-[360px] sm:h-[440px] lg:h-[480px] rounded-2xl overflow-hidden border border-cyan-500/30 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:border-cyan-400/70 hover:shadow-[0_0_35px_rgba(0,240,255,0.3)] transition-all duration-500">
                 <Image
-                  src="/cyber-globe-hologram.jpg"
-                  alt="MAGTAN 3D Cyber Earth Hologram in Geodesic Sphere"
-                  width={600}
-                  height={600}
-                  className="w-full h-full object-contain filter drop-shadow-[0_0_35px_rgba(0,240,255,0.45)]"
+                  src="/images/connected-world-nasa.jpg"
+                  alt="Technology Innovation for a Connected World - MAGTAN"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   priority
                 />
+                {/* Subtle Ambient Cyber Lighting Vignette */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#020712]/40 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
+                <div className="absolute inset-0 ring-1 ring-inset ring-cyan-500/20 rounded-2xl pointer-events-none" />
               </div>
             </motion.div>
           </div>

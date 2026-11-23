@@ -8,6 +8,7 @@ import StaggerItem from '@/components/animations/StaggerItem';
 import ParallaxFloat from '@/components/animations/ParallaxFloat';
 import GrowingLine from '@/components/animations/GrowingLine';
 import SpotlightCard from '@/components/animations/SpotlightCard';
+import TiltCard from '@/components/animations/TiltCard';
 import InteractiveParticles from '@/components/animations/InteractiveParticles';
 
 export const metadata: Metadata = {
@@ -53,7 +54,7 @@ const steps = [
     description: 'We orchestrate development through specialized technology teams and India-based engineering providers under strict U.S. contractual oversight.',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17l-5.1-3.19a1.5 1.5 0 01-.58-2.04l3.47-6a1.5 1.5 0 012.04-.58l5.1 3.19m-5.93 8.62l5.1 3.19a1.5 1.5 0 002.04-.58l3.47-6a1.5 1.5 0 00-.58-2.04l-5.1-3.19m-5.93 8.62L5.21 7.62m12.58 7.55L19.79 7.62" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
       </svg>
     ),
   },
@@ -170,16 +171,73 @@ export default function HowWeWorkPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: 'Transparent Process', desc: 'Every phase is governed with milestone visibility so you always know where deliverables stand.' },
-              { title: 'Professional Standards', desc: 'We follow disciplined methodologies for architecture, engineering, and multi-tier quality assurance.' },
-              { title: 'Reliable Delivery', desc: 'Our coordination between international clients and delivery teams ensures projects succeed on schedule.' },
+              {
+                number: '01',
+                title: 'Transparent Process',
+                desc: 'Every phase is carefully managed through clearly defined milestones, providing complete visibility into project timelines.',
+                icon: (
+                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                ),
+              },
+              {
+                number: '02',
+                title: 'Professional Standards',
+                desc: 'We follow disciplined methodologies for architecture, engineering, and multi-tier quality assurance.',
+                icon: (
+                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                  </svg>
+                ),
+              },
+              {
+                number: '03',
+                title: 'Reliable Delivery',
+                desc: 'Our coordination between international clients and delivery teams ensures projects succeed on schedule.',
+                icon: (
+                  <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.58-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+                  </svg>
+                ),
+              },
             ].map((item) => (
-              <StaggerItem key={item.title}>
-                <div className="p-7 rounded-2xl bg-[#071325]/85 border border-cyan-500/20 backdrop-blur-xl text-center">
-                  <span className="accent-line mx-auto mb-5" />
-                  <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-sm text-slate-300 leading-relaxed font-normal">{item.desc}</p>
-                </div>
+              <StaggerItem key={item.title} className="h-full">
+                <TiltCard tiltMaxAngle={6} className="h-full">
+                  <SpotlightCard
+                    spotlightColor="rgba(0, 240, 255, 0.2)"
+                    className="group relative h-full bg-[#071325]/85 border border-cyan-500/25 rounded-2xl p-8 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:border-cyan-400 hover:shadow-[0_0_35px_rgba(0,240,255,0.28)] hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center overflow-hidden"
+                  >
+                    {/* Ambient subtle glow overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/[0.08] via-transparent to-blue-600/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                    {/* Clean Unboxed Icon */}
+                    <div className="flex justify-center text-cyan-400 mb-4 group-hover:scale-110 group-hover:text-cyan-200 transition-all duration-300">
+                      {item.icon}
+                    </div>
+
+                    {/* Number Tag (unboxed clean text) */}
+                    <div className="flex justify-center mb-2">
+                      <span className="font-mono text-xs font-semibold text-cyan-400/80 tracking-widest uppercase">
+                        {item.number}
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors duration-300 tracking-tight">
+                      {item.title}
+                    </h3>
+
+                    {/* Glowing Interactive Accent Line */}
+                    <span className="w-10 h-0.5 mx-auto block bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full mb-4 group-hover:w-20 group-hover:shadow-[0_0_10px_#00F0FF] transition-all duration-300" />
+
+                    {/* Description */}
+                    <p className="text-sm text-slate-300 leading-relaxed font-normal">
+                      {item.desc}
+                    </p>
+                  </SpotlightCard>
+                </TiltCard>
               </StaggerItem>
             ))}
           </StaggerContainer>
