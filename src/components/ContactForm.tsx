@@ -29,6 +29,8 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
+  const [honeypot, setHoneypot] = useState('');
 
   const validateEmail = (email: string) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -70,9 +72,36 @@ export default function ContactForm() {
     }
 
     setSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setSubmitting(false);
-    setSubmitted(true);
+    setServerError(null);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          hp: honeypot,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to submit enquiry. Please try again.');
+      }
+
+      setSubmitted(true);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setServerError(err.message);
+      } else {
+        setServerError('An unexpected error occurred. Please try again later.');
+      }
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -90,6 +119,7 @@ export default function ContactForm() {
         <button
           onClick={() => {
             setSubmitted(false);
+            setServerError(null);
             setFormData({ fullName: '', email: '', company: '', subject: '', message: '' });
           }}
           className="mt-6 inline-flex items-center justify-center px-6 py-2.5 rounded-full border border-cyan-400/80 text-cyan-300 text-xs font-semibold tracking-wider uppercase hover:bg-cyan-500/20 hover:text-white transition-all cursor-pointer"
@@ -109,6 +139,28 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="bg-[#071325]/90 border border-cyan-500/25 rounded-2xl p-7 md:p-9 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+      {/* Anti-spam Honeypot field (hidden from real users) */}
+      <input
+        type="text"
+        name="hp"
+        value={honeypot}
+        onChange={(e) => setHoneypot(e.target.value)}
+        tabIndex={-1}
+        autoComplete="off"
+        className="hidden"
+        aria-hidden="true"
+      />
+
+      {/* Server Error Message */}
+      {serverError && (
+        <div className="mb-6 p-4 rounded-lg bg-red-950/50 border border-red-500/40 text-red-200 text-sm flex items-center gap-3">
+          <svg className="w-5 h-5 text-red-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>{serverError}</span>
+        </div>
+      )}
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {/* Full Name */}
         <div>

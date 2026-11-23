@@ -365,6 +365,34 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
         }
       }
 
+      // 2. Subtle Dark Cyber 3D Sphere Core (Provides organic depth & natural backface occlusion)
+      const sphereCore = ctx.createRadialGradient(
+        centerX - globeRadius * 0.22,
+        centerY - globeRadius * 0.22,
+        globeRadius * 0.1,
+        centerX,
+        centerY,
+        globeRadius
+      );
+      sphereCore.addColorStop(0, '#07162C');
+      sphereCore.addColorStop(0.65, '#030D1C');
+      sphereCore.addColorStop(0.92, '#020712');
+      sphereCore.addColorStop(0.99, 'rgba(0, 240, 255, 0.35)');
+      sphereCore.addColorStop(1, 'rgba(0, 240, 255, 0)');
+      ctx.fillStyle = sphereCore;
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, globeRadius, 0, Math.PI * 2);
+      ctx.fill();
+
+      // 3. Delicate 3D Spherical Horizon Rim (Natural, soft planetary horizon glow)
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, globeRadius, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(0, 240, 255, 0.4)';
+      ctx.lineWidth = 1.2;
+      ctx.stroke();
+      ctx.restore();
+
       // 4. Spark Particle Glints
       for (let i = sparks.length - 1; i >= 0; i--) {
         const sp = sparks[i];
@@ -466,22 +494,23 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
         ctx.restore();
       });
 
-      // 6. Architectural Latitude Lines (Parallels)
+      // 6. Architectural Latitude Lines (Parallels - Front Hemisphere Only)
       const latSteps = [-60, -40, -20, 0, 20, 40, 60];
       latSteps.forEach((latDeg) => {
         ctx.save();
         ctx.beginPath();
         let first = true;
 
-        for (let lonDeg = -180; lonDeg <= 180; lonDeg += 5) {
+        for (let lonDeg = -180; lonDeg <= 180; lonDeg += 4) {
           const p = project(latDeg, lonDeg, 0, rotX, rotY, levitationY);
-          if (p.visible) {
-            const depthAlpha = Math.max(0.08, Math.min(0.38, (p.z + globeRadius) / (2 * globeRadius)));
+          if (p.visible && p.z > 2) {
+            const horizonAlpha = Math.min(1, p.z / (globeRadius * 0.4));
+            const depthAlpha = Math.max(0.06, (p.z + globeRadius) / (2 * globeRadius)) * horizonAlpha;
             ctx.strokeStyle =
               latDeg === 0
-                ? `rgba(0, 240, 255, ${depthAlpha * 1.8})`
-                : `rgba(56, 189, 248, ${depthAlpha * 0.85})`;
-            ctx.lineWidth = latDeg === 0 ? 1.5 : 0.8;
+                ? `rgba(0, 240, 255, ${depthAlpha * 1.5})`
+                : `rgba(56, 189, 248, ${depthAlpha * 0.75})`;
+            ctx.lineWidth = latDeg === 0 ? 1.4 : 0.75;
 
             if (first) {
               ctx.moveTo(p.x, p.y);
@@ -497,18 +526,19 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
         ctx.restore();
       });
 
-      // 7. Architectural Longitude Lines (Meridians)
+      // 7. Architectural Longitude Lines (Meridians - Front Hemisphere Only)
       for (let lonDeg = -180; lonDeg < 180; lonDeg += 30) {
         ctx.save();
         ctx.beginPath();
         let first = true;
 
-        for (let latDeg = -85; latDeg <= 85; latDeg += 5) {
+        for (let latDeg = -85; latDeg <= 85; latDeg += 4) {
           const p = project(latDeg, lonDeg, 0, rotX, rotY, levitationY);
-          if (p.visible) {
-            const depthAlpha = Math.max(0.08, Math.min(0.32, (p.z + globeRadius) / (2 * globeRadius)));
-            ctx.strokeStyle = `rgba(56, 189, 248, ${depthAlpha * 0.85})`;
-            ctx.lineWidth = 0.8;
+          if (p.visible && p.z > 2) {
+            const horizonAlpha = Math.min(1, p.z / (globeRadius * 0.4));
+            const depthAlpha = Math.max(0.06, (p.z + globeRadius) / (2 * globeRadius)) * horizonAlpha;
+            ctx.strokeStyle = `rgba(56, 189, 248, ${depthAlpha * 0.75})`;
+            ctx.lineWidth = 0.75;
 
             if (first) {
               ctx.moveTo(p.x, p.y);
@@ -524,27 +554,20 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
         ctx.restore();
       }
 
-      // 8. Radiant High-Res Earth Continents Point Matrix
-      // Strictly constrained & clipped inside the spherical boundary rim
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, globeRadius - 0.5, 0, Math.PI * 2);
-      ctx.clip();
-
+      // 8. Radiant Earth Continents Point Matrix (Natural 3D Horizon Dissolve)
       for (let i = 0; i < landDots.length; i++) {
         const dot = landDots[i];
         const p = project(dot.lat, dot.lon, 0, rotX, rotY, levitationY);
 
-        // Only render front-facing surface dots that stay strictly inside the boundary
-        if (p.visible && p.z > 0) {
-          const distFromCenter = Math.hypot(p.x - centerX, p.y - centerY);
+        // Organic front-facing horizon culling: smoothly tapers at the silhouette horizon
+        if (p.visible && p.z > 3) {
+          const horizonFactor = Math.min(1, p.z / (globeRadius * 0.85));
           const depthFactor = (p.z + globeRadius) / (2 * globeRadius);
-          const dotRadius = (1.6 + depthFactor * 1.0) * p.scale;
 
-          if (distFromCenter + dotRadius > globeRadius) continue;
-
-          const alpha = Math.max(0.22, depthFactor * 0.75);
-          const color = depthFactor > 0.35 ? '#38BDF8' : '#0284C7';
+          // Dot size scales gracefully down near horizon, eliminating any protrusion
+          const dotRadius = (1.5 + depthFactor * 1.0) * p.scale * Math.max(0.3, horizonFactor);
+          const alpha = Math.min(0.9, Math.max(0.18, depthFactor * 0.75 * horizonFactor * 1.25));
+          const color = depthFactor > 0.4 ? '#38BDF8' : '#0284C7';
 
           ctx.fillStyle = color;
           ctx.globalAlpha = alpha;
@@ -553,17 +576,7 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
           ctx.fill();
         }
       }
-      ctx.restore();
       ctx.globalAlpha = 1;
-
-      // Outer Planetary Boundary Rim (Refined, Balanced Cyber Border)
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, globeRadius, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(0, 240, 255, 0.55)';
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
-      ctx.restore();
 
       // 9. Curved Data Trajectories & Traveling Photons (Delaware HQ -> Global Network)
       arcs.forEach((arc) => {
