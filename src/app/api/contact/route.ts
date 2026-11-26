@@ -9,7 +9,7 @@ export async function POST(request: Request) {
     // 1. Honeypot check (anti-spam bot trap)
     // If hidden 'hp' field is filled, silently return success without storing
     if (hp) {
-      return NextResponse.json({ success: true, message: 'Enquiry received' }, { status: 200 });
+      return NextResponse.json({ success: true, message: 'Inquiry received' }, { status: 200 });
     }
 
     // 2. Server-side validation
@@ -78,13 +78,13 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json(
-      { success: true, message: 'Enquiry successfully submitted.' },
+      { success: true, message: 'Inquiry successfully submitted.' },
       { status: 200 }
     );
   } catch (error) {
     console.error('Contact Form API Error:', error);
     return NextResponse.json(
-      { error: 'Internal server error while processing your enquiry.' },
+      { error: 'Internal server error while processing your inquiry.' },
       { status: 500 }
     );
   }

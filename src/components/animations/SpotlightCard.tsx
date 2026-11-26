@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 
 interface SpotlightCardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
@@ -17,24 +17,25 @@ export default function SpotlightCard({
   ...props
 }: SpotlightCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
-  const [opacity, setOpacity] = useState<number>(0);
+  const spotlightRef = useRef<HTMLDivElement>(null);
+  const borderRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
+    if (!cardRef.current || !spotlightRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
-    setPosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    spotlightRef.current.style.background = `radial-gradient(380px circle at ${x}px ${y}px, ${spotlightColor}, transparent 80%)`;
   };
 
   const handleMouseEnter = () => {
-    setOpacity(1);
+    if (spotlightRef.current) spotlightRef.current.style.opacity = '1';
+    if (borderRef.current) borderRef.current.style.opacity = '1';
   };
 
   const handleMouseLeave = () => {
-    setOpacity(0);
+    if (spotlightRef.current) spotlightRef.current.style.opacity = '0';
+    if (borderRef.current) borderRef.current.style.opacity = '0';
   };
 
   return (
@@ -43,24 +44,26 @@ export default function SpotlightCard({
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`relative overflow-hidden transition-all duration-300 ${className}`}
+      className={`relative overflow-hidden transition-[transform,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${className}`}
       {...props}
     >
       {/* Dynamic Cursor Spotlight Layer */}
       <div
-        className="pointer-events-none absolute -inset-px transition-opacity duration-300 z-10"
+        ref={spotlightRef}
+        className="pointer-events-none absolute -inset-px transition-opacity duration-500 ease-out z-10"
         style={{
-          opacity,
-          background: `radial-gradient(350px circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 80%)`,
+          opacity: 0,
+          background: `radial-gradient(380px circle at 50% 50%, ${spotlightColor}, transparent 80%)`,
         }}
       />
 
       {/* Dynamic Border Glow Layer (only if borderColor is explicitly provided) */}
       {borderColor && (
         <div
-          className="pointer-events-none absolute -inset-px rounded-[inherit] transition-opacity duration-300 z-20"
+          ref={borderRef}
+          className="pointer-events-none absolute -inset-px rounded-[inherit] transition-opacity duration-500 ease-out z-20"
           style={{
-            opacity,
+            opacity: 0,
             boxShadow: `inset 0 0 0 1px ${borderColor}`,
           }}
         />

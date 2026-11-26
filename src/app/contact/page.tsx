@@ -12,7 +12,7 @@ import InteractiveParticles from '@/components/animations/InteractiveParticles';
 export const metadata: Metadata = {
   title: 'Contact Us',
   description:
-    'Get in touch with MAGTAN INTERNATIONAL HOLDINGS INC. Send a business enquiry or reach us via email and telephone.',
+    'Get in touch with MAGTAN INTERNATIONAL HOLDINGS INC. Send a business inquiry or reach us via email and telephone.',
 };
 
 export default function ContactPage() {
@@ -20,7 +20,7 @@ export default function ContactPage() {
     <>
       <PageHero
         title="Contact Us"
-        subtitle="We welcome your business enquiries. Connect directly with our Delaware corporate team."
+        subtitle="We welcome your business inquiries. Connect directly with our corporate team."
         breadcrumb="Get in Touch"
       />
 
@@ -42,18 +42,18 @@ export default function ContactPage() {
                     <h4 className="text-xs font-semibold text-cyan-400 uppercase tracking-wider mb-2 font-mono">Legal Entity</h4>
                     <p className="text-white font-bold text-base">MAGTAN INTERNATIONAL HOLDINGS INC</p>
                     <p className="text-slate-300">Delaware, United States</p>
-                    <p className="text-slate-400 text-xs mt-1">Delaware File Number: <span className="font-mono text-cyan-300 font-semibold">10631049</span></p>
+                    <p className="text-slate-400 text-xs mt-1">File No.: <span className="font-mono text-cyan-300 font-semibold">10631049</span></p>
                   </div>
 
                   <div className="pt-4 border-t border-cyan-500/15">
-                    <h4 className="text-xs font-semibold text-cyan-400 uppercase tracking-wider mb-2 font-mono">Business Address</h4>
+                    <h4 className="text-xs font-semibold text-cyan-400 uppercase tracking-wider mb-2 font-mono">Corporate Registration</h4>
                     <div className="p-3 rounded-lg bg-cyan-950/40 border border-cyan-500/30 text-xs text-slate-300 leading-relaxed">
                       Registered in the State of Delaware, United States. Operating with global delivery coordination.
                     </div>
                   </div>
 
                   <div className="pt-4 border-t border-cyan-500/15">
-                    <h4 className="text-xs font-semibold text-cyan-400 uppercase tracking-wider mb-2 font-mono">Email Enquiries</h4>
+                    <h4 className="text-xs font-semibold text-cyan-400 uppercase tracking-wider mb-2 font-mono">Email Inquiries</h4>
                     <a href="mailto:business@magtanholdings.com" className="text-cyan-300 font-medium hover:text-white transition-colors break-all">
                       business@magtanholdings.com
                     </a>
@@ -62,15 +62,15 @@ export default function ContactPage() {
                   <div className="pt-4 border-t border-cyan-500/15">
                     <h4 className="text-xs font-semibold text-cyan-400 uppercase tracking-wider mb-2 font-mono">Telephone</h4>
                     <div className="space-y-1 font-mono text-slate-200">
-                      <a href="tel:+918098566616" className="block hover:text-cyan-300 transition-colors">+91-8098566616</a>
-                      <a href="tel:+919025796305" className="block hover:text-cyan-300 transition-colors">+91-9025796305</a>
+                      <a href="tel:+918098566616" className="block hover:text-cyan-300 transition-colors">+91 80985 66616</a>
+                      <a href="tel:+919025796305" className="block hover:text-cyan-300 transition-colors">+91 90257 96305</a>
                     </div>
                   </div>
 
                   <div className="pt-4 border-t border-cyan-500/15">
                     <h4 className="text-xs font-semibold text-cyan-400 uppercase tracking-wider mb-2 font-mono">Jurisdiction & Contracts</h4>
                     <p className="text-slate-300 text-xs leading-relaxed">
-                      All contracts, invoicing and engagements are executed under Delaware corporate governance.
+                      Contracts, invoicing, and client engagements are administered through our Delaware corporate entity in accordance with the applicable written agreement.
                     </p>
                   </div>
                 </div>
@@ -80,9 +80,9 @@ export default function ContactPage() {
             {/* Right Column: Contact Form */}
             <FadeIn direction="right" delay={0.2} className="lg:col-span-7">
               <SectionHeading
-                label="Business Enquiry"
+                label="Business Inquiry"
                 title="Send Us a Message"
-                description="Complete the form below with your project requirements and our executive team will review your enquiry promptly."
+                description="Complete the form below with your project requirements and our executive team will review your inquiry promptly."
                 light
               />
               <ContactForm />
@@ -102,7 +102,7 @@ export default function ContactPage() {
               <SpotlightCard
                 spotlightColor="rgba(0, 240, 255, 0.16)"
                 borderColor="rgba(0, 240, 255, 0.45)"
-                className="bg-[#071325]/85 border border-cyan-500/25 rounded-2xl p-7 text-center backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(0,240,255,0.25)] transition-all h-full"
+                className="bg-[#071325]/85 border border-cyan-500/25 rounded-2xl p-7 text-center backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(0,240,255,0.25)] transition-[transform,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] h-full"
               >
                 <div className="w-14 h-14 rounded-2xl bg-cyan-500/15 border border-cyan-400/40 flex items-center justify-center mx-auto mb-4 text-cyan-300 shadow-[0_0_15px_rgba(0,240,255,0.25)]">
                   <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
@@ -110,7 +110,7 @@ export default function ContactPage() {
                   </svg>
                 </div>
                 <h3 className="text-lg font-bold text-white mb-1 tracking-tight">Email Direct</h3>
-                <p className="text-xs text-slate-400 mb-3">Guaranteed response within 24 hours</p>
+                <p className="text-xs text-slate-400 mb-3">We aim to respond within 24 hours</p>
                 <a href="mailto:business@magtanholdings.com" className="text-cyan-300 text-sm font-semibold hover:text-white transition-colors">
                   business@magtanholdings.com
                 </a>
@@ -121,7 +121,7 @@ export default function ContactPage() {
               <SpotlightCard
                 spotlightColor="rgba(0, 240, 255, 0.16)"
                 borderColor="rgba(0, 240, 255, 0.45)"
-                className="bg-[#071325]/85 border border-cyan-500/25 rounded-2xl p-7 text-center backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(0,240,255,0.25)] transition-all h-full"
+                className="bg-[#071325]/85 border border-cyan-500/25 rounded-2xl p-7 text-center backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(0,240,255,0.25)] transition-[transform,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] h-full"
               >
                 <div className="w-14 h-14 rounded-2xl bg-cyan-500/15 border border-cyan-400/40 flex items-center justify-center mx-auto mb-4 text-cyan-300 shadow-[0_0_15px_rgba(0,240,255,0.25)]">
                   <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
@@ -131,8 +131,8 @@ export default function ContactPage() {
                 <h3 className="text-lg font-bold text-white mb-1 tracking-tight">Call Us</h3>
                 <p className="text-xs text-slate-400 mb-3">Direct line for client coordination</p>
                 <div className="space-y-1 font-mono text-cyan-300 text-sm font-semibold">
-                  <p>+91-8098566616</p>
-                  <p>+91-9025796305</p>
+                  <a href="tel:+918098566616" className="block hover:text-white transition-colors">+91 80985 66616</a>
+                  <a href="tel:+919025796305" className="block hover:text-white transition-colors">+91 90257 96305</a>
                 </div>
               </SpotlightCard>
             </StaggerItem>
@@ -141,7 +141,7 @@ export default function ContactPage() {
               <SpotlightCard
                 spotlightColor="rgba(0, 240, 255, 0.16)"
                 borderColor="rgba(0, 240, 255, 0.45)"
-                className="bg-[#071325]/85 border border-cyan-500/25 rounded-2xl p-7 text-center backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(0,240,255,0.25)] transition-all h-full"
+                className="bg-[#071325]/85 border border-cyan-500/25 rounded-2xl p-7 text-center backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(0,240,255,0.25)] transition-[transform,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] h-full"
               >
                 <div className="w-14 h-14 rounded-2xl bg-cyan-500/15 border border-cyan-400/40 flex items-center justify-center mx-auto mb-4 text-cyan-300 shadow-[0_0_15px_rgba(0,240,255,0.25)]">
                   <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>

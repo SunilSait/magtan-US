@@ -56,13 +56,13 @@ export default function ConnectedWorldSection() {
               className="mt-6 space-y-4 text-slate-300 text-base sm:text-lg leading-relaxed font-normal"
             >
               <p>
-                In a rapidly evolving digital ecosystem, enterprises need technology delivery partners that combine
-                rock-solid legal accountability with agile, world-class execution capabilities.
+                In a rapidly evolving digital ecosystem, organizations need technology delivery partners that combine
+                clear legal accountability with agile, dependable execution.
               </p>
               <p>
-                MAGTAN INTERNATIONAL HOLDINGS INC acts as your strategic gateway: governing engagements under Delaware
-                corporate standards, managing milestones with seasoned project directors, and deploying skilled
-                engineering resources to build secure, scalable, and intelligent cloud systems.
+                MAGTAN INTERNATIONAL HOLDINGS INC serves as your strategic partner: coordinating engagements through
+                our U.S. corporate entity, managing milestones with seasoned project directors, and deploying skilled
+                engineering resources to build secure, scalable, and modern cloud systems.
               </p>
             </motion.div>
 

@@ -89,7 +89,7 @@ export default function ContactForm() {
       const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(result.error || 'Failed to submit enquiry. Please try again.');
+        throw new Error(result.error || 'Failed to submit inquiry. Please try again.');
       }
 
       setSubmitted(true);
@@ -112,9 +112,9 @@ export default function ContactForm() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="text-2xl font-bold text-white mb-2 tracking-tight">Thank You for Your Enquiry</h3>
+        <h3 className="text-2xl font-bold text-white mb-2 tracking-tight">Thank You for Your Inquiry</h3>
         <p className="text-slate-300 max-w-md mx-auto leading-relaxed">
-          We have received your message. Our Delaware executive team will review your requirements and respond within 1–2 business days.
+          We have received your message. Our executive team will review your requirements and respond within 1–2 business days.
         </p>
         <button
           onClick={() => {
@@ -124,14 +124,14 @@ export default function ContactForm() {
           }}
           className="mt-6 inline-flex items-center justify-center px-6 py-2.5 rounded-full border border-cyan-400/80 text-cyan-300 text-xs font-semibold tracking-wider uppercase hover:bg-cyan-500/20 hover:text-white transition-all cursor-pointer"
         >
-          Send Another Enquiry
+          Send Another Inquiry
         </button>
       </div>
     );
   }
 
-  const inputClasses = (hasError: boolean) =>
-    `w-full px-4 py-3 text-sm rounded-lg transition-all duration-200 outline-none text-white ${
+  const inputClasses = (hasError: boolean, textColor: string = 'text-white') =>
+    `w-full px-4 py-3 text-sm rounded-lg transition-all duration-200 outline-none ${textColor} ${
       hasError
         ? 'border border-red-500 bg-red-950/20 focus:border-red-400'
         : 'border border-cyan-500/30 bg-[#020814]/80 placeholder-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/40 focus:shadow-[0_0_12px_rgba(0,240,255,0.2)]'
@@ -208,7 +208,7 @@ export default function ContactForm() {
             value={formData.company}
             onChange={handleChange}
             className={inputClasses(!!errors.company)}
-            placeholder="Your enterprise / organization"
+            placeholder="Your company name"
           />
           {errors.company && <p className="mt-1.5 text-xs text-red-400">{errors.company}</p>}
         </div>
@@ -218,21 +218,36 @@ export default function ContactForm() {
           <label htmlFor="subject" className="block text-xs font-semibold text-slate-200 uppercase tracking-wider mb-2">
             Subject <span className="text-cyan-400">*</span>
           </label>
-          <select
-            id="subject"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            className={inputClasses(!!errors.subject)}
-          >
-            <option value="" className="bg-[#040D1A] text-slate-400">Select an engagement area</option>
-            <option value="IT Consulting" className="bg-[#040D1A] text-white">IT Consulting & Governance</option>
-            <option value="Software Development" className="bg-[#040D1A] text-white">Software Development & Cloud</option>
-            <option value="Digital & Data Solutions" className="bg-[#040D1A] text-white">Digital & Data Solutions</option>
-            <option value="Project Management" className="bg-[#040D1A] text-white">Cross-Border Project Management</option>
-            <option value="General Enquiry" className="bg-[#040D1A] text-white">General Enterprise Enquiry</option>
-            <option value="Partnership" className="bg-[#040D1A] text-white">Delivery Partnership</option>
-          </select>
+          <div className="relative">
+            <select
+              id="subject"
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              className={`${inputClasses(
+                !!errors.subject,
+                formData.subject ? 'text-white' : 'text-slate-500'
+              )} appearance-none pr-10`}
+            >
+              <option value="" className="bg-[#040D1A] text-slate-400">Select a subject</option>
+              <option value="IT Consulting" className="bg-[#040D1A] text-white">IT Consulting & Governance</option>
+              <option value="Software Development" className="bg-[#040D1A] text-white">Software Development & Cloud</option>
+              <option value="Digital & Data Solutions" className="bg-[#040D1A] text-white">Digital & Data Solutions</option>
+              <option value="Project Management" className="bg-[#040D1A] text-white">Cross-Border Project Management</option>
+              <option value="General Inquiry" className="bg-[#040D1A] text-white">General Business Inquiry</option>
+              <option value="Partnership" className="bg-[#040D1A] text-white">Delivery Partnership</option>
+            </select>
+            <svg
+              className="w-4 h-4 text-cyan-400/80 pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+              aria-hidden="true"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+          </div>
           {errors.subject && <p className="mt-1.5 text-xs text-red-400">{errors.subject}</p>}
         </div>
       </div>
@@ -256,7 +271,7 @@ export default function ContactForm() {
 
       {/* Important Note */}
       <p className="mt-4 text-xs text-slate-400 leading-relaxed">
-        Note: This enquiry is governed under Delaware corporate compliance. By submitting, you agree to our{' '}
+        Note: By submitting this inquiry, you agree to our{' '}
         <a href="/privacy-policy" className="text-cyan-400 underline hover:text-cyan-300">Privacy Policy</a>.
       </p>
 
@@ -284,10 +299,10 @@ export default function ContactForm() {
                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
               />
             </svg>
-            Submitting Enquiry...
+            Submitting Inquiry...
           </span>
         ) : (
-          'Submit Enquiry'
+          'Submit Inquiry'
         )}
       </button>
     </form>

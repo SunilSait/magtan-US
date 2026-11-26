@@ -346,7 +346,62 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
       const centerX = width / 2;
       const centerY = height / 2 + levitationY;
 
-      // 1. Click Shockwave Ripples
+      // 1. Outside-Only Border Corona Glow (radiates outward from the sphere rim)
+      const outerGlow = ctx.createRadialGradient(
+        centerX,
+        centerY,
+        globeRadius * 0.98,
+        centerX,
+        centerY,
+        globeRadius * 1.28
+      );
+      outerGlow.addColorStop(0, 'rgba(0, 240, 255, 0.55)');
+      outerGlow.addColorStop(0.28, 'rgba(56, 189, 248, 0.28)');
+      outerGlow.addColorStop(0.65, 'rgba(37, 99, 235, 0.12)');
+      outerGlow.addColorStop(1, 'rgba(2, 7, 18, 0)');
+      ctx.fillStyle = outerGlow;
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, globeRadius * 1.28, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Outward bloom halo from rim (inward portion is masked by opaque sphereCore below)
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, globeRadius, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(0, 240, 255, 0.85)';
+      ctx.lineWidth = 2;
+      ctx.shadowColor = '#00F0FF';
+      ctx.shadowBlur = 22;
+      ctx.stroke();
+      ctx.restore();
+
+      // 2. Dark Cyber 3D Sphere Core (Keeps inside clean & dark, masking inward glow)
+      const sphereCore = ctx.createRadialGradient(
+        centerX - globeRadius * 0.22,
+        centerY - globeRadius * 0.22,
+        globeRadius * 0.1,
+        centerX,
+        centerY,
+        globeRadius
+      );
+      sphereCore.addColorStop(0, '#07162C');
+      sphereCore.addColorStop(0.65, '#030D1C');
+      sphereCore.addColorStop(1, '#020712');
+      ctx.fillStyle = sphereCore;
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, globeRadius, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Crisp Glowing Outer Border Line (sits strictly on the outside edge)
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, globeRadius + 0.75, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(0, 240, 255, 0.85)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+      ctx.restore();
+
+      // 3. Click Shockwave Ripples
       for (let i = shockwaves.length - 1; i >= 0; i--) {
         const sw = shockwaves[i];
         sw.r += 5;
@@ -364,34 +419,6 @@ export default function StageGlobeCanvas({ className = '' }: StageGlobeCanvasPro
           shockwaves.splice(i, 1);
         }
       }
-
-      // 2. Subtle Dark Cyber 3D Sphere Core (Provides organic depth & natural backface occlusion)
-      const sphereCore = ctx.createRadialGradient(
-        centerX - globeRadius * 0.22,
-        centerY - globeRadius * 0.22,
-        globeRadius * 0.1,
-        centerX,
-        centerY,
-        globeRadius
-      );
-      sphereCore.addColorStop(0, '#07162C');
-      sphereCore.addColorStop(0.65, '#030D1C');
-      sphereCore.addColorStop(0.92, '#020712');
-      sphereCore.addColorStop(0.99, 'rgba(0, 240, 255, 0.35)');
-      sphereCore.addColorStop(1, 'rgba(0, 240, 255, 0)');
-      ctx.fillStyle = sphereCore;
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, globeRadius, 0, Math.PI * 2);
-      ctx.fill();
-
-      // 3. Delicate 3D Spherical Horizon Rim (Natural, soft planetary horizon glow)
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, globeRadius, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(0, 240, 255, 0.4)';
-      ctx.lineWidth = 1.2;
-      ctx.stroke();
-      ctx.restore();
 
       // 4. Spark Particle Glints
       for (let i = sparks.length - 1; i >= 0; i--) {

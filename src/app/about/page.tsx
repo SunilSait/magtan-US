@@ -14,7 +14,7 @@ import InteractiveParticles from '@/components/animations/InteractiveParticles';
 export const metadata: Metadata = {
   title: 'About Us',
   description:
-    'Learn about MAGTAN INTERNATIONAL HOLDINGS INC – a Delaware corporation with an international business vision, connecting global opportunities with skilled delivery teams.',
+    'Learn about MAGTAN INTERNATIONAL HOLDINGS INC — a Delaware corporation established with an international business vision, connecting global opportunities with skilled delivery teams.',
 };
 
 const values = [
@@ -44,7 +44,7 @@ const values = [
     number: '03',
     title: 'Collaboration',
     tagline: 'Global Partnerships',
-    desc: 'We build effective partnerships between international clients and delivery teams for optimal project outcomes.',
+    desc: 'We build productive partnerships between international clients and delivery teams for effective project outcomes.',
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
@@ -102,8 +102,8 @@ export default function AboutPage() {
                   India-based operating teams and specialized technology partners.
                 </p>
                 <p>
-                  We aim to connect global business opportunities with capable delivery resources, creating a robust bridge
-                  between international enterprise clients who need mission-critical technology services and skilled teams who
+                  We aim to connect global business opportunities with capable delivery resources, creating a strong bridge
+                  between international enterprise clients seeking reliable technology services and skilled teams who
                   can deliver them professionally, securely, and efficiently.
                 </p>
               </div>
@@ -137,11 +137,11 @@ export default function AboutPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <FadeIn direction="left">
-              <SectionHeading label="Our Vision" title="An Internationally Connected Business Group" light />
+              <SectionHeading label="Our Vision" title="An Internationally Connected Enterprise" light />
               <p className="text-slate-300 leading-relaxed text-base sm:text-lg">
-                To build an internationally connected enterprise group that creates sustainable business opportunities
+                To build an internationally connected enterprise that creates sustainable business opportunities
                 and long-term value. We envision a future where businesses across borders collaborate seamlessly, supported
-                by reliable technology services, scalable cloud architectures, and professional project governance.
+                by reliable technology services, scalable cloud architectures, and disciplined project oversight.
               </p>
             </FadeIn>
 
@@ -179,7 +179,7 @@ export default function AboutPage() {
           <SectionHeading
             label="Core Values"
             title="The Principles That Guide Our Business"
-            description="Our values define how we operate, govern client engagements, and deliver enduring value across international enterprise markets."
+            description="Our values define how we operate, manage client engagements, and deliver enduring value across international markets."
             align="center"
             light
           />
@@ -199,7 +199,7 @@ export default function AboutPage() {
                   <SpotlightCard
                     spotlightColor="rgba(0, 240, 255, 0.16)"
                     borderColor="rgba(0, 240, 255, 0.45)"
-                    className="group bg-[#071325]/85 rounded-2xl p-8 border border-cyan-500/25 shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:border-cyan-400 hover:shadow-[0_0_35px_rgba(0,240,255,0.25)] hover:-translate-y-1.5 transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full backdrop-blur-xl"
+                    className="group bg-[#071325]/85 rounded-2xl p-8 border border-cyan-500/25 shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:border-cyan-400 hover:shadow-[0_0_35px_rgba(0,240,255,0.25)] hover:-translate-y-1.5 transition-[transform,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] relative overflow-hidden flex flex-col justify-between h-full backdrop-blur-xl"
                   >
                     <div>
                       {/* Card Top: 3D Holographic Icon & Number Badge */}
@@ -247,15 +247,15 @@ export default function AboutPage() {
                 <div className="space-y-2">
                   <div className="inline-flex items-center gap-2 text-cyan-400 text-xs font-semibold tracking-widest uppercase">
                     <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_6px_#00F0FF]" />
-                    Institutional Governance
+                    Contractual Accountability
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                    Delaware Governance & Global Delivery Standards
+                    Corporate Standards & Global Delivery
                   </h3>
                   <p className="text-slate-300 text-sm max-w-2xl leading-relaxed">
-                    Every client engagement conducted by MAGTAN INTERNATIONAL HOLDINGS INC is governed
-                    by our Delaware corporate structure, structured service agreements, and multi-tier
-                    quality control.
+                    Client engagements conducted by MAGTAN INTERNATIONAL HOLDINGS INC are established through
+                    written service agreements, clear contractual terms, and multi-tier quality control, subject
+                    to the governing law agreed in each client contract.
                   </p>
                 </div>
                 <Link
@@ -291,7 +291,7 @@ export default function AboutPage() {
           <SectionHeading
             label="Why Magtan"
             title="What Sets Us Apart"
-            description="Our competitive advantage lies in combining U.S. institutional governance with high-caliber global delivery teams."
+            description="Our competitive advantage lies in combining U.S. corporate oversight with experienced global delivery teams."
             align="center"
             light
           />
@@ -300,13 +300,13 @@ export default function AboutPage() {
             {[
               {
                 number: '01',
-                category: 'Corporate Governance',
+                category: 'Corporate Structure',
                 title: 'U.S. Business Establishment',
-                desc: 'As a Delaware-registered corporation, we provide our clients with a recognized, compliant U.S. corporate entity for contracting, invoicing, and institutional security.',
+                desc: 'As a Delaware-registered corporation, we provide our clients with a recognized, compliant U.S. corporate entity for contracting, invoicing, and corporate security and accountability.',
                 highlights: [
-                  'Delaware Registered (File #10631049)',
+                  'Delaware Registered (File No. 10631049)',
                   'Direct U.S. Client Contracting & Invoicing',
-                  'Institutional Verification Standards',
+                  'Verified Corporate Standards',
                 ],
                 icon: (
                   <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
@@ -334,10 +334,10 @@ export default function AboutPage() {
                 number: '03',
                 category: 'Delivery Discipline',
                 title: 'Professional Management',
-                desc: 'Every engagement is governed with rigorous discipline — from technical scope definition and milestone governance through delivery verification and ongoing support.',
+                desc: 'Every engagement is managed with clear discipline — from initial technical scope definition and milestone tracking through rigorous delivery verification and ongoing client support.',
                 highlights: [
                   'Comprehensive Requirements Analysis',
-                  'Structured Milestone & SLA Monitoring',
+                  'Milestone & SLA Monitoring',
                   'End-to-End Post-Delivery Support',
                 ],
                 icon: (
@@ -352,55 +352,57 @@ export default function AboutPage() {
                   <SpotlightCard
                     spotlightColor="rgba(0, 240, 255, 0.18)"
                     borderColor="rgba(0, 240, 255, 0.45)"
-                    className="group bg-[#071325]/85 border border-cyan-500/25 backdrop-blur-xl rounded-2xl p-8 sm:p-9 hover:border-cyan-400 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,240,255,0.2)] transition-all duration-300 relative overflow-hidden flex flex-col justify-between h-full"
+                    className="group bg-[#071325]/85 border border-cyan-500/25 backdrop-blur-xl rounded-2xl p-8 sm:p-9 hover:border-cyan-400 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,240,255,0.2)] transition-[transform,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] relative overflow-hidden h-full"
                   >
-                    <div>
-                      {/* Top Bar: Icon Badge & Number */}
-                      <div className="flex items-start justify-between gap-4 mb-6">
-                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/20 via-blue-600/15 to-purple-600/15 border border-cyan-400/40 flex items-center justify-center text-cyan-300 group-hover:scale-105 group-hover:border-cyan-300 group-hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all duration-300 shadow-md">
-                          {item.icon}
-                        </div>
-                        <span className="font-mono text-xs font-bold text-cyan-300 tracking-widest px-3 py-1 rounded-full bg-cyan-950/70 border border-cyan-500/30 shadow-xs">
-                          {item.number}
-                        </span>
-                      </div>
-
-                      {/* Category Sub-badge */}
-                      <p className="text-cyan-400 text-xs font-semibold tracking-wider uppercase mb-1.5">
-                        {item.category}
-                      </p>
-
-                      {/* Card Title */}
-                      <h3 className="text-white text-2xl font-bold mb-3 tracking-tight group-hover:text-cyan-300 transition-colors">
-                        {item.title}
-                      </h3>
-
-                      {/* Description */}
-                      <p className="text-slate-300 text-sm leading-relaxed mb-6 font-normal">
-                        {item.desc}
-                      </p>
-
-                      {/* Highlights / Institutional Checklist */}
-                      <div className="space-y-2.5 pt-4 border-t border-cyan-500/15 mb-6">
-                        {item.highlights.map((h) => (
-                          <div key={h} className="flex items-center gap-2.5 text-xs text-slate-200">
-                            <span className="w-4 h-4 rounded-full bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center shrink-0 text-cyan-300">
-                              <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                              </svg>
-                            </span>
-                            <span className="font-medium">{h}</span>
+                    <div className="flex flex-col justify-between h-full">
+                      <div>
+                        {/* Top Bar: Icon Badge & Number */}
+                        <div className="flex items-start justify-between gap-4 mb-6">
+                          <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/20 via-blue-600/15 to-purple-600/15 border border-cyan-400/40 flex items-center justify-center text-cyan-300 group-hover:scale-105 group-hover:border-cyan-300 group-hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all duration-300 shadow-md">
+                            {item.icon}
                           </div>
-                        ))}
-                      </div>
-                    </div>
+                          <span className="font-mono text-xs font-bold text-cyan-300 tracking-widest px-3 py-1 rounded-full bg-cyan-950/70 border border-cyan-500/30 shadow-xs">
+                            {item.number}
+                          </span>
+                        </div>
 
-                    {/* Interactive Footer */}
-                    <div className="pt-5 border-t border-cyan-500/15 flex items-center justify-between mt-auto">
-                      <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider group-hover:text-cyan-300 transition-colors">
-                        Strategic Advantage
-                      </span>
-                      <span className="w-8 h-0.5 bg-cyan-500/40 rounded-full group-hover:w-16 group-hover:bg-cyan-400 group-hover:shadow-[0_0_8px_#00F0FF] transition-all duration-300" />
+                        {/* Category Sub-badge */}
+                        <p className="text-cyan-400 text-xs font-semibold tracking-wider uppercase mb-1.5">
+                          {item.category}
+                        </p>
+
+                        {/* Card Title */}
+                        <h3 className="text-white text-2xl font-bold mb-3 tracking-tight group-hover:text-cyan-300 transition-colors">
+                          {item.title}
+                        </h3>
+
+                        {/* Description */}
+                        <p className="text-slate-300 text-sm leading-relaxed mb-6 font-normal">
+                          {item.desc}
+                        </p>
+
+                        {/* Highlights / Institutional Checklist */}
+                        <div className="space-y-2.5 pt-4 border-t border-cyan-500/15 mb-6">
+                          {item.highlights.map((h) => (
+                            <div key={h} className="flex items-center gap-2.5 text-xs text-slate-200">
+                              <span className="w-4 h-4 rounded-full bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center shrink-0 text-cyan-300">
+                                <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                </svg>
+                              </span>
+                              <span className="font-medium">{h}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Interactive Footer */}
+                      <div className="pt-5 border-t border-cyan-500/15 flex items-center justify-between mt-auto">
+                        <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider group-hover:text-cyan-300 transition-colors">
+                          Strategic Advantage
+                        </span>
+                        <span className="w-8 h-0.5 bg-cyan-500/40 rounded-full group-hover:w-16 group-hover:bg-cyan-400 group-hover:shadow-[0_0_8px_#00F0FF] transition-all duration-300" />
+                      </div>
                     </div>
                   </SpotlightCard>
                 </TiltCard>

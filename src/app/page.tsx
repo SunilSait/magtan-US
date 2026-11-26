@@ -14,15 +14,15 @@ import InteractiveParticles from '@/components/animations/InteractiveParticles';
 export const metadata: Metadata = {
   title: 'MAGTAN INTERNATIONAL HOLDINGS INC | One Vision. A Global Future.',
   description:
-    'MAGTAN INTERNATIONAL HOLDINGS INC is a Delaware-registered U.S. corporation connecting international enterprise clients with high-performance technology delivery, IT consulting, software engineering, and digital data solutions.',
+    'MAGTAN INTERNATIONAL HOLDINGS INC is a Delaware-registered U.S. corporation delivering IT consulting, software engineering, digital data solutions, and global technology delivery.',
 };
 
 const missionItems = [
-  'Build lasting international enterprise customer relationships.',
-  'Deliver reliable, scalable, and high-performance technology services.',
+  'Build lasting international client relationships.',
+  'Deliver reliable, scalable, and effective technology services.',
   'Drive digital innovation and agile engineering practices.',
   'Facilitate strategic global IT delivery partnerships.',
-  'Ensure rigorous U.S. legal compliance and contract governance.',
+  'Maintain transparent U.S. corporate compliance and contractual accountability.',
 ];
 
 export default function HomePage() {
@@ -49,17 +49,17 @@ export default function HomePage() {
               <div className="space-y-5 text-slate-300 leading-relaxed text-base sm:text-lg">
                 <p>
                   <strong className="text-white">MAGTAN INTERNATIONAL HOLDINGS INC</strong> is a Delaware-registered
-                  corporation (U.S. Reg #10631049) engineered to connect global enterprise clients with
-                  cutting-edge technology delivery, IT consulting, and high-value digital solutions.
+                  corporation (File No. 10631049) established to connect global enterprise clients with
+                  reliable technology delivery, IT consulting, and digital solutions.
                 </p>
                 <p>
-                  We translate complex enterprise roadmaps into actionable digital deliverables, coordinating
-                  specialized engineering teams and India-based technical resources under structured U.S. contractual
+                  We translate complex business roadmaps into practical digital deliverables, coordinating
+                  specialized engineering teams and India-based technical resources under clear U.S. contractual
                   frameworks.
                 </p>
                 <p>
-                  Our unique cross-border delivery model combines transparent American corporate governance with
-                  world-class software engineering and continuous technical oversight.
+                  Our cross-border delivery model combines transparent U.S. corporate oversight with
+                  skilled software engineering and continuous technical management.
                 </p>
               </div>
 
@@ -102,15 +102,15 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-white mb-2">Delaware Corporation</h3>
                 <p className="text-sm text-slate-300 mb-6 leading-relaxed">
                   Established with an international business mandate to connect global opportunities
-                  with scalable technology engineering capability.
+                  with scalable technology engineering capabilities.
                 </p>
 
                 <div className="space-y-3.5 text-sm">
                   {[
-                    'U.S.-registered corporation (File #10631049)',
+                    'U.S.-registered corporation (File No. 10631049)',
                     'International client relationships & contracting',
-                    'High-performance technical delivery teams',
-                    'Professional SLA and milestone project management',
+                    'Experienced technical delivery teams',
+                    'Defined SLA and milestone-based project management',
                   ].map((item) => (
                     <div key={item} className="flex items-start gap-3 group/item transition-transform duration-200 hover:translate-x-1">
                       <span className="mt-0.5 w-5 h-5 rounded-full bg-cyan-500/10 border border-cyan-400/30 flex items-center justify-center shrink-0 group-hover/item:bg-cyan-500/20 transition-colors duration-200">
@@ -173,8 +173,8 @@ export default function HomePage() {
                   <p className="text-cyan-400 text-xs font-semibold tracking-wider uppercase mb-3">Our Approach</p>
                   <h3 className="text-white text-2xl sm:text-3xl font-bold mb-4">Client-Centric Delivery</h3>
                   <p className="text-slate-300 leading-relaxed mb-8">
-                    We combine international enterprise relationships with professional project governance
-                    and high-caliber technology delivery teams to create measurable business value and operational resilience.
+                    We combine international client relationships with disciplined project oversight
+                    and experienced technology delivery teams to create measurable business value and operational resilience.
                   </p>
                   <Link
                     href="/how-we-work"
@@ -201,7 +201,7 @@ export default function HomePage() {
               Ready to Discuss Your Project?
             </h2>
             <p className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mb-9 leading-relaxed">
-              Connect with our Delaware executive team to explore how our technology consulting,
+              Connect with our executive team to explore how our technology consulting,
               software engineering, and global delivery capabilities can accelerate your roadmap.
             </p>
             <Link

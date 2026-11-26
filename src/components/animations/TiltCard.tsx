@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 interface TiltCardProps {
   children: React.ReactNode;
@@ -9,50 +9,53 @@ interface TiltCardProps {
   tiltMaxAngle?: number;
 }
 
+const springConfig = { stiffness: 200, damping: 26, mass: 0.6 };
+
 export default function TiltCard({
   children,
   className = '',
   tiltMaxAngle = 7,
 }: TiltCardProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [rotateX, setRotateX] = useState(0);
-  const [rotateY, setRotateY] = useState(0);
+  const rawRotateX = useMotionValue(0);
+  const rawRotateY = useMotionValue(0);
+
+  const rotateX = useSpring(rawRotateX, springConfig);
+  const rotateY = useSpring(rawRotateY, springConfig);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
 
-    const mouseX = e.clientX - centerX;
-    const mouseY = e.clientY - centerY;
-
-    const rX = -(mouseY / (rect.height / 2)) * tiltMaxAngle;
-    const rY = (mouseX / (rect.width / 2)) * tiltMaxAngle;
-
-    setRotateX(rX);
-    setRotateY(rY);
+    rawRotateX.set(-y * 2 * tiltMaxAngle);
+    rawRotateY.set(x * 2 * tiltMaxAngle);
   };
 
   const handleMouseLeave = () => {
-    setRotateX(0);
-    setRotateY(0);
+    rawRotateX.set(0);
+    rawRotateY.set(0);
   };
 
   return (
-    <motion.div
+    <div
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      animate={{
-        rotateX,
-        rotateY,
-      }}
-      transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-      style={{ transformStyle: 'preserve-3d', perspective: 1000 }}
+      style={{ perspective: 1000 }}
       className={className}
     >
-      {children}
-    </motion.div>
+      <motion.div
+        style={{
+          rotateX,
+          rotateY,
+          transformStyle: 'preserve-3d',
+        }}
+        className="h-full will-change-transform"
+      >
+        {children}
+      </motion.div>
+    </div>
   );
 }

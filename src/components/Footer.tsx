@@ -5,8 +5,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const quickLinks = [
-  { href: '/', label: 'Home 1' },
-  { href: '/home-2', label: 'Home 2' },
+  { href: '/', label: 'Home' },
   { href: '/about', label: 'About Us' },
   { href: '/services', label: 'Products & Services' },
   { href: '/how-we-work', label: 'How We Work' },
@@ -83,7 +82,7 @@ export default function Footer() {
             <div className="pt-2 text-sm text-slate-400 space-y-1.5">
               <p>
                 A Delaware-registered U.S. corporation connecting international businesses with
-                high-performance technology delivery teams.
+                experienced technology delivery teams.
               </p>
             </div>
           </motion.div>
@@ -125,7 +124,7 @@ export default function Footer() {
               ))}
             </ul>
             <p className="text-xs text-slate-500 mt-4 leading-relaxed italic">
-              Delaware entity responsible for client contracting, billing and international engagements.
+              Delaware entity responsible for client contracting, billing, and international engagements.
             </p>
           </motion.div>
 
@@ -155,13 +154,13 @@ export default function Footer() {
                     href="tel:+918098566616"
                     className="block hover:text-cyan-300 transition-colors duration-200 font-mono"
                   >
-                    +91-8098566616
+                    +91 80985 66616
                   </a>
                   <a
                     href="tel:+919025796305"
                     className="block hover:text-cyan-300 transition-colors duration-200 font-mono"
                   >
-                    +91-9025796305
+                    +91 90257 96305
                   </a>
                 </div>
               </div>
@@ -190,7 +189,7 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <span>Delaware, United States</span>
               <span className="text-cyan-400/50">•</span>
-              <span className="font-mono text-cyan-300">File # 10631049</span>
+              <span className="font-mono text-cyan-300">File No. 10631049</span>
             </div>
           </div>
         </div>

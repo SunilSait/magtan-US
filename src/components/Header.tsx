@@ -7,8 +7,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
-  { href: '/', label: 'Home 1' },
-  { href: '/home-2', label: 'Home 2' },
+  { href: '/', label: 'Home' },
   { href: '/about', label: 'About Us' },
   { href: '/services', label: 'Products & Services' },
   { href: '/how-we-work', label: 'How We Work' },
@@ -62,9 +61,8 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
             {navLinks.map((link, i) => {
-              const isHome1Active = (link.href === '/' || link.href === '/home-1') && (pathname === '/' || pathname === '/home-1' || pathname === '/home1');
-              const isHome2Active = (link.href === '/home-2') && (pathname === '/home-2' || pathname === '/home2');
-              const isActive = isHome1Active || isHome2Active || (link.href !== '/' && link.href !== '/home-2' && pathname === link.href);
+              const isHomeActive = link.href === '/' && (pathname === '/' || pathname === '/home-1' || pathname === '/home1');
+              const isActive = isHomeActive || (link.href !== '/' && pathname === link.href);
               const isContact = link.href === '/contact';
 
               if (isContact) {
@@ -77,7 +75,11 @@ export default function Header() {
                   >
                     <Link
                       href={link.href}
-                      className="ml-4 inline-flex items-center justify-center px-5 py-2 rounded-full border border-cyan-400/80 text-cyan-300 text-xs font-semibold tracking-wider uppercase hover:bg-cyan-500/20 hover:text-white hover:border-cyan-300 hover:shadow-[0_0_22px_rgba(0,240,255,0.5)] transition-all duration-300 backdrop-blur-sm cursor-pointer"
+                      className={`ml-4 inline-flex items-center justify-center px-5 py-2 rounded-full border-[1.5px] text-xs font-semibold tracking-wider uppercase transition-all duration-200 cursor-pointer ${
+                        isActive
+                          ? 'bg-cyan-400 border-cyan-400 text-[#020712]'
+                          : 'border-cyan-400 bg-transparent text-cyan-300 hover:bg-cyan-400 hover:border-cyan-400 hover:text-[#020712] hover:-translate-y-0.5'
+                      }`}
                     >
                       Contact Us
                     </Link>
@@ -146,13 +148,12 @@ export default function Header() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="lg:hidden overflow-hidden bg-[#040D1A]/95 backdrop-blur-xl border-t border-cyan-500/20 shadow-2xl"
+            className="lg:hidden absolute left-0 right-0 top-full z-50 overflow-hidden bg-[#040D1A]/95 backdrop-blur-xl border-t border-b border-cyan-500/20 shadow-2xl"
           >
             <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-1">
               {navLinks.map((link, i) => {
-                const isHome1Active = (link.href === '/' || link.href === '/home-1') && (pathname === '/' || pathname === '/home-1' || pathname === '/home1');
-                const isHome2Active = (link.href === '/home-2') && (pathname === '/home-2' || pathname === '/home2');
-                const isActive = isHome1Active || isHome2Active || (link.href !== '/' && link.href !== '/home-2' && pathname === link.href);
+                const isHomeActive = link.href === '/' && (pathname === '/' || pathname === '/home-1' || pathname === '/home1');
+                const isActive = isHomeActive || (link.href !== '/' && pathname === link.href);
                 return (
                   <motion.div
                     key={link.href}
@@ -162,6 +163,7 @@ export default function Header() {
                   >
                     <Link
                       href={link.href}
+                      onClick={() => setMobileMenuOpen(false)}
                       className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                         isActive
                           ? 'bg-cyan-950/60 text-cyan-300 border-l-2 border-cyan-400 font-semibold'

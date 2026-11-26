@@ -7,7 +7,7 @@ import InteractiveParticles from '@/components/animations/InteractiveParticles';
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description:
-    'Privacy Policy of MAGTAN INTERNATIONAL HOLDINGS INC — how we collect, use and protect your personal information.',
+    'Privacy Policy of MAGTAN INTERNATIONAL HOLDINGS INC — how we collect, use, and protect your personal information.',
 };
 
 export default function PrivacyPolicyPage() {
@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
     <>
       <PageHero
         title="Privacy Policy"
-        subtitle="How we collect, use and protect your personal information."
+        subtitle="How we collect, use, and protect your personal information."
         breadcrumb="Legal"
       />
 
@@ -27,13 +27,9 @@ export default function PrivacyPolicyPage() {
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn duration={0.7}>
             <div className="bg-[#071325]/85 border border-cyan-500/25 rounded-2xl p-8 sm:p-12 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] legal-content text-slate-300">
-              <p className="text-sm text-text-body mb-6">
-                <strong>Last Updated:</strong> [Date to be inserted upon publication]
-              </p>
-
               <p>
-                This Privacy Policy describes how MAGTAN INTERNATIONAL HOLDINGS INC (&ldquo;Company&rdquo;,
-                &ldquo;we&rdquo;, &ldquo;us&rdquo; or &ldquo;our&rdquo;), a Delaware corporation, collects, uses and
+                This Privacy Policy describes how MAGTAN INTERNATIONAL HOLDINGS INC (&ldquo;Company,&rdquo;
+                &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;), a Delaware corporation (File No. 10631049), collects, uses, and
                 protects personal information when you visit our website at{' '}
                 <a href="https://www.magtanholdings.com" className="text-navy underline">
                   www.magtanholdings.com
@@ -45,39 +41,35 @@ export default function PrivacyPolicyPage() {
               <p>We may collect the following types of information:</p>
               <h3>Information You Provide</h3>
               <ul>
-                <li>Name, email address, company name and telephone number when you submit an enquiry form.</li>
+                <li>Name, email address, company name, and telephone number when you submit an inquiry form.</li>
                 <li>Business contact details provided during customer onboarding.</li>
                 <li>Information included in correspondence or communications with us.</li>
               </ul>
               <h3>Information Collected Automatically</h3>
               <ul>
-                <li>IP address, browser type, device type and operating system.</li>
-                <li>Pages visited, time spent on pages and referral source.</li>
+                <li>IP address, browser type, device type, and operating system.</li>
+                <li>Pages visited, time spent on pages, and referral source.</li>
                 <li>Cookies and similar tracking technologies (see Section 5 below).</li>
               </ul>
 
               <h2>2. How We Use Your Information</h2>
               <p>We use the information we collect for the following purposes:</p>
               <ul>
-                <li>To respond to your enquiries and business communications.</li>
-                <li>To provide, manage and improve our services.</li>
+                <li>To respond to your inquiries and business communications.</li>
+                <li>To provide, manage, and improve our services.</li>
                 <li>To process customer agreements and service orders.</li>
                 <li>To send important updates related to our services or your account.</li>
                 <li>To comply with legal obligations.</li>
-                <li>To protect the rights, safety and property of our company and users.</li>
+                <li>To protect the rights, safety, and property of our company and users.</li>
               </ul>
 
               <h2>3. Payment Processing</h2>
               <p>
-                We use third-party payment processors to handle payments for our services. When you
-                make a payment, your payment information (such as credit card or bank details) is
-                collected and processed directly by the payment processor. We do not store your
-                complete payment card details on our systems.
+                When third-party payment processors are used to handle payments for our services,
+                payment details (such as credit card or bank details) are collected and processed
+                directly by the applicable payment processor. We do not store your complete payment
+                card details on our website systems.
               </p>
-              <div className="legal-notice">
-                ⚠ <strong>Company to confirm:</strong> Specific payment processor(s) to be named
-                (e.g., Stripe). Payment processor privacy policies should be referenced.
-              </div>
 
               <h2>4. Information Sharing</h2>
               <p>We may share your information with:</p>
@@ -91,11 +83,11 @@ export default function PrivacyPolicyPage() {
                   <strong>Payment processors:</strong> To facilitate payment transactions.
                 </li>
                 <li>
-                  <strong>Legal and regulatory authorities:</strong> When required by law, regulation
+                  <strong>Legal and regulatory authorities:</strong> When required by law, regulation,
                   or legal process.
                 </li>
                 <li>
-                  <strong>Professional advisors:</strong> Legal, financial or other professional
+                  <strong>Professional advisors:</strong> Legal, financial, or other professional
                   advisors engaged by the company.
                 </li>
               </ul>
@@ -106,7 +98,7 @@ export default function PrivacyPolicyPage() {
               <h2>5. Cookies and Website Technologies</h2>
               <p>
                 Our Website may use cookies and similar technologies to enhance your browsing
-                experience, analyse website traffic and understand how visitors interact with our
+                experience, analyze website traffic, and understand how visitors interact with our
                 site.
               </p>
               <p>
@@ -116,23 +108,18 @@ export default function PrivacyPolicyPage() {
 
               <h2>6. Data Security</h2>
               <p>
-                We implement appropriate technical and organisational measures to protect your
-                personal information against unauthorised access, alteration, disclosure or
+                We implement appropriate technical and organizational measures to protect your
+                personal information against unauthorized access, alteration, disclosure, or
                 destruction. However, no method of transmission over the internet or electronic
                 storage is completely secure, and we cannot guarantee absolute security.
               </p>
 
               <h2>7. Data Retention</h2>
               <p>
-                We retain personal information for as long as necessary to fulfil the purposes for
-                which it was collected, to comply with legal obligations, resolve disputes and
+                We retain personal information for as long as necessary to fulfill the purposes for
+                which it was collected, to comply with legal obligations, resolve disputes, and
                 enforce our agreements.
               </p>
-              <div className="legal-notice">
-                ⚠ <strong>Company to confirm:</strong> Specific data retention periods for
-                different categories of data should be defined based on business requirements and
-                legal advice.
-              </div>
 
               <h2>8. Your Privacy Rights</h2>
               <p>
@@ -145,11 +132,6 @@ export default function PrivacyPolicyPage() {
                 <li>The right to request deletion of your personal information.</li>
                 <li>The right to object to or restrict certain processing activities.</li>
               </ul>
-              <div className="legal-notice">
-                ⚠ <strong>Legal review required:</strong> Specific privacy rights and applicable
-                regulations (e.g., CCPA, GDPR if applicable) should be confirmed based on the
-                company&apos;s customer base and legal counsel advice.
-              </div>
 
               <h2>9. Third-Party Websites</h2>
               <p>
@@ -161,8 +143,7 @@ export default function PrivacyPolicyPage() {
               <h2>10. Changes to This Privacy Policy</h2>
               <p>
                 We may update this Privacy Policy from time to time. Any changes will be posted on
-                this page with an updated &ldquo;Last Updated&rdquo; date. We encourage you to review this
-                policy periodically.
+                this page. We encourage you to review this policy periodically.
               </p>
 
               <h2>11. Contact Us</h2>
@@ -172,8 +153,15 @@ export default function PrivacyPolicyPage() {
               </p>
               <ul>
                 <li><strong>Company:</strong> MAGTAN INTERNATIONAL HOLDINGS INC</li>
+                <li><strong>File No.:</strong> 10631049</li>
                 <li><strong>Email:</strong> <a href="mailto:business@magtanholdings.com" className="text-navy underline">business@magtanholdings.com</a></li>
-                <li><strong>Telephone:</strong> +91-8098566616 | +91-9025796305</li>
+                <li>
+                  <strong>Telephone:</strong>
+                  <br />
+                  <a href="tel:+918098566616" className="text-navy underline">+91 80985 66616</a>
+                  <br />
+                  <a href="tel:+919025796305" className="text-navy underline">+91 90257 96305</a>
+                </li>
                 <li><strong>Location:</strong> Delaware, United States</li>
               </ul>
             </div>

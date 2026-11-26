@@ -21,8 +21,8 @@ const services = [
     id: 'it-consulting',
     title: 'IT Consulting & Governance',
     description:
-      'We provide strategic technology consulting to help enterprise leadership make informed architectural decisions, plan mission-critical IT transformations, and implement secure business solutions.',
-    items: ['Strategic technology advisory & roadmapping', 'Enterprise IT project & architecture planning', 'Business systems & legacy integration', 'Technical governance & risk coordination'],
+      'We provide strategic technology consulting to help leadership teams make informed architectural decisions, plan critical IT initiatives, and implement secure business solutions.',
+    items: ['Strategic technology advisory & roadmapping', 'IT project & architecture planning', 'Business systems & legacy integration', 'Technical oversight & risk coordination'],
     image: '/images/service-it-consulting.jpg',
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -34,8 +34,8 @@ const services = [
     id: 'software-development',
     title: 'Software Development & Cloud Engineering',
     description:
-      'Our software engineering capabilities span the full project lifecycle — from custom enterprise application development and scalable cloud architectures to responsive web portals and continuous maintenance.',
-    items: ['Custom enterprise software engineering', 'High-load web application & portal development', 'Cloud infrastructure & API integrations', 'Full lifecycle maintenance & security patching'],
+      'Our software engineering capabilities span the full project lifecycle — from custom application development and scalable cloud architectures to responsive web portals and ongoing maintenance.',
+    items: ['Custom application & software engineering', 'High-performance web applications & portal development', 'Cloud infrastructure & API integrations', 'Full-lifecycle maintenance & security patching'],
     image: '/images/service-cloud-software.jpg',
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -47,8 +47,8 @@ const services = [
     id: 'digital-data',
     title: 'Digital & Data Solutions',
     description:
-      'We empower organizations to optimize and operationalize their data assets through automated ETL pipelines, structured digital content processing, and enterprise document workflow automation.',
-    items: ['Enterprise data conversion & ETL pipelines', 'Digital content & media processing workflows', 'Document & knowledge base management', 'Digital transformation advisory & enablement'],
+      'We help organizations optimize and make better use of their data assets through automated ETL pipelines, digital content processing, and business document workflow automation.',
+    items: ['Data conversion & ETL pipelines', 'Digital content & media processing workflows', 'Document & knowledge base management', 'Digital transformation advisory & enablement'],
     image: '/images/service-data-solutions.jpg',
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -60,8 +60,8 @@ const services = [
     id: 'project-management',
     title: 'International Project Governance',
     description:
-      'Our cross-border project management framework ensures clear communication channels, rigorous milestone oversight, and reliable delivery across global technical engagements.',
-    items: ['Institutional requirements analysis & scoping', 'Sprint governance & milestone tracking', 'Specialized offshore resource orchestration', 'Quality assurance & continuous client updates'],
+      'Our cross-border project management approach ensures clear communication channels, consistent milestone oversight, and reliable delivery across international technical engagements.',
+    items: ['Requirements analysis & technical scoping', 'Sprint planning & milestone tracking', 'Offshore team coordination', 'Quality assurance & continuous client updates'],
     image: '/images/service-project-governance.jpg',
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -76,7 +76,7 @@ export default function ServicesPage() {
     <>
       <PageHero
         title="Products & Services"
-        subtitle="Comprehensive technology consulting, development and project management services for international businesses."
+        subtitle="Comprehensive technology consulting, software development, and project management services for international businesses."
         breadcrumb="What We Offer"
       />
 
@@ -124,7 +124,7 @@ export default function ServicesPage() {
                   </div>
 
                   <div className={`lg:col-span-5 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                    <div className="relative group rounded-2xl overflow-hidden border border-cyan-500/30 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:border-cyan-400/70 hover:shadow-[0_0_35px_rgba(0,240,255,0.3)] transition-all duration-500 aspect-[4/3]">
+                    <div className="relative group w-full h-[260px] sm:h-[340px] lg:h-[390px] xl:h-[410px] rounded-2xl overflow-hidden border border-cyan-500/30 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:border-cyan-400/70 hover:shadow-[0_0_35px_rgba(0,240,255,0.3)] transition-all duration-500">
                       <Image
                         src={service.image}
                         alt={service.title}
@@ -157,9 +157,9 @@ export default function ServicesPage() {
                 className="bg-[#071325]/90 border border-cyan-500/30 rounded-2xl p-8 md:p-12 mt-8 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
               >
                 <p className="text-slate-300 leading-relaxed text-base sm:text-lg font-normal">
-                  MAGTAN INTERNATIONAL HOLDINGS INC directly contracts with international clients and manages the agreed
-                  engagement roadmaps. Project execution is conducted under structured Delaware frameworks, orchestrating specialized
-                  in-house technical directors and certified offshore delivery partners in India to meet rigorous enterprise SLA requirements.
+                  MAGTAN INTERNATIONAL HOLDINGS INC contracts directly with international clients and oversees the agreed
+                  engagement roadmaps. Project execution is coordinated through experienced technical directors and
+                  qualified offshore delivery partners in India to meet agreed service-level requirements.
                 </p>
                 <StaggerContainer className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6" delayStart={0.3}>
                   {[
@@ -192,7 +192,7 @@ export default function ServicesPage() {
             <h2 className="text-white text-3xl sm:text-4xl font-extrabold mb-4 tracking-tight">Looking for Technology Services?</h2>
             <p className="text-slate-300 text-base sm:text-lg max-w-xl mx-auto mb-8 leading-relaxed">
               Contact us to discuss your requirements. We will provide a detailed scope proposal tailored
-              to your enterprise objectives.
+              to your business objectives.
             </p>
             <Link href="/contact" className="btn-primary text-sm sm:text-base px-8 py-3.5 shadow-[0_0_25px_rgba(0,240,255,0.4)] cursor-pointer">
               Get in Touch

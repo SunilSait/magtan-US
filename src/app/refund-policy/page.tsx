@@ -15,7 +15,7 @@ export default function RefundPolicyPage() {
     <>
       <PageHero
         title="Refund & Cancellation Policy"
-        subtitle="Our policy regarding service cancellations, refund eligibility and related processes."
+        subtitle="Our policy regarding service cancellations, refund eligibility, and related processes."
         breadcrumb="Legal"
       />
 
@@ -27,14 +27,10 @@ export default function RefundPolicyPage() {
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn duration={0.7}>
             <div className="bg-[#071325]/85 border border-cyan-500/25 rounded-2xl p-8 sm:p-12 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] legal-content text-slate-300">
-              <p className="text-sm text-text-body mb-6">
-                <strong>Last Updated:</strong> [Date to be inserted upon publication]
-              </p>
-
               <p>
                 This Refund and Cancellation Policy (&ldquo;Policy&rdquo;) applies to services provided by
-                MAGTAN INTERNATIONAL HOLDINGS INC (&ldquo;Company&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo; or &ldquo;our&rdquo;), a
-                Delaware corporation. This Policy should be read together with the applicable
+                MAGTAN INTERNATIONAL HOLDINGS INC (&ldquo;Company,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;), a
+                Delaware corporation (File No. 10631049). This Policy should be read together with the applicable
                 customer agreement or service contract.
               </p>
 
@@ -42,13 +38,8 @@ export default function RefundPolicyPage() {
               <p>
                 Customers may request cancellation of a service order subject to the terms of their
                 applicable service agreement. Cancellation eligibility and conditions may vary based
-                on the type of service, project stage and contractual terms.
+                on the type of service, project stage, and contractual terms.
               </p>
-              <div className="legal-notice">
-                ⚠ <strong>Company to confirm:</strong> Specific cancellation windows and conditions
-                (e.g., cancellation before project commencement, during execution) should be defined
-                based on the company&apos;s standard service agreements.
-              </div>
 
               <h2>2. Cancellation Requests</h2>
               <p>
@@ -57,7 +48,13 @@ export default function RefundPolicyPage() {
               </p>
               <ul>
                 <li><strong>Email:</strong> <a href="mailto:business@magtanholdings.com" className="text-navy underline">business@magtanholdings.com</a></li>
-                <li><strong>Telephone:</strong> +91-8098566616 | +91-9025796305</li>
+                <li>
+                  <strong>Telephone:</strong>
+                  <br />
+                  <a href="tel:+918098566616" className="text-navy underline">+91 80985 66616</a>
+                  <br />
+                  <a href="tel:+919025796305" className="text-navy underline">+91 90257 96305</a>
+                </li>
               </ul>
               <p>
                 Cancellation requests should include the customer name, project reference or service
@@ -75,12 +72,6 @@ export default function RefundPolicyPage() {
                 <li>Work already completed or resources already committed.</li>
                 <li>Third-party costs incurred on behalf of the customer.</li>
               </ul>
-              <div className="legal-notice">
-                ⚠ <strong>Company to confirm:</strong> Specific refund conditions and percentages
-                should be detailed here based on the company&apos;s commercial policies and legal advice.
-                This policy does not impose blanket no-refund conditions and is subject to
-                applicable consumer protection laws.
-              </div>
 
               <h2>4. Charges for Completed Work</h2>
               <p>
@@ -106,10 +97,6 @@ export default function RefundPolicyPage() {
                 Refund processing times may vary depending on the payment method and financial
                 institution.
               </p>
-              <div className="legal-notice">
-                ⚠ <strong>Company to confirm:</strong> Specific refund processing timeframes (e.g.,
-                within 10–15 business days) and any applicable processing fees should be specified.
-              </div>
 
               <h2>7. Cancellation by the Company</h2>
               <p>
@@ -132,8 +119,15 @@ export default function RefundPolicyPage() {
               </p>
               <ul>
                 <li><strong>Company:</strong> MAGTAN INTERNATIONAL HOLDINGS INC</li>
+                <li><strong>File No.:</strong> 10631049</li>
                 <li><strong>Email:</strong> <a href="mailto:business@magtanholdings.com" className="text-navy underline">business@magtanholdings.com</a></li>
-                <li><strong>Telephone:</strong> +91-8098566616 | +91-9025796305</li>
+                <li>
+                  <strong>Telephone:</strong>
+                  <br />
+                  <a href="tel:+918098566616" className="text-navy underline">+91 80985 66616</a>
+                  <br />
+                  <a href="tel:+919025796305" className="text-navy underline">+91 90257 96305</a>
+                </li>
                 <li><strong>Location:</strong> Delaware, United States</li>
               </ul>
             </div>
